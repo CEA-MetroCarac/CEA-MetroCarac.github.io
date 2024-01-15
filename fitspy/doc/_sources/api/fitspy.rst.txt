@@ -15,7 +15,6 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   fitspy.__init__0
    fitspy.baseline
    fitspy.models
    fitspy.spectra
