@@ -1,0 +1,23 @@
+fitspy.app package
+==================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   fitspy.app.callbacks
+   fitspy.app.gui
+   fitspy.app.toplevels
+   fitspy.app.utils
+
+Module contents
+---------------
+
+.. automodule:: fitspy.app
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

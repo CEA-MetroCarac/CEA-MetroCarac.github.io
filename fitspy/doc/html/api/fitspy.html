@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fitspy package &mdash; Fitspy 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fitspy.app package" href="fitspy.app.html" />
+    <link rel="prev" title="fitspy" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fitspy
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fitspy</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">fitspy package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.html">fitspy.app package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.__init__0.html">fitspy.__init__0 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.baseline.html">fitspy.baseline module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.models.html">fitspy.models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.spectra.html">fitspy.spectra module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.spectra_map.html">fitspy.spectra_map module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.spectrum.html">fitspy.spectrum module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.utils.html">fitspy.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fitspy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fitspy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">fitspy</a></li>
+      <li class="breadcrumb-item active">fitspy package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/fitspy.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fitspy-package">
+<h1>fitspy package<a class="headerlink" href="#fitspy-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fitspy.app.html">fitspy.app package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.app.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html">fitspy.app.callbacks module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks"><code class="docutils literal notranslate"><span class="pre">Callbacks</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html">fitspy.app.gui module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI"><code class="docutils literal notranslate"><span class="pre">GUI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.Appli"><code class="docutils literal notranslate"><span class="pre">Appli</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.fitspy_launcher"><code class="docutils literal notranslate"><span class="pre">fitspy_launcher()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html">fitspy.app.toplevels module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView"><code class="docutils literal notranslate"><span class="pre">TabView</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.Settings"><code class="docutils literal notranslate"><span class="pre">Settings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.AttractorsSettings"><code class="docutils literal notranslate"><span class="pre">AttractorsSettings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.FitSettings"><code class="docutils literal notranslate"><span class="pre">FitSettings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.FigureSettings"><code class="docutils literal notranslate"><span class="pre">FigureSettings</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.utils.html">fitspy.app.utils module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.utils.html#fitspy.app.utils.add"><code class="docutils literal notranslate"><span class="pre">add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.utils.html#fitspy.app.utils.add_entry"><code class="docutils literal notranslate"><span class="pre">add_entry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.utils.html#fitspy.app.utils.interactive_entry"><code class="docutils literal notranslate"><span class="pre">interactive_entry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.utils.html#fitspy.app.utils.dict_has_tk_variable"><code class="docutils literal notranslate"><span class="pre">dict_has_tk_variable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.utils.html#fitspy.app.utils.convert_dict_from_tk_variables"><code class="docutils literal notranslate"><span class="pre">convert_dict_from_tk_variables()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.utils.html#fitspy.app.utils.ToggleFrame"><code class="docutils literal notranslate"><span class="pre">ToggleFrame</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.utils.html#fitspy.app.utils.ScrollbarFrame"><code class="docutils literal notranslate"><span class="pre">ScrollbarFrame</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.utils.html#fitspy.app.utils.FilesSelector"><code class="docutils literal notranslate"><span class="pre">FilesSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.app.utils.html#fitspy.app.utils.FilesSelector.self.dirname_res"><code class="docutils literal notranslate"><span class="pre">FilesSelector.self.dirname_res</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.app.html#module-fitspy.app">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fitspy.__init__0.html">fitspy.__init__0 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitspy.baseline.html">fitspy.baseline module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.baseline.html#fitspy.baseline.BaseLine"><code class="docutils literal notranslate"><span class="pre">BaseLine</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.baseline.html#fitspy.baseline.BaseLine.points"><code class="docutils literal notranslate"><span class="pre">BaseLine.points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.baseline.html#fitspy.baseline.BaseLine.order_max"><code class="docutils literal notranslate"><span class="pre">BaseLine.order_max</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.baseline.html#fitspy.baseline.BaseLine.distance"><code class="docutils literal notranslate"><span class="pre">BaseLine.distance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.baseline.html#fitspy.baseline.BaseLine.sigma"><code class="docutils literal notranslate"><span class="pre">BaseLine.sigma</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.baseline.html#fitspy.baseline.BaseLine.add_point"><code class="docutils literal notranslate"><span class="pre">BaseLine.add_point()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.baseline.html#fitspy.baseline.BaseLine.attach_points"><code class="docutils literal notranslate"><span class="pre">BaseLine.attach_points()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.baseline.html#fitspy.baseline.BaseLine.load_baseline"><code class="docutils literal notranslate"><span class="pre">BaseLine.load_baseline()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.baseline.html#fitspy.baseline.BaseLine.eval"><code class="docutils literal notranslate"><span class="pre">BaseLine.eval()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.baseline.html#fitspy.baseline.BaseLine.plot"><code class="docutils literal notranslate"><span class="pre">BaseLine.plot()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fitspy.models.html">fitspy.models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.models.html#fitspy.models.gaussian"><code class="docutils literal notranslate"><span class="pre">gaussian()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.models.html#fitspy.models.gaussian_asym"><code class="docutils literal notranslate"><span class="pre">gaussian_asym()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.models.html#fitspy.models.lorentzian"><code class="docutils literal notranslate"><span class="pre">lorentzian()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.models.html#fitspy.models.lorentzian_asym"><code class="docutils literal notranslate"><span class="pre">lorentzian_asym()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.models.html#fitspy.models.pseudovoigt"><code class="docutils literal notranslate"><span class="pre">pseudovoigt()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fitspy.spectra.html">fitspy.spectra module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.fit_mp"><code class="docutils literal notranslate"><span class="pre">fit_mp()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra"><code class="docutils literal notranslate"><span class="pre">Spectra</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra.spectra_maps"><code class="docutils literal notranslate"><span class="pre">Spectra.spectra_maps</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra.fnames"><code class="docutils literal notranslate"><span class="pre">Spectra.fnames</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra.all"><code class="docutils literal notranslate"><span class="pre">Spectra.all</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra.get_objects"><code class="docutils literal notranslate"><span class="pre">Spectra.get_objects()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra.save_results"><code class="docutils literal notranslate"><span class="pre">Spectra.save_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra.save_figures"><code class="docutils literal notranslate"><span class="pre">Spectra.save_figures()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra.load_model"><code class="docutils literal notranslate"><span class="pre">Spectra.load_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra.apply_model"><code class="docutils literal notranslate"><span class="pre">Spectra.apply_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra.save"><code class="docutils literal notranslate"><span class="pre">Spectra.save()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra.load"><code class="docutils literal notranslate"><span class="pre">Spectra.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fitspy.spectra_map.html">fitspy.spectra_map module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap"><code class="docutils literal notranslate"><span class="pre">SpectraMap</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.fname"><code class="docutils literal notranslate"><span class="pre">SpectraMap.fname</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.xy_map"><code class="docutils literal notranslate"><span class="pre">SpectraMap.xy_map</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.shape_map"><code class="docutils literal notranslate"><span class="pre">SpectraMap.shape_map</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.extent"><code class="docutils literal notranslate"><span class="pre">SpectraMap.extent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.coords"><code class="docutils literal notranslate"><span class="pre">SpectraMap.coords</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.intensity"><code class="docutils literal notranslate"><span class="pre">SpectraMap.intensity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.arr"><code class="docutils literal notranslate"><span class="pre">SpectraMap.arr</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.ax"><code class="docutils literal notranslate"><span class="pre">SpectraMap.ax</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.img"><code class="docutils literal notranslate"><span class="pre">SpectraMap.img</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.cbar"><code class="docutils literal notranslate"><span class="pre">SpectraMap.cbar</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.ax_slider"><code class="docutils literal notranslate"><span class="pre">SpectraMap.ax_slider</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.slider"><code class="docutils literal notranslate"><span class="pre">SpectraMap.slider</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.xrange"><code class="docutils literal notranslate"><span class="pre">SpectraMap.xrange</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.create_map"><code class="docutils literal notranslate"><span class="pre">SpectraMap.create_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.spectrum_coords"><code class="docutils literal notranslate"><span class="pre">SpectraMap.spectrum_coords()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.spectrum_indices"><code class="docutils literal notranslate"><span class="pre">SpectraMap.spectrum_indices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.plot_map"><code class="docutils literal notranslate"><span class="pre">SpectraMap.plot_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.plot_map_update"><code class="docutils literal notranslate"><span class="pre">SpectraMap.plot_map_update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.export_to_csv"><code class="docutils literal notranslate"><span class="pre">SpectraMap.export_to_csv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.load_map"><code class="docutils literal notranslate"><span class="pre">SpectraMap.load_map()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fitspy.spectrum.html">fitspy.spectrum module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum"><code class="docutils literal notranslate"><span class="pre">Spectrum</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.fname"><code class="docutils literal notranslate"><span class="pre">Spectrum.fname</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.norm_mode"><code class="docutils literal notranslate"><span class="pre">Spectrum.norm_mode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.norm_position_ref"><code class="docutils literal notranslate"><span class="pre">Spectrum.norm_position_ref</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.peaks"><code class="docutils literal notranslate"><span class="pre">Spectrum.peaks</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.peaks_params"><code class="docutils literal notranslate"><span class="pre">Spectrum.peaks_params</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.models"><code class="docutils literal notranslate"><span class="pre">Spectrum.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.models_labels"><code class="docutils literal notranslate"><span class="pre">Spectrum.models_labels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.models_index"><code class="docutils literal notranslate"><span class="pre">Spectrum.models_index</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.bkg_model"><code class="docutils literal notranslate"><span class="pre">Spectrum.bkg_model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.fit_method"><code class="docutils literal notranslate"><span class="pre">Spectrum.fit_method</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.fit_negative"><code class="docutils literal notranslate"><span class="pre">Spectrum.fit_negative</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.max_ite"><code class="docutils literal notranslate"><span class="pre">Spectrum.max_ite</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.result_fit"><code class="docutils literal notranslate"><span class="pre">Spectrum.result_fit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.baseline"><code class="docutils literal notranslate"><span class="pre">Spectrum.baseline</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.baseline_history"><code class="docutils literal notranslate"><span class="pre">Spectrum.baseline_history</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.set_attributes"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_attributes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.preprocess"><code class="docutils literal notranslate"><span class="pre">Spectrum.preprocess()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.load_profile"><code class="docutils literal notranslate"><span class="pre">Spectrum.load_profile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.normalize"><code class="docutils literal notranslate"><span class="pre">Spectrum.normalize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.peaks_calculation"><code class="docutils literal notranslate"><span class="pre">Spectrum.peaks_calculation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.create_model"><code class="docutils literal notranslate"><span class="pre">Spectrum.create_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.reassign_params"><code class="docutils literal notranslate"><span class="pre">Spectrum.reassign_params()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.add_model"><code class="docutils literal notranslate"><span class="pre">Spectrum.add_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.del_model"><code class="docutils literal notranslate"><span class="pre">Spectrum.del_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.reorder"><code class="docutils literal notranslate"><span class="pre">Spectrum.reorder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.get_model_name"><code class="docutils literal notranslate"><span class="pre">Spectrum.get_model_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.remove_models"><code class="docutils literal notranslate"><span class="pre">Spectrum.remove_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.set_bkg_model"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_bkg_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.fit"><code class="docutils literal notranslate"><span class="pre">Spectrum.fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.auto_baseline"><code class="docutils literal notranslate"><span class="pre">Spectrum.auto_baseline()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.subtract_baseline"><code class="docutils literal notranslate"><span class="pre">Spectrum.subtract_baseline()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.auto_peaks"><code class="docutils literal notranslate"><span class="pre">Spectrum.auto_peaks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.plot"><code class="docutils literal notranslate"><span class="pre">Spectrum.plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.plot_residual"><code class="docutils literal notranslate"><span class="pre">Spectrum.plot_residual()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.save"><code class="docutils literal notranslate"><span class="pre">Spectrum.save()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum.load"><code class="docutils literal notranslate"><span class="pre">Spectrum.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fitspy.utils.html">fitspy.utils module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.closest_item"><code class="docutils literal notranslate"><span class="pre">closest_item()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.closest_index"><code class="docutils literal notranslate"><span class="pre">closest_index()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.hsorted"><code class="docutils literal notranslate"><span class="pre">hsorted()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.fileparts"><code class="docutils literal notranslate"><span class="pre">fileparts()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.check_or_rename"><code class="docutils literal notranslate"><span class="pre">check_or_rename()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.load_from_json"><code class="docutils literal notranslate"><span class="pre">load_from_json()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.save_to_json"><code class="docutils literal notranslate"><span class="pre">save_to_json()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-fitspy">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fitspy" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="fitspy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitspy.app.html" class="btn btn-neutral float-right" title="fitspy.app package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The Fitspy development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

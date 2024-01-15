@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peak models &mdash; Fitspy 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fitting" href="fitting.html" />
+    <link rel="prev" title="Baselines and Background models" href="baseline.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fitspy
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="baseline.html">Baselines and Background models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Peak models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#predefined-models">Predefined models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gaussian">Gaussian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lorentzian">Lorentzian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asymetric-gaussian">Asymetric Gaussian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asymetric-lorentzian">Asymetric Lorentzian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pseudovoigt">Pseudovoigt</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#user-defined-models">User-defined models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fitting.html">Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">fitspy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fitspy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Peak models</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/user_guide/peak_models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="peak-models">
+<h1>Peak models<a class="headerlink" href="#peak-models" title="Permalink to this heading"></a></h1>
+<p>As for the background models, the peak models in <cite>Fitspy</cite> are issued either from predefined models, or by he user-defined models.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To be correctly interpreted by <cite>Fitspy</cite>, all the models are / should be defined from the following parameters:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x0\)</span> : the peak position</p></li>
+<li><p><span class="math notranslate nohighlight">\(ampli\)</span> : the peak amplitude</p></li>
+<li><p><span class="math notranslate nohighlight">\(fwhm\)</span> : the Full Width at Half Maximum</p></li>
+<li><p><span class="math notranslate nohighlight">\(fwhm_l\)</span> : the <cite>fwhm</cite> at the left side of <cite>x0</cite> (for the asymmetric models)</p></li>
+<li><p><span class="math notranslate nohighlight">\(fwhm_r\)</span> : the <cite>fwhm</cite> at the right side of <cite>x0</cite> (for the asymmetric models)</p></li>
+<li><p><span class="math notranslate nohighlight">\(alpha\)</span> : weighting coefficient (used in the Pseudovoigt model))</p></li>
+</ul>
+</div>
+<section id="predefined-models">
+<h2>Predefined models<a class="headerlink" href="#predefined-models" title="Permalink to this heading"></a></h2>
+<p>The predefined peak models available in <cite>Fitspy</cite> are:</p>
+<section id="gaussian">
+<h3>Gaussian<a class="headerlink" href="#gaussian" title="Permalink to this heading"></a></h3>
+<div class="math notranslate nohighlight">
+\[ampli * exp({-(x-x0)^2/(2*\sigma^2)}) \quad with \quad \sigma = fwhm / (2*\sqrt{2*log(2)})\]</div>
+</section>
+<section id="lorentzian">
+<h3>Lorentzian<a class="headerlink" href="#lorentzian" title="Permalink to this heading"></a></h3>
+<div class="math notranslate nohighlight">
+\[ampli * fwhm^2 / [4 * ((x - x0)^2 + fwhm^2 / 4)]\]</div>
+</section>
+<section id="asymetric-gaussian">
+<h3>Asymetric Gaussian<a class="headerlink" href="#asymetric-gaussian" title="Permalink to this heading"></a></h3>
+<div class="math notranslate nohighlight">
+\[(x &lt; x0) * Gaussian(fwhm_l) +  (x ≥ x0) * Gaussian(fwhm_r)\]</div>
+</section>
+<section id="asymetric-lorentzian">
+<h3>Asymetric Lorentzian<a class="headerlink" href="#asymetric-lorentzian" title="Permalink to this heading"></a></h3>
+<div class="math notranslate nohighlight">
+\[(x &lt; x0) * Lorentzian(fwhm_l) +  (x ≥ x0) * Lorentzian(fwhm_r)\]</div>
+</section>
+<section id="pseudovoigt">
+<h3>Pseudovoigt<a class="headerlink" href="#pseudovoigt" title="Permalink to this heading"></a></h3>
+<div class="math notranslate nohighlight">
+\[alpha * Gaussian + (1 - alpha) * Lorentzian\]</div>
+</section>
+</section>
+<section id="user-defined-models">
+<h2>User-defined models<a class="headerlink" href="#user-defined-models" title="Permalink to this heading"></a></h2>
+<p>In the <code class="code docutils literal notranslate"><span class="pre">%HOMEUSER%/Fitspy</span></code> directory, users models can be defined through expressions written in a file named  <code class="code docutils literal notranslate"><span class="pre">models.txt</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Gaussian_1</span> <span class="o">=</span> <span class="n">ampli</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">fwhm</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">))))</span>
+</pre></div>
+</div>
+<p>or using Python encoding, in a file named  <code class="code docutils literal notranslate"><span class="pre">models.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">lmfit.models</span> <span class="kn">import</span> <span class="n">GaussianModel</span>
+<span class="kn">from</span> <span class="nn">fitspy</span> <span class="kn">import</span> <span class="n">MODELS</span>
+
+<span class="n">LMFIT_GAUSSIAN_MODEL</span> <span class="o">=</span> <span class="n">GaussianModel</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">gaussian_2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ampli</span><span class="p">,</span> <span class="n">fwhm</span><span class="p">,</span> <span class="n">x0</span><span class="p">):</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">fwhm</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">2.</span><span class="p">)))</span>
+    <span class="n">coef</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ampli</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">coef</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">gaussian_3</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">ampli</span><span class="p">,</span> <span class="n">fwhm</span><span class="p">):</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">fwhm</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">2.</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">LMFIT_GAUSSIAN_MODEL</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="n">ampli</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+
+<span class="n">MODELS</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;Gaussian_2&quot;</span><span class="p">:</span> <span class="n">gaussian_2</span><span class="p">})</span>
+<span class="n">MODELS</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;Gaussian_3&quot;</span><span class="p">:</span> <span class="n">gaussian_3</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>where in the examples given above, the resulting <code class="code docutils literal notranslate"><span class="pre">Gaussian_1</span></code>, <code class="code docutils literal notranslate"><span class="pre">Gaussian_2</span></code> and <code class="code docutils literal notranslate"><span class="pre">Gaussian_3</span></code> yield identical results to those obtained from the predefined <code class="code docutils literal notranslate"><span class="pre">Gaussian</span></code> model.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>users models issued from expressions in the <cite>models.txt</cite> are not serializable. Consequently, for <strong>multiprocessing calculations</strong>, the user should instead opt for models defined through the Python script.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="baseline.html" class="btn btn-neutral float-left" title="Baselines and Background models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitting.html" class="btn btn-neutral float-right" title="Fitting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The Fitspy development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

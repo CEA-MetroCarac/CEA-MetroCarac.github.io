@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fitspy.app.utils module &mdash; Fitspy 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fitspy.__init__0 module" href="fitspy.__init__0.html" />
+    <link rel="prev" title="fitspy.app.toplevels module" href="fitspy.app.toplevels.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fitspy
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fitspy</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fitspy.html">fitspy package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="fitspy.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="fitspy.app.html">fitspy.app package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#module-fitspy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fitspy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">fitspy</a></li>
+          <li class="breadcrumb-item"><a href="fitspy.html">fitspy package</a></li>
+          <li class="breadcrumb-item"><a href="fitspy.app.html">fitspy.app package</a></li>
+      <li class="breadcrumb-item active">fitspy.app.utils module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/fitspy.app.utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-fitspy.app.utils">
+<span id="fitspy-app-utils-module"></span><h1>fitspy.app.utils module<a class="headerlink" href="#module-fitspy.app.utils" title="Permalink to this heading"></a></h1>
+<p>utilities functions related to Tkinter</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.app.utils.add">
+<span class="sig-prename descclassname"><span class="pre">fitspy.app.utils.</span></span><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sticky</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pady</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rspan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cspan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.add" title="Permalink to this definition"></a></dt>
+<dd><p>Add tkinter object at the (row, col)-position of a grid</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.app.utils.add_entry">
+<span class="sig-prename descclassname"><span class="pre">fitspy.app.utils.</span></span><span class="sig-name descname"><span class="pre">add_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind_fun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.add_entry" title="Permalink to this definition"></a></dt>
+<dd><p>Add 2 columns : ‘label’ and ‘val’ associated to a binding function
+‘bind_fun’ at ‘row’ (int) position in a ‘frame’ (Tk.Frame)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.app.utils.interactive_entry">
+<span class="sig-prename descclassname"><span class="pre">fitspy.app.utils.</span></span><span class="sig-name descname"><span class="pre">interactive_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.interactive_entry" title="Permalink to this definition"></a></dt>
+<dd><p>Return an interactive Tkinter.Entry binded to ‘fun’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.app.utils.dict_has_tk_variable">
+<span class="sig-prename descclassname"><span class="pre">fitspy.app.utils.</span></span><span class="sig-name descname"><span class="pre">dict_has_tk_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.dict_has_tk_variable" title="Permalink to this definition"></a></dt>
+<dd><p>Return ‘True’ if ‘dictionary’ has Tkinter.Variable as value</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.app.utils.convert_dict_from_tk_variables">
+<span class="sig-prename descclassname"><span class="pre">fitspy.app.utils.</span></span><span class="sig-name descname"><span class="pre">convert_dict_from_tk_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.convert_dict_from_tk_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a dictionary from Tkinter.Variables to standard types
+(thanks to a recursive processing)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.utils.ToggleFrame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.utils.</span></span><span class="sig-name descname"><span class="pre">ToggleFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exceptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.ToggleFrame" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LabelFrame</span></code></p>
+<p>Class dedicated to Enable/Disable LabelFrame and its related children</p>
+<p>Construct a labelframe widget with the parent MASTER.</p>
+<p>STANDARD OPTIONS</p>
+<blockquote>
+<div><p>borderwidth, cursor, font, foreground,
+highlightbackground, highlightcolor,
+highlightthickness, padx, pady, relief,
+takefocus, text</p>
+</div></blockquote>
+<p>WIDGET-SPECIFIC OPTIONS</p>
+<blockquote>
+<div><p>background, class, colormap, container,
+height, labelanchor, labelwidget,
+visual, width</p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.ToggleFrame.apply_state">
+<span class="sig-name descname"><span class="pre">apply_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.ToggleFrame.apply_state" title="Permalink to this definition"></a></dt>
+<dd><p>Apply state ‘disable’ or ‘normal’ to Frame’s children widgets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.ToggleFrame.disable">
+<span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.ToggleFrame.disable" title="Permalink to this definition"></a></dt>
+<dd><p>Disable Frame’s children widgets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.ToggleFrame.enable">
+<span class="sig-name descname"><span class="pre">enable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.ToggleFrame.enable" title="Permalink to this definition"></a></dt>
+<dd><p>Enable Frame’s children widgets</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.utils.</span></span><span class="sig-name descname"><span class="pre">ScrollbarFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'both'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to add a vertical and/or horziontal Scrollbar to a frame.
+(Strongly inspired from <a class="reference external" href="https://stackoverflow.com/questions/43731784">https://stackoverflow.com/questions/43731784</a>)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.frame_canvas">
+<span class="sig-name descname"><span class="pre">frame_canvas</span></span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.frame_canvas" title="Permalink to this definition"></a></dt>
+<dd><p>Frame gathers the ‘Canvas’ and the ‘Scrollbar’ objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.Frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.canvas">
+<span class="sig-name descname"><span class="pre">canvas</span></span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.canvas" title="Permalink to this definition"></a></dt>
+<dd><p>Canvas related to the first (large) row-column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.Canvas</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.vsbar">
+<span class="sig-name descname"><span class="pre">vsbar</span></span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.vsbar" title="Permalink to this definition"></a></dt>
+<dd><p>Vertical scrollbar related to the 2nd (small) column, if ‘orientation’
+is ‘vertical’ or ‘both’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.Scrollbar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.hsbar">
+<span class="sig-name descname"><span class="pre">hsbar</span></span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.hsbar" title="Permalink to this definition"></a></dt>
+<dd><p>Horizontal scrollbar related to the 2nd (small) row if ‘orientation’
+is ‘horizontal’ or ‘both’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.Scrollbar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.frame">
+<span class="sig-name descname"><span class="pre">frame</span></span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.frame" title="Permalink to this definition"></a></dt>
+<dd><p>Frame included in the canvas, where other frames can be stacked</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.Frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<em>Tkinter parent window</em>) – </p></li>
+<li><p><strong>orientation</strong> (<em>str</em><em>, </em><em>optional</em>) – Orientation associated to the scrollbar(s), among [‘vertical’,
+‘horizontal’, ‘both’]</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.update_and_resize">
+<span class="sig-name descname"><span class="pre">update_and_resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.update_and_resize" title="Permalink to this definition"></a></dt>
+<dd><p>Set the scrolling region with the ‘correct’ size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Width of the canvas frame.
+If None, consider the ‘frame’ width.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – height of the canvas frame.
+If None, consider the minimum between the frame height and 90% of
+the screen height</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.utils.</span></span><span class="sig-name descname"><span class="pre">FilesSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ninputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files_extensions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirname_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEFAULT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lbox_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tab_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.FilesSelector" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class dedicated to the files selection</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.ninputs">
+<span class="sig-name descname"><span class="pre">ninputs</span></span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.ninputs" title="Permalink to this definition"></a></dt>
+<dd><p>Number of inputs to consider</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.lbox">
+<span class="sig-name descname"><span class="pre">lbox</span></span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.lbox" title="Permalink to this definition"></a></dt>
+<dd><p>List of ‘ninputs’-Listbox associated to the selected files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of Listbox object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.filenames">
+<span class="sig-name descname"><span class="pre">filenames</span></span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.filenames" title="Permalink to this definition"></a></dt>
+<dd><p>List of ‘ninputs’-list of filenames to work with</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.files_extension">
+<span class="sig-name descname"><span class="pre">files_extension</span></span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.files_extension" title="Permalink to this definition"></a></dt>
+<dd><p>Extension used for the files selection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>iterable of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.self.dirname_res">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">dirname_res</span></span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.self.dirname_res" title="Permalink to this definition"></a></dt>
+<dd><p>Directory pathname where to find results associated to the files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<em>Tk.widget</em>) – The main window associated to the FileSelector</p></li>
+<li><p><strong>ninputs</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of inputs to consider</p></li>
+<li><p><strong>files_extensions</strong> (<em>str</em><em>, </em><em>optional</em>) – Extension used for files selection.</p></li>
+<li><p><strong>dirname_results</strong> (<em>str</em><em>, </em><em>optional</em>) – Directory pathname where to find results associated to the files
+‘DEFAULT’ value refers to ‘./results’ directory associated to the ‘file’
+location</p></li>
+<li><p><strong>lbox_size</strong> (<em>list</em><em> of </em><em>2 ints</em><em>, </em><em>optional</em>) – Size (width, height) of the Listbox ‘lbox’. Default value is [30, 15]</p></li>
+<li><p><strong>options</strong> (<em>dict</em><em>, </em><em>optional</em>) – Dictionary of options</p></li>
+<li><p><strong>tab_options</strong> (<em>Frame object</em>) – Tab dedicated to options parameters settings</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.set_options">
+<span class="sig-name descname"><span class="pre">set_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.set_options" title="Permalink to this definition"></a></dt>
+<dd><p>Set files options</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.synchronize">
+<span class="sig-name descname"><span class="pre">synchronize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.synchronize" title="Permalink to this definition"></a></dt>
+<dd><p>Cursor selection synchronization between Listbox</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.move">
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.move" title="Permalink to this definition"></a></dt>
+<dd><p>Move cursor selection according to key value (up or down)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.add_items">
+<span class="sig-name descname"><span class="pre">add_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filenames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ind_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.add_items" title="Permalink to this definition"></a></dt>
+<dd><p>Add items from a ‘filenames’ list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.select_files">
+<span class="sig-name descname"><span class="pre">select_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filenames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.select_files" title="Permalink to this definition"></a></dt>
+<dd><p>Add items from selected files</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.select_dir">
+<span class="sig-name descname"><span class="pre">select_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.select_dir" title="Permalink to this definition"></a></dt>
+<dd><p>Add items from a directory</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.remove" title="Permalink to this definition"></a></dt>
+<dd><p>Remove selected items</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.remove_all">
+<span class="sig-name descname"><span class="pre">remove_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.remove_all" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all items</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fitspy.app.toplevels.html" class="btn btn-neutral float-left" title="fitspy.app.toplevels module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitspy.__init__0.html" class="btn btn-neutral float-right" title="fitspy.__init__0 module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The Fitspy development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

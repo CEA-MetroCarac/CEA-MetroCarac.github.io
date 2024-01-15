@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fitspy.app.toplevels module &mdash; Fitspy 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fitspy.app.utils module" href="fitspy.app.utils.html" />
+    <link rel="prev" title="fitspy.app.gui module" href="fitspy.app.gui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fitspy
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fitspy</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fitspy.html">fitspy package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="fitspy.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="fitspy.app.html">fitspy.app package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#module-fitspy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fitspy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">fitspy</a></li>
+          <li class="breadcrumb-item"><a href="fitspy.html">fitspy package</a></li>
+          <li class="breadcrumb-item"><a href="fitspy.app.html">fitspy.app package</a></li>
+      <li class="breadcrumb-item active">fitspy.app.toplevels module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/fitspy.app.toplevels.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-fitspy.app.toplevels">
+<span id="fitspy-app-toplevels-module"></span><h1>fitspy.app.toplevels module<a class="headerlink" href="#module-fitspy.app.toplevels" title="Permalink to this heading"></a></h1>
+<p>Module dedicated to external widgets (Tkinter.Toplevel) creation</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.toplevels.</span></span><span class="sig-name descname"><span class="pre">TabView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for spectra models fit results and parameters displaying</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_entry">
+<span class="sig-name descname"><span class="pre">add_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_entry" title="Permalink to this definition"></a></dt>
+<dd><p>Add Tk.Entry at (row, col) linked to params[i][key][arg]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_check_button">
+<span class="sig-name descname"><span class="pre">add_check_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_check_button" title="Permalink to this definition"></a></dt>
+<dd><p>Add Tk.Checkbutton at (row, col) linked to params[i][key][arg]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_entry_models_labels">
+<span class="sig-name descname"><span class="pre">add_entry_models_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_entry_models_labels" title="Permalink to this definition"></a></dt>
+<dd><p>Add Tk.Entry at (row, col) linked to models_labels[i]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_combobox_models">
+<span class="sig-name descname"><span class="pre">add_combobox_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_combobox_models" title="Permalink to this definition"></a></dt>
+<dd><p>Add Tk.Combobox at (row, col) linked to models[i]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_combobox_bkg_model">
+<span class="sig-name descname"><span class="pre">add_combobox_bkg_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_combobox_bkg_model" title="Permalink to this definition"></a></dt>
+<dd><p>Add Tk.Combobox at (row, col) linked to the bkg_model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.label_has_changed">
+<span class="sig-name descname"><span class="pre">label_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.label_has_changed" title="Permalink to this definition"></a></dt>
+<dd><p>Update the label related to the ith-model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.param_has_changed">
+<span class="sig-name descname"><span class="pre">param_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.param_has_changed" title="Permalink to this definition"></a></dt>
+<dd><p>Update the ‘key’-param ‘arg’-value related to the ith-model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.model_has_changed">
+<span class="sig-name descname"><span class="pre">model_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.model_has_changed" title="Permalink to this definition"></a></dt>
+<dd><p>Update the model function related to the ith-model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.bkg_model_has_changed">
+<span class="sig-name descname"><span class="pre">bkg_model_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.bkg_model_has_changed" title="Permalink to this definition"></a></dt>
+<dd><p>Update the ‘bkg_model’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.set_header">
+<span class="sig-name descname"><span class="pre">set_header</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.set_header" title="Permalink to this definition"></a></dt>
+<dd><p>Set the TabView header</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.delete_models">
+<span class="sig-name descname"><span class="pre">delete_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.delete_models" title="Permalink to this definition"></a></dt>
+<dd><p>Delete selected models</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.update" title="Permalink to this definition"></a></dt>
+<dd><p>Update the Tabview</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_model">
+<span class="sig-name descname"><span class="pre">add_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_model" title="Permalink to this definition"></a></dt>
+<dd><p>Add model in the Tabview</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.update_stats">
+<span class="sig-name descname"><span class="pre">update_stats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.update_stats" title="Permalink to this definition"></a></dt>
+<dd><p>Update the statistics</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Delete all the values contained in frames</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.show_hide">
+<span class="sig-name descname"><span class="pre">show_hide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.show_hide" title="Permalink to this definition"></a></dt>
+<dd><p>Show/Hide the TopLevel frame</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.Settings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.toplevels.</span></span><span class="sig-name descname"><span class="pre">Settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.Settings" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Master class for parameters setting</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.Settings.frame_creation">
+<span class="sig-name descname"><span class="pre">frame_creation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.Settings.frame_creation" title="Permalink to this definition"></a></dt>
+<dd><p>Create frame with ‘params’ linked to ‘bind_fun’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.Settings.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind_fun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.Settings.update" title="Permalink to this definition"></a></dt>
+<dd><p>Display the Toplevel ‘frame’ on (x, y) position with interactive
+‘params’ settings</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.Settings.on_press">
+<span class="sig-name descname"><span class="pre">on_press</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.Settings.on_press" title="Permalink to this definition"></a></dt>
+<dd><p>Hide the Toplevel ‘frame’ if the mouse click is outside</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.Settings.show_hide">
+<span class="sig-name descname"><span class="pre">show_hide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.Settings.show_hide" title="Permalink to this definition"></a></dt>
+<dd><p>Show/Hide the TopLevel ‘frame’</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.AttractorsSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.toplevels.</span></span><span class="sig-name descname"><span class="pre">AttractorsSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.AttractorsSettings" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fitspy.app.toplevels.Settings" title="fitspy.app.toplevels.Settings"><code class="xref py py-class docutils literal notranslate"><span class="pre">Settings</span></code></a></p>
+<p>Class for attractors parameters setting</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.FitSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.toplevels.</span></span><span class="sig-name descname"><span class="pre">FitSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.FitSettings" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fitspy.app.toplevels.Settings" title="fitspy.app.toplevels.Settings"><code class="xref py py-class docutils literal notranslate"><span class="pre">Settings</span></code></a></p>
+<p>Class for fitting parameters setting</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.FitSettings.frame_creation">
+<span class="sig-name descname"><span class="pre">frame_creation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.FitSettings.frame_creation" title="Permalink to this definition"></a></dt>
+<dd><p>Create frame with ‘params’ linked to ‘bind_fun’</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.FigureSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.toplevels.</span></span><span class="sig-name descname"><span class="pre">FigureSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.FigureSettings" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fitspy.app.toplevels.Settings" title="fitspy.app.toplevels.Settings"><code class="xref py py-class docutils literal notranslate"><span class="pre">Settings</span></code></a></p>
+<p>Class for figure parameters setting</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.FigureSettings.frame_creation">
+<span class="sig-name descname"><span class="pre">frame_creation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.FigureSettings.frame_creation" title="Permalink to this definition"></a></dt>
+<dd><p>Create frame with ‘params’ linked to ‘bind_fun’</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fitspy.app.gui.html" class="btn btn-neutral float-left" title="fitspy.app.gui module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitspy.app.utils.html" class="btn btn-neutral float-right" title="fitspy.app.utils module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The Fitspy development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

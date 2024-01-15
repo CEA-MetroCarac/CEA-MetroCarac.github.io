@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fitspy.app.callbacks module &mdash; Fitspy 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fitspy.app.gui module" href="fitspy.app.gui.html" />
+    <link rel="prev" title="fitspy.app package" href="fitspy.app.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fitspy
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fitspy</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fitspy.html">fitspy package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="fitspy.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="fitspy.app.html">fitspy.app package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#module-fitspy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fitspy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">fitspy</a></li>
+          <li class="breadcrumb-item"><a href="fitspy.html">fitspy package</a></li>
+          <li class="breadcrumb-item"><a href="fitspy.app.html">fitspy.app package</a></li>
+      <li class="breadcrumb-item active">fitspy.app.callbacks module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/fitspy.app.callbacks.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-fitspy.app.callbacks">
+<span id="fitspy-app-callbacks-module"></span><h1>fitspy.app.callbacks module<a class="headerlink" href="#module-fitspy.app.callbacks" title="Permalink to this heading"></a></h1>
+<p>Callback functions encapsulated in a class to interact with the GUI</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.callbacks.</span></span><span class="sig-name descname"><span class="pre">Callbacks</span></span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Callback functions to interact with the GUI of the spectra fitting appli</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.spectra">
+<span class="sig-name descname"><span class="pre">spectra</span></span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.spectra" title="Permalink to this definition"></a></dt>
+<dd><p>List that contains all Spectrum objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Spectra object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.current_spectrum">
+<span class="sig-name descname"><span class="pre">current_spectrum</span></span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.current_spectrum" title="Permalink to this definition"></a></dt>
+<dd><p>The current selected spectrum to work with</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Spectrum object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.cids">
+<span class="sig-name descname"><span class="pre">cids</span></span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.cids" title="Permalink to this definition"></a></dt>
+<dd><p>connection ids that can be used with FigureCanvasBase.mpl_disconnect</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of ints</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.show_plot">
+<span class="sig-name descname"><span class="pre">show_plot</span></span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.show_plot" title="Permalink to this definition"></a></dt>
+<dd><p>Activation key for (re)plotting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.lines">
+<span class="sig-name descname"><span class="pre">lines</span></span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.lines" title="Permalink to this definition"></a></dt>
+<dd><p>Lines related to all the spectra displaying</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of Matplotlib.Lines2D</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.nearest_lines">
+<span class="sig-name descname"><span class="pre">nearest_lines</span></span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.nearest_lines" title="Permalink to this definition"></a></dt>
+<dd><p>The nearest profiles of the mouse position when clicking (limited to 10)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list Matplotlib.Lines2D</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.tmp">
+<span class="sig-name descname"><span class="pre">tmp</span></span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.tmp" title="Permalink to this definition"></a></dt>
+<dd><p>Annotation to display fit parameters in the plot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>matplotlib.text.Annotation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.selected_frame">
+<span class="sig-name descname"><span class="pre">selected_frame</span></span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.selected_frame" title="Permalink to this definition"></a></dt>
+<dd><p>Frame to enable between ‘Baseline’ and ‘Peaks’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.model" title="Permalink to this definition"></a></dt>
+<dd><p>Dictionary issued from a .json model reloading</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.ncpus">
+<span class="sig-name descname"><span class="pre">ncpus</span></span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.ncpus" title="Permalink to this definition"></a></dt>
+<dd><p>Number of CPUs to work with in fitting.
+If ncpus = “auto”, determine automatically this number according to the
+number of spectra to handle and the number of available CPUs.
+if ncpus is None (default value), consider the value passed through
+fit_settings.params[‘ncpus’]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.update_figure_settings">
+<span class="sig-name descname"><span class="pre">update_figure_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.update_figure_settings" title="Permalink to this definition"></a></dt>
+<dd><p>Update attractors settings</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.rescale">
+<span class="sig-name descname"><span class="pre">rescale</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.rescale" title="Permalink to this definition"></a></dt>
+<dd><p>Rescale the figure</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.show_all">
+<span class="sig-name descname"><span class="pre">show_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.show_all" title="Permalink to this definition"></a></dt>
+<dd><p>Show all spectra and highlight spectrum on mouse over</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.show_hide_results">
+<span class="sig-name descname"><span class="pre">show_hide_results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.show_hide_results" title="Permalink to this definition"></a></dt>
+<dd><p>Show/Hide the results ‘tabview’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.save_results">
+<span class="sig-name descname"><span class="pre">save_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirname_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.save_results" title="Permalink to this definition"></a></dt>
+<dd><p>Save all spectra (peaks) results in .csv files</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.save_figures">
+<span class="sig-name descname"><span class="pre">save_figures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirname_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.save_figures" title="Permalink to this definition"></a></dt>
+<dd><p>Save all spectra figures in .png files</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.load_model" title="Permalink to this definition"></a></dt>
+<dd><p>Load a model from a .json file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.get_ncpus">
+<span class="sig-name descname"><span class="pre">get_ncpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nfiles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.get_ncpus" title="Permalink to this definition"></a></dt>
+<dd><p>Return the number of CPUs to work with</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.apply_model">
+<span class="sig-name descname"><span class="pre">apply_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.apply_model" title="Permalink to this definition"></a></dt>
+<dd><p>Apply model to the selected spectra</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.messagebox_continue">
+<span class="sig-name descname"><span class="pre">messagebox_continue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.messagebox_continue" title="Permalink to this definition"></a></dt>
+<dd><p>Open a messagebox if no models are found and return True/False
+concerning process continuation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.save" title="Permalink to this definition"></a></dt>
+<dd><p>Save spectra in a .json file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.save_selection">
+<span class="sig-name descname"><span class="pre">save_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.save_selection" title="Permalink to this definition"></a></dt>
+<dd><p>Save selected spectra models in a .json file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.save_all">
+<span class="sig-name descname"><span class="pre">save_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.save_all" title="Permalink to this definition"></a></dt>
+<dd><p>Save all spectra models in a .json file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.reload">
+<span class="sig-name descname"><span class="pre">reload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.reload" title="Permalink to this definition"></a></dt>
+<dd><p>Reload spectra models from a .json file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.plot" title="Permalink to this definition"></a></dt>
+<dd><p>Plot baseline and spectrum models after ‘ax’ clearing</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.on_press_baseline_peaks">
+<span class="sig-name descname"><span class="pre">on_press_baseline_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.on_press_baseline_peaks" title="Permalink to this definition"></a></dt>
+<dd><p>Callback function associated to the mouse press event in
+the ‘Baseline’ and ‘Peaks’ LabelFrames for enabling/disabling</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.add_baseline_point">
+<span class="sig-name descname"><span class="pre">add_baseline_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.add_baseline_point" title="Permalink to this definition"></a></dt>
+<dd><p>Add baseline point from the (x,y)-coordinate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.del_baseline_point">
+<span class="sig-name descname"><span class="pre">del_baseline_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.del_baseline_point" title="Permalink to this definition"></a></dt>
+<dd><p>Delete the closest baseline ‘x’-point</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.load_baseline">
+<span class="sig-name descname"><span class="pre">load_baseline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.load_baseline" title="Permalink to this definition"></a></dt>
+<dd><p>Load a baseline from a row-column .txt file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.auto_baseline">
+<span class="sig-name descname"><span class="pre">auto_baseline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.auto_baseline" title="Permalink to this definition"></a></dt>
+<dd><p>Define baseline from automatic points selection</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.subtract_baseline">
+<span class="sig-name descname"><span class="pre">subtract_baseline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.subtract_baseline" title="Permalink to this definition"></a></dt>
+<dd><p>Subtract the current baseline</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.subtract_baseline_to_all">
+<span class="sig-name descname"><span class="pre">subtract_baseline_to_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.subtract_baseline_to_all" title="Permalink to this definition"></a></dt>
+<dd><p>Subtract baseline to all the spectra</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.delete_baseline">
+<span class="sig-name descname"><span class="pre">delete_baseline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.delete_baseline" title="Permalink to this definition"></a></dt>
+<dd><p>Delete the current baseline</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.update_attractors">
+<span class="sig-name descname"><span class="pre">update_attractors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.update_attractors" title="Permalink to this definition"></a></dt>
+<dd><p>Update attractors</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.update_attractors_settings">
+<span class="sig-name descname"><span class="pre">update_attractors_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.update_attractors_settings" title="Permalink to this definition"></a></dt>
+<dd><p>Update attractors settings</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.update_peaks">
+<span class="sig-name descname"><span class="pre">update_peaks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.update_peaks" title="Permalink to this definition"></a></dt>
+<dd><p>Update peaks</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.add_peaks_point">
+<span class="sig-name descname"><span class="pre">add_peaks_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.add_peaks_point" title="Permalink to this definition"></a></dt>
+<dd><p>Add peak (spectrum model) from the (x,y)-coordinates</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.del_peaks_point">
+<span class="sig-name descname"><span class="pre">del_peaks_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.del_peaks_point" title="Permalink to this definition"></a></dt>
+<dd><p>Delete the closest peak ‘x’-point</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.auto_peaks">
+<span class="sig-name descname"><span class="pre">auto_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.auto_peaks" title="Permalink to this definition"></a></dt>
+<dd><p>Define peaks (spectrum models) from automatic detection</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.update_fit_settings">
+<span class="sig-name descname"><span class="pre">update_fit_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.update_fit_settings" title="Permalink to this definition"></a></dt>
+<dd><p>Update fit settings</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.colorize_from_fit_status">
+<span class="sig-name descname"><span class="pre">colorize_from_fit_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.colorize_from_fit_status" title="Permalink to this definition"></a></dt>
+<dd><p>Colorize the fileselector items from the fit success status</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.fit" title="Permalink to this definition"></a></dt>
+<dd><p>Fit the peaks (spectrum models)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.fit_all">
+<span class="sig-name descname"><span class="pre">fit_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.fit_all" title="Permalink to this definition"></a></dt>
+<dd><p>Fit the peaks (spectrum models) for all the spectra</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.set_spectrum_range">
+<span class="sig-name descname"><span class="pre">set_spectrum_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delete_tabview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.set_spectrum_range" title="Permalink to this definition"></a></dt>
+<dd><p>Set range to the current spectrum</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.set_range">
+<span class="sig-name descname"><span class="pre">set_range</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.set_range" title="Permalink to this definition"></a></dt>
+<dd><p>Set range from the spectrum to the appli</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.apply_range_to_all">
+<span class="sig-name descname"><span class="pre">apply_range_to_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.apply_range_to_all" title="Permalink to this definition"></a></dt>
+<dd><p>Apply the appli range to all the spectra</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.normalize" title="Permalink to this definition"></a></dt>
+<dd><p>Normalize all spectra from maximum or attractor position</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.reinit">
+<span class="sig-name descname"><span class="pre">reinit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.reinit" title="Permalink to this definition"></a></dt>
+<dd><p>Reinitialize the spectrum</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.reinit_all">
+<span class="sig-name descname"><span class="pre">reinit_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.reinit_all" title="Permalink to this definition"></a></dt>
+<dd><p>Reinitialize all the spectra</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.reassign_current_spectrum">
+<span class="sig-name descname"><span class="pre">reassign_current_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.reassign_current_spectrum" title="Permalink to this definition"></a></dt>
+<dd><p>Reassign the current spectrum from ‘fname’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delete_tabview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.remove" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all the features (spectrum attributes, baseline, tabview)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.auto_eval">
+<span class="sig-name descname"><span class="pre">auto_eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.auto_eval" title="Permalink to this definition"></a></dt>
+<dd><p>Fit spectrum after evaluating baseline and peaks automatically</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.auto_eval_all">
+<span class="sig-name descname"><span class="pre">auto_eval_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.auto_eval_all" title="Permalink to this definition"></a></dt>
+<dd><p>Apply automatic fitting on all spectra</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.delete_all">
+<span class="sig-name descname"><span class="pre">delete_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.delete_all" title="Permalink to this definition"></a></dt>
+<dd><p>Delete all spectra</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Delete items from spectra selected in the ‘fileselector’
+or passed as argument</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.add_items_from_dir">
+<span class="sig-name descname"><span class="pre">add_items_from_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.add_items_from_dir" title="Permalink to this definition"></a></dt>
+<dd><p>Add new items related to a  ‘dirname’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.add_items">
+<span class="sig-name descname"><span class="pre">add_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.add_items" title="Permalink to this definition"></a></dt>
+<dd><p>Add new items from a ‘fnames’ list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.update_markers">
+<span class="sig-name descname"><span class="pre">update_markers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.update_markers" title="Permalink to this definition"></a></dt>
+<dd><p>Markers management in 2D-maps</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.update" title="Permalink to this definition"></a></dt>
+<dd><p>Update the appli with the spectrum selected in the ‘fileselector’
+or passed as argument</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.create_map">
+<span class="sig-name descname"><span class="pre">create_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.create_map" title="Permalink to this definition"></a></dt>
+<dd><p>Create the 2D-map that consists in replacing the current spectra by
+the ones issued from the 2D-map extrusion</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fitspy.app.html" class="btn btn-neutral float-left" title="fitspy.app package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitspy.app.gui.html" class="btn btn-neutral float-right" title="fitspy.app.gui module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The Fitspy development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

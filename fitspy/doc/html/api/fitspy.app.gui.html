@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fitspy.app.gui module &mdash; Fitspy 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fitspy.app.toplevels module" href="fitspy.app.toplevels.html" />
+    <link rel="prev" title="fitspy.app.callbacks module" href="fitspy.app.callbacks.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fitspy
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fitspy</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fitspy.html">fitspy package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="fitspy.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="fitspy.app.html">fitspy.app package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#module-fitspy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fitspy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">fitspy</a></li>
+          <li class="breadcrumb-item"><a href="fitspy.html">fitspy package</a></li>
+          <li class="breadcrumb-item"><a href="fitspy.app.html">fitspy.app package</a></li>
+      <li class="breadcrumb-item active">fitspy.app.gui module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/fitspy.app.gui.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-fitspy.app.gui">
+<span id="fitspy-app-gui-module"></span><h1>fitspy.app.gui module<a class="headerlink" href="#module-fitspy.app.gui" title="Permalink to this heading"></a></h1>
+<p>GUI and Appli classes associated to the spectra fitting application</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.gui.</span></span><span class="sig-name descname"><span class="pre">GUI</span></span><a class="headerlink" href="#fitspy.app.gui.GUI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks" title="fitspy.app.callbacks.Callbacks"><code class="xref py py-class docutils literal notranslate"><span class="pre">Callbacks</span></code></a></p>
+<p>Gui associated to the spectra fitting application</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.frame_map">
+<span class="sig-name descname"><span class="pre">frame_map</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.frame_map" title="Permalink to this definition"></a></dt>
+<dd><p>Frame used to display the 2D-map field (integrated spectrum intensities)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.TopLevel</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">ax_map,</span> <span class="pre">canvas_map</span></span></dt>
+<dd><p>Axes and canvas related to the 2D-map figure displaying</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Matplotlib.Axes, FigureCanvasTkAgg</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.figure_settings">
+<span class="sig-name descname"><span class="pre">figure_settings</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.figure_settings" title="Permalink to this definition"></a></dt>
+<dd><p>Tkinter.TopLevel derivative object for figure parameters setting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>FigureSettings obj</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.attractors_settings">
+<span class="sig-name descname"><span class="pre">attractors_settings</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.attractors_settings" title="Permalink to this definition"></a></dt>
+<dd><p>Tkinter.TopLevel derivative object for attractors parameters setting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttractorsSettings obj</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.fit_settings">
+<span class="sig-name descname"><span class="pre">fit_settings</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.fit_settings" title="Permalink to this definition"></a></dt>
+<dd><p>Tkinter.TopLevel derivative object for fitting parameters setting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>FitSettings obj</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.tabview">
+<span class="sig-name descname"><span class="pre">tabview</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.tabview" title="Permalink to this definition"></a></dt>
+<dd><p>Tkinter.TopLevel derivative object for fitting results models displaying</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TabView obj</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">range_min,</span> <span class="pre">range_max</span></span></dt>
+<dd><p>Range associated to the spectrum support</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.DoubleVars</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.normalize_mode">
+<span class="sig-name descname"><span class="pre">normalize_mode</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.normalize_mode" title="Permalink to this definition"></a></dt>
+<dd><p>Type of normalization (‘Maximum’ or ‘Attractor’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.StringVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.attractor_position">
+<span class="sig-name descname"><span class="pre">attractor_position</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.attractor_position" title="Permalink to this definition"></a></dt>
+<dd><p>Reference position in case of ‘Attractor’ normalize_mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.IntVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.attractors">
+<span class="sig-name descname"><span class="pre">attractors</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.attractors" title="Permalink to this definition"></a></dt>
+<dd><p>Activation keyword for spectrum peaks association when adding</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.BooleanVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.attached">
+<span class="sig-name descname"><span class="pre">attached</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.attached" title="Permalink to this definition"></a></dt>
+<dd><p>Activation keyword for baseline points attachment to the spectra</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.BooleanVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.sigma">
+<span class="sig-name descname"><span class="pre">sigma</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.sigma" title="Permalink to this definition"></a></dt>
+<dd><p>Smoothing gaussian coefficient applied to the spectra when calculating
+the attached baseline points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.IntVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.distance">
+<span class="sig-name descname"><span class="pre">distance</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.distance" title="Permalink to this definition"></a></dt>
+<dd><p>Minimum distance used by ‘spectrum.auto_baseline’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.DoubleVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.baseline_mode">
+<span class="sig-name descname"><span class="pre">baseline_mode</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.baseline_mode" title="Permalink to this definition"></a></dt>
+<dd><p>Type of baseline (‘Linear’ or ‘Polynomial’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.StringVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.baseline_order_max">
+<span class="sig-name descname"><span class="pre">baseline_order_max</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.baseline_order_max" title="Permalink to this definition"></a></dt>
+<dd><p>Max polynomial order to consider when plotting/removing the baseline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.IntVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.model" title="Permalink to this definition"></a></dt>
+<dd><p>Spectrum peak base model name among ‘Gaussian’, ‘Lorentzian’,
+‘GaussianAsym’ and ‘LorentzianAsym’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.StringVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.bkg_name">
+<span class="sig-name descname"><span class="pre">bkg_name</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.bkg_name" title="Permalink to this definition"></a></dt>
+<dd><p>Background model name among ‘None’, ‘Constant’, ‘Linear’, ‘Parabolic’
+and ‘Exponential’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.StringVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.asym">
+<span class="sig-name descname"><span class="pre">asym</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.asym" title="Permalink to this definition"></a></dt>
+<dd><p>Activation keyword to consider asymetric spectrum model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.BooleanVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.ax">
+<span class="sig-name descname"><span class="pre">ax</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.ax" title="Permalink to this definition"></a></dt>
+<dd><p>Current axis to work with</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Matplotlib.Axes object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.canvas">
+<span class="sig-name descname"><span class="pre">canvas</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.canvas" title="Permalink to this definition"></a></dt>
+<dd><p>Current canvas to work with</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>FigureCanvasTkAgg object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.fileselector">
+<span class="sig-name descname"><span class="pre">fileselector</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.fileselector" title="Permalink to this definition"></a></dt>
+<dd><p>Widget dedicated to the files selection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>common.core.appli_gui.FilesSelector object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.frame_map_creation">
+<span class="sig-name descname"><span class="pre">frame_map_creation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectra_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.gui.GUI.frame_map_creation" title="Permalink to this definition"></a></dt>
+<dd><p>Create a frame_map Tkinter.Toplevel() and related ‘ax’ and ‘canvas’
+as spectra_map attributes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.save_settings">
+<span class="sig-name descname"><span class="pre">save_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.gui.GUI.save_settings" title="Permalink to this definition"></a></dt>
+<dd><p>Save GUI users settings</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.reload_settings">
+<span class="sig-name descname"><span class="pre">reload_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.gui.GUI.reload_settings" title="Permalink to this definition"></a></dt>
+<dd><p>Reload GUI users settings</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.gui.Appli">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.gui.</span></span><span class="sig-name descname"><span class="pre">Appli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1550x950'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.gui.Appli" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fitspy.app.gui.GUI" title="fitspy.app.gui.GUI"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUI</span></code></a></p>
+<p>Application for spectra fitting</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.Appli.root">
+<span class="sig-name descname"><span class="pre">root</span></span><a class="headerlink" href="#fitspy.app.gui.Appli.root" title="Permalink to this definition"></a></dt>
+<dd><p>Root window</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.Tk object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.gui.Appli.on_closing">
+<span class="sig-name descname"><span class="pre">on_closing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.gui.Appli.on_closing" title="Permalink to this definition"></a></dt>
+<dd><p>To quit ‘properly’ the application</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.app.gui.fitspy_launcher">
+<span class="sig-prename descclassname"><span class="pre">fitspy.app.gui.</span></span><span class="sig-name descname"><span class="pre">fitspy_launcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.gui.fitspy_launcher" title="Permalink to this definition"></a></dt>
+<dd><p>Launch the appli</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fitspy.app.callbacks.html" class="btn btn-neutral float-left" title="fitspy.app.callbacks module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitspy.app.toplevels.html" class="btn btn-neutral float-right" title="fitspy.app.toplevels module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The Fitspy development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

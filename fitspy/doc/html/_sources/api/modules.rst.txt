@@ -1,0 +1,7 @@
+fitspy
+======
+
+.. toctree::
+   :maxdepth: 4
+
+   fitspy

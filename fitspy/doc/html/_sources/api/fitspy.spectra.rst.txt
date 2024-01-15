@@ -1,0 +1,9 @@
+fitspy.spectra module
+=====================
+
+.. automodule:: fitspy.spectra
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

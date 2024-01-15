@@ -1,0 +1,9 @@
+fitspy.app.gui module
+=====================
+
+.. automodule:: fitspy.app.gui
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

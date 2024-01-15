@@ -1,0 +1,9 @@
+fitspy.spectra\_map module
+==========================
+
+.. automodule:: fitspy.spectra_map
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

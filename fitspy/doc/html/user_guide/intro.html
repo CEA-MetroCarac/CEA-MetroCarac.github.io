@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; Fitspy 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Input data files formats" href="input_data.html" />
+    <link rel="prev" title="Welcome to Fitspy’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fitspy
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-fitspy">What is Fitspy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-and-launching">Install and launching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-fitspy-works">How Fitspy works</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="baseline.html">Baselines and Background models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">fitspy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fitspy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/user_guide/intro.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<section id="what-is-fitspy">
+<h2>What is Fitspy<a class="headerlink" href="#what-is-fitspy" title="Permalink to this heading"></a></h2>
+<p><cite>Fitspy</cite> is a dedicated tool for spectral fitting — <strong>and only for spectral fitting</strong> — with the following characteristics or functionalities:</p>
+<ul class="simple">
+<li><p><strong>Agnostic Nature</strong>: <cite>Fitspy</cite> is not tied to any specific physical quantity or database. It is designed to process spectra regardless of their x-support and y-intensity without requiring prior knowledge.</p></li>
+<li><p><strong>Python Implementation</strong>: <cite>Fitspy</cite> is coded in Python. As a result, spectra can be easily processed using Python scripts, catering to individuals with basic knowledge of the language.</p></li>
+<li><p><strong>2D Maps</strong>: <cite>Fitspy</cite> has been designed to handle spectra derived from 2D acquisitions. Note that the beyond “2D”, dimensions can encompass time or any other dimension. When dealing with 2D data, an interactive map in the <cite>Fitspy</cite> GUI allows users to locate and select spectra of interest easily.</p></li>
+<li><p><strong>Multiprocessing Capabilities</strong>: <cite>Fitspy</cite> enables spectral fit processing on multiple processors, enhancing efficiency.</p></li>
+<li><p><strong>Constrained Parameters</strong>: Leveraging the <a class="reference external" href="https://lmfit.github.io//lmfit-py/">lmfit</a> library, <cite>Fitspy</cite> empowers users to impose constraints on parameter ranges or establish constraints between parameters using literal expressions.</p></li>
+<li><p><strong>Simple GUI</strong>: <cite>Fitspy</cite> has been designed to be as intuitive and simple to use as possible (subjective criterion).</p></li>
+</ul>
+<p>Therefore, the features of <cite>Fitspy</cite> make it an ideal tool for quickly fitting a few spectra through its GUI or for fitting several thousand of spectra (or more) by python batches.</p>
+</section>
+<section id="install-and-launching">
+<h2>Install and launching<a class="headerlink" href="#install-and-launching" title="Permalink to this heading"></a></h2>
+<p>For a basic install (<em>ie</em> without the examples, tests and the related datasets):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">fitspy</span>
+<span class="n">fitspy</span>
+</pre></div>
+</div>
+<p>For a full install:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">CEA</span><span class="o">-</span><span class="n">MetroCarac</span><span class="o">/</span><span class="n">fitspy</span><span class="o">.</span><span class="n">git</span>
+<span class="n">fitspy</span>
+
+<span class="c1"># examples execution</span>
+<span class="n">cd</span> <span class="n">fitspy</span><span class="o">/</span><span class="n">examples</span>
+<span class="n">python</span> <span class="n">ex0_gui_auto_decomposition</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">ex1_gui_reload_model</span><span class="o">.</span><span class="n">py</span>
+<span class="o">...</span>
+
+<span class="c1"># tests execution</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pytest</span>
+<span class="n">cd</span> <span class="n">fitspy</span>
+<span class="n">pytest</span>
+</pre></div>
+</div>
+</section>
+<section id="quick-start">
+<span id="id1"></span><h2>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this heading"></a></h2>
+<p>Once the <cite>Fitspy</cite> GUI has opened, from top to bottom of the right panel, the strict minimum operations (in red) for a spectrum fitting consists of:</p>
+<ul class="simple">
+<li><p>(<a class="reference external" href="files_selection.html">1</a>) <strong>Select file(s) from</strong> <code class="code docutils literal notranslate"><span class="pre">Select</span> <span class="pre">Files</span></code>  <strong>or</strong>  <code class="code docutils literal notranslate"><span class="pre">Select</span> <span class="pre">Dir</span></code></p></li>
+<li><p>(<a class="reference external" href="fitting.html">6</a>) <strong>Click on the</strong> <code class="code docutils literal notranslate"><span class="pre">Peaks</span></code> <strong>panel to activate it (if not)</strong></p></li>
+<li><p>(<a class="reference external" href="fitting.html">7</a>) <strong>Select a</strong> <code class="code docutils literal notranslate"><span class="pre">Peak</span> <span class="pre">model</span></code></p></li>
+<li><p>(<a class="reference external" href="fitting.html">8</a>) <strong>Select a peak point on the main figure</strong> <em>(with left/right click on the figure to add/delete a baseline point)</em></p></li>
+<li><p>Repeat the last two actions as needed</p></li>
+<li><p>(<a class="reference external" href="fitting.html">10</a>) <code class="code docutils literal notranslate"><span class="pre">Fit</span></code> <strong>the spectrum/spectra selected in the files selector widget or</strong> <code class="code docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">All</span></code> the <strong>spectra</strong></p></li>
+<li><p>(<a class="reference external" href="fitting.html">12</a>) <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">(.csv)</span></code> <strong>the fitting parameters</strong></p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/workflow.png"><img alt="../_images/workflow.png" src="../_images/workflow.png" style="width: 300px;" /></a>
+</figure>
+<br><p><em>(The entire workflow is described</em> <a class="reference external" href="workflow.html">here</a> <em>).</em></p>
+</section>
+<section id="how-fitspy-works">
+<h2>How Fitspy works<a class="headerlink" href="#how-fitspy-works" title="Permalink to this heading"></a></h2>
+<p>The main class of Fitspy is <a class="reference internal" href="../api/fitspy.spectra.html#fitspy.spectra.Spectra" title="fitspy.spectra.Spectra"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spectra</span></code></a> (inherited from <cite>list</cite>) that contains a list of  <a class="reference internal" href="../api/fitspy.spectrum.html#fitspy.spectrum.Spectrum" title="fitspy.spectrum.Spectrum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spectrum</span></code></a> objects.</p>
+<p>For each of these <a class="reference internal" href="../api/fitspy.spectrum.html#fitspy.spectrum.Spectrum" title="fitspy.spectrum.Spectrum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spectrum</span></code></a> objects, a (x, y) profile is associated. (More details <a class="reference external" href="files_selection.html?2D-map_spectra=#d-spectrum">here</a>).</p>
+<p>Additionally, 2D maps of spectra (named <a class="reference internal" href="../api/fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap" title="fitspy.spectra_map.SpectraMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectraMap</span></code></a>) that consist in a set of <a class="reference internal" href="../api/fitspy.spectrum.html#fitspy.spectrum.Spectrum" title="fitspy.spectrum.Spectrum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spectrum</span></code></a> with associated grid coordinates can be provided as input according to a dedicated format. (More details <a class="reference external" href="files_selection.html?2D-map_spectra=#d-map-spectra">here</a>).</p>
+<p>The spectra processing are based on  <a class="reference internal" href="../api/fitspy.baseline.html#fitspy.baseline.BaseLine" title="fitspy.baseline.BaseLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLine</span></code></a> (optional) and peaks <a class="reference internal" href="../api/fitspy.models.html#module-fitspy.models" title="fitspy.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">models</span></code></a> like Gaussian, Lorentzian, … used to fit the spectra profiles.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/spectra.png"><img alt="../_images/spectra.png" src="../_images/spectra.png" style="width: 75%;" /></a>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Fitspy’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="input_data.html" class="btn btn-neutral float-right" title="Input data files formats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The Fitspy development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

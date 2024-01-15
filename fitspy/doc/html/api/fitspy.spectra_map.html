@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fitspy.spectra_map module &mdash; Fitspy 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fitspy.spectrum module" href="fitspy.spectrum.html" />
+    <link rel="prev" title="fitspy.spectra module" href="fitspy.spectra.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fitspy
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fitspy</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fitspy.html">fitspy package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="fitspy.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="fitspy.__init__0.html">fitspy.__init__0 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.baseline.html">fitspy.baseline module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.models.html">fitspy.models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.spectra.html">fitspy.spectra module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">fitspy.spectra_map module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.spectrum.html">fitspy.spectrum module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.utils.html">fitspy.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#module-fitspy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fitspy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">fitspy</a></li>
+          <li class="breadcrumb-item"><a href="fitspy.html">fitspy package</a></li>
+      <li class="breadcrumb-item active">fitspy.spectra_map module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/fitspy.spectra_map.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-fitspy.spectra_map">
+<span id="fitspy-spectra-map-module"></span><h1>fitspy.spectra_map module<a class="headerlink" href="#module-fitspy.spectra_map" title="Permalink to this heading"></a></h1>
+<p>Class dedicated to handle ‘Spectrum’ objects from a 2D map managed by SpectraMap</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.spectra_map.</span></span><span class="sig-name descname"><span class="pre">SpectraMap</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra" title="fitspy.spectra.Spectra"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spectra</span></code></a></p>
+<p>Class dedicated to handle ‘Spectrum’ objects from a 2D map</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.fname">
+<span class="sig-name descname"><span class="pre">fname</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.fname" title="Permalink to this definition"></a></dt>
+<dd><p>Pathname associated to the loaded object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.xy_map">
+<span class="sig-name descname"><span class="pre">xy_map</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.xy_map" title="Permalink to this definition"></a></dt>
+<dd><p>Lists of x and y coordinates used in the 2D-map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of 2 list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.shape_map">
+<span class="sig-name descname"><span class="pre">shape_map</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.shape_map" title="Permalink to this definition"></a></dt>
+<dd><p>Shape associated to the 2D-map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of 2 ints</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.extent">
+<span class="sig-name descname"><span class="pre">extent</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.extent" title="Permalink to this definition"></a></dt>
+<dd><p>bounding box in data coordinates that the image will fill specified as
+(xmin, xmax, ymin, ymax)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>iterable of 4 floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.coords" title="Permalink to this definition"></a></dt>
+<dd><p>List containing the (x,y) coordinates for each spectrum in the 2D-map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of list of 2 floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.intensity">
+<span class="sig-name descname"><span class="pre">intensity</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.intensity" title="Permalink to this definition"></a></dt>
+<dd><p>Array of spectra intensities (n-values) associated to the xy_map coords</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray(((len(shape_map[0]) * len(shape_map[1]), n))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.arr">
+<span class="sig-name descname"><span class="pre">arr</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.arr" title="Permalink to this definition"></a></dt>
+<dd><p>Array associated to the xy_map coords</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray((len(shape_map[0]), len(shape_map[1]))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.ax">
+<span class="sig-name descname"><span class="pre">ax</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.ax" title="Permalink to this definition"></a></dt>
+<dd><p>Axis associated to the 2D-map displaying</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Matplotlib.pyplot.axis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.img">
+<span class="sig-name descname"><span class="pre">img</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.img" title="Permalink to this definition"></a></dt>
+<dd><p>Image related to the 2D-map displaying</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Matplotlib.image.AxesImage</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.cbar">
+<span class="sig-name descname"><span class="pre">cbar</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.cbar" title="Permalink to this definition"></a></dt>
+<dd><p>Colorbar associated to the spectra 2D-map displaying</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Matplotlib.pyplot.colorbar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.ax_slider">
+<span class="sig-name descname"><span class="pre">ax_slider</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.ax_slider" title="Permalink to this definition"></a></dt>
+<dd><p>Axis associated to the RangeSlider object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Matplotlib.pyplot.axis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.slider">
+<span class="sig-name descname"><span class="pre">slider</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.slider" title="Permalink to this definition"></a></dt>
+<dd><p>Slider associated to the intensity integration range or to a model
+parameter in the 2D-map displaying</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Matplotlib.widgets.RangeSlider</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.xrange">
+<span class="sig-name descname"><span class="pre">xrange</span></span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.xrange" title="Permalink to this definition"></a></dt>
+<dd><p>Range of intensity to consider in the 2D-map displaying</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of 2 floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.create_map">
+<span class="sig-name descname"><span class="pre">create_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.create_map" title="Permalink to this definition"></a></dt>
+<dd><p>Create map from .txt file issued from labspec files conversion</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.spectrum_coords">
+<span class="sig-name descname"><span class="pre">spectrum_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectrum</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.spectrum_coords" title="Permalink to this definition"></a></dt>
+<dd><p>Return the (x, y) map coordinates associated with ‘spectrum’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.spectrum_indices">
+<span class="sig-name descname"><span class="pre">spectrum_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectrum</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.spectrum_indices" title="Permalink to this definition"></a></dt>
+<dd><p>Return the (i, j) map indices associated with ‘spectrum’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.plot_map">
+<span class="sig-name descname"><span class="pre">plot_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.plot_map" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the integrated spectra map intensities on ‘ax’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.plot_map_update">
+<span class="sig-name descname"><span class="pre">plot_map_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Intensity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.plot_map_update" title="Permalink to this definition"></a></dt>
+<dd><p>Update ‘plot_map’ with intensity or models parameter passed through
+‘var’ and ‘label’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.export_to_csv">
+<span class="sig-name descname"><span class="pre">export_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.export_to_csv" title="Permalink to this definition"></a></dt>
+<dd><p>Export ‘arr’ class attribute in a .csv file named ‘fname’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectra_map.SpectraMap.load_map">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra_map.SpectraMap.load_map" title="Permalink to this definition"></a></dt>
+<dd><p>Return a SpectraMap object from .txt file issued from labspec files
+conversion</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fitspy.spectra.html" class="btn btn-neutral float-left" title="fitspy.spectra module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitspy.spectrum.html" class="btn btn-neutral float-right" title="fitspy.spectrum module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The Fitspy development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fitspy.models module &mdash; Fitspy 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fitspy.spectra module" href="fitspy.spectra.html" />
+    <link rel="prev" title="fitspy.baseline module" href="fitspy.baseline.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fitspy
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fitspy</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fitspy.html">fitspy package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="fitspy.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="fitspy.baseline.html">fitspy.baseline module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">fitspy.models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.spectra.html">fitspy.spectra module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.spectra_map.html">fitspy.spectra_map module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.spectrum.html">fitspy.spectrum module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.utils.html">fitspy.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.html#module-fitspy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fitspy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">fitspy</a></li>
+          <li class="breadcrumb-item"><a href="fitspy.html">fitspy package</a></li>
+      <li class="breadcrumb-item active">fitspy.models module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/fitspy.models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-fitspy.models">
+<span id="fitspy-models-module"></span><h1>fitspy.models module<a class="headerlink" href="#module-fitspy.models" title="Permalink to this heading"></a></h1>
+<p>Module containing different basic models (gaussian, lorentzian, …)</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.models.gaussian">
+<span class="sig-prename descclassname"><span class="pre">fitspy.models.</span></span><span class="sig-name descname"><span class="pre">gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ampli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.models.gaussian" title="Permalink to this definition"></a></dt>
+<dd><p>Return Gaussian function defined as:
+<span class="math notranslate nohighlight">\(ampli * e^{-(x-x0)^2/(2*\sigma^2)}\)</span>
+with <span class="math notranslate nohighlight">\(\sigma = fwhm / (2*\sqrt{2*log(2)})\)</span></p>
+<p class="rubric">Example</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/8fec9d89623785e44521d41e937c3bd9/fitspy-models-1.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../_downloads/d1710c0d7e5da5378e6ecfa2ffe50c64/fitspy-models-1.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/7b74acc12394a2d4ccc8f1c0bf53cd0c/fitspy-models-1.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/e161f937770b67cb399c2dd064f76313/fitspy-models-1.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default">
+<img alt="../_images/fitspy-models-1.png" class="plot-directive" src="../_images/fitspy-models-1.png" />
+</figure>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.models.gaussian_asym">
+<span class="sig-prename descclassname"><span class="pre">fitspy.models.</span></span><span class="sig-name descname"><span class="pre">gaussian_asym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ampli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm_r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.models.gaussian_asym" title="Permalink to this definition"></a></dt>
+<dd><p>Return Asymmetric Gaussian function defined as:
+<span class="math notranslate nohighlight">\((x &lt; x0) * Gaussian(fwhm\_l) +  (x &gt;= x0) * Gaussian(fwhm\_r)\)</span></p>
+<p class="rubric">Example</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/3cf74187a10fb2b2480492bf6c269214/fitspy-models-2.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../_downloads/a8a4053f47ca71b5e4014dc95be96113/fitspy-models-2.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/2a6a7856837379df5ee6563c4cf32cb1/fitspy-models-2.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/ede64d2bc82c4a6f38a7d684b512c365/fitspy-models-2.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default">
+<img alt="../_images/fitspy-models-2.png" class="plot-directive" src="../_images/fitspy-models-2.png" />
+</figure>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.models.lorentzian">
+<span class="sig-prename descclassname"><span class="pre">fitspy.models.</span></span><span class="sig-name descname"><span class="pre">lorentzian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ampli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.models.lorentzian" title="Permalink to this definition"></a></dt>
+<dd><p>Return Lorentzian function defined as:
+<span class="math notranslate nohighlight">\(ampli * \frac{fwhm^2}{4 * ((x - x0)^2 + fwhm^2 / 4)}\)</span></p>
+<p class="rubric">Example</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/3f2c0cc43b41ae0bb3f9f90b2f916a99/fitspy-models-3.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../_downloads/e71b05fc2cd44105fbb4c1227eee1802/fitspy-models-3.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/e5ed630a00a75221ceb00148050809eb/fitspy-models-3.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/f4713a8b55bd80af927794b7c4148f06/fitspy-models-3.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default">
+<img alt="../_images/fitspy-models-3.png" class="plot-directive" src="../_images/fitspy-models-3.png" />
+</figure>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.models.lorentzian_asym">
+<span class="sig-prename descclassname"><span class="pre">fitspy.models.</span></span><span class="sig-name descname"><span class="pre">lorentzian_asym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ampli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm_r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.models.lorentzian_asym" title="Permalink to this definition"></a></dt>
+<dd><p>Return Asymmetric Lorentzian function defined as:
+<span class="math notranslate nohighlight">\((x &lt; x0) * Lorentzian(fwhm\_l) +  (x &gt;= x0) * Lorentzian(fwhm\_r)\)</span></p>
+<p class="rubric">Example</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/2b28d5391e5c6fdbe7f46d9d3d1ab986/fitspy-models-4.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../_downloads/d88138ab084ff6ca485bee8ba52c8f33/fitspy-models-4.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/9a53312eee6ca795787061eee0a97fbe/fitspy-models-4.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/3d2814c4ac2fe20b83143686d42bb24f/fitspy-models-4.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default">
+<img alt="../_images/fitspy-models-4.png" class="plot-directive" src="../_images/fitspy-models-4.png" />
+</figure>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.models.pseudovoigt">
+<span class="sig-prename descclassname"><span class="pre">fitspy.models.</span></span><span class="sig-name descname"><span class="pre">pseudovoigt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ampli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.models.pseudovoigt" title="Permalink to this definition"></a></dt>
+<dd><p>Return Pseudovoigt function defined as:
+<span class="math notranslate nohighlight">\(alpha * Gaussian + (1 - alpha) * Lorentzian\)</span></p>
+<p class="rubric">Example</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/f87c967669b24391b45966d1b5a42f71/fitspy-models-5.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../_downloads/d8bdb9a32afb99e55461bdac48af403c/fitspy-models-5.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/6a0e4d324df1846e4e4c9ac2441cc64b/fitspy-models-5.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/233bf5995b524f58169029b2198ca618/fitspy-models-5.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default">
+<img alt="../_images/fitspy-models-5.png" class="plot-directive" src="../_images/fitspy-models-5.png" />
+</figure>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fitspy.baseline.html" class="btn btn-neutral float-left" title="fitspy.baseline module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitspy.spectra.html" class="btn btn-neutral float-right" title="fitspy.spectra module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The Fitspy development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
