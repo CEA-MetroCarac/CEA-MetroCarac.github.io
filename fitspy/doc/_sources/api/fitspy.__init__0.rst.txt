@@ -1,9 +1,0 @@
-fitspy.\_\_init\_\_0 module
-===========================
-
-.. automodule:: fitspy.__init__0
-   :members:
-   :private-members:
-   :no-undoc-members:
-   :show-inheritance:
-   :ignore-module-all:
