@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fitspy" href="../api/modules.html" />
+    <link rel="next" title="Release Notes" href="../release_notes/release_notes.html" />
     <link rel="prev" title="Workflow" href="workflow.html" /> 
 </head>
 
@@ -55,6 +55,7 @@
 <li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">GUI description</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#files-selection">Files selection</a></li>
@@ -68,6 +69,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#d-map-figures">2D-map Figures</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/release_notes.html">Release Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul>
@@ -127,8 +132,14 @@ That is to say that each spectra of the 2D-map appears individually in the files
 </figure>
 <br><p><code class="code docutils literal notranslate"><span class="pre">Show</span> <span class="pre">All</span></code> enables a global display of all the spectra. When clicking on the canvas with the mouse, the nearest spectra are highlighted (up to a maximum of 10 spectra).</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">eval</span></code> and <code class="code docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">eval</span> <span class="pre">All</span></code>  perform automatic evaluation of the baseline and peak positions and conduct fitting on the selected spectra or all the spectra (respectively).</p>
-<p><code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">settings</span></code> enables the saving of user settings in a <strong>.fitspy.json</strong> file located in the <code class="code docutils literal notranslate"><span class="pre">%HOMEUSER%</span></code> directory (open this file to have a look on which and how settings are saved).</p>
+<p><code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">settings</span></code> enables the saving of user settings in a <strong>settings.json</strong> file located in the <code class="code docutils literal notranslate"><span class="pre">%HOMEUSER%/Fitspy</span></code> directory (open this file to have a look on which and how settings are saved).</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Reinitialize</span></code> and <code class="code docutils literal notranslate"><span class="pre">Reinitialize</span> <span class="pre">All</span></code> reinitialize the spectrum and all the spectra (resp.) to their original values.</p>
+<figure class="align-center" id="id2">
+<img alt="../_images/show_all.png" src="../_images/show_all.png" />
+<figcaption>
+<p><span class="caption-text">Example of the global display obtained with <code class="code docutils literal notranslate"><span class="pre">Show</span> <span class="pre">All</span></code></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="overall-settings">
 <h2>Overall settings<a class="headerlink" href="#overall-settings" title="Permalink to this heading"></a></h2>
@@ -233,10 +244,10 @@ icon has been reconfigured to allow spectra rescaling.</p>
 <p>By default, the full range of integrated spectra intensity is displayed.
 A range slider in the figure allows specifying the summation bounds.
 Once peaks have been defined, the corresponding model parameters can be also visualized in the 2D-map figures.</p>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id3">
 <img alt="../_images/2d-map_intensity_fwhm.png" src="../_images/2d-map_intensity_fwhm.png" />
 <figcaption>
-<p><span class="caption-text">left: intensity field in a 2D-map figure (default mode). right: FWHM values associated to ‘Peak I’ (obtained after fitting).</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">left: intensity field in a 2D-map figure (default mode). right: FWHM values associated to ‘Peak I’ (obtained after fitting).</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -247,7 +258,7 @@ Once peaks have been defined, the corresponding model parameters can be also vis
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="workflow.html" class="btn btn-neutral float-left" title="Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../api/modules.html" class="btn btn-neutral float-right" title="fitspy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../release_notes/release_notes.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
