@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release Notes &mdash; Fitspy 2024.1 documentation</title>
+  <title>Release Notes &mdash; Fitspy 2024.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fitspy" href="../api/modules.html" />
+    <link rel="next" title="Developers Notes" href="../dev_guide/dev_notes.html" />
     <link rel="prev" title="GUI description" href="../user_guide/gui.html" /> 
 </head>
 
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.1
+                2024.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,10 +62,15 @@
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-2024-2-january-29-2024">Version 2024.2 (January 29, 2024)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-2024-1-january-16-2024">Version 2024.1 (January 16, 2024)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-2023-x">Version 2023.x</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide/dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul>
@@ -98,6 +103,26 @@
              
   <section id="release-notes">
 <h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading"></a></h1>
+<section id="version-2024-2-january-29-2024">
+<h2>Version 2024.2 (January 29, 2024)<a class="headerlink" href="#version-2024-2-january-29-2024" title="Permalink to this heading"></a></h2>
+<p>New features:</p>
+<ul class="simple">
+<li><p>Add a progressbar in the terminal and in the GUI to follow the calculation progression during the fit processing</p></li>
+<li><p>Enable the loading of user-defined models through dedicated ‘Load’ buttons in the GUI.</p></li>
+</ul>
+<p>Bug fixes/enhancements:</p>
+<ul class="simple">
+<li><p>Fixed bug when reloading ‘old’ model.json in which <code class="code docutils literal notranslate"><span class="pre">bkg_model</span></code> was absent</p></li>
+<li><p>Baseline format/use revisited to disable multiple baselines subtract capability (the ‘baseline_history’ spectrum attributes has been removed)</p></li>
+<li><p>Display the models parameters on the figure whatever the fit status</p></li>
+<li><p>Highlight/reduce the peak model curve linewidth according to the fit success status</p></li>
+<li><p>Reproduce the same view when reloading a model, considering the fit success status</p></li>
+<li><p>Fixed bug when using user-defined model in multithreading</p></li>
+<li><p>Take into account the ‘fit_kws’ through the ‘kwargs’ of Spectrum.fit() to be passed to the lmfit Model.fit()</p></li>
+<li><p>Fixed bug in bkg_model plotting</p></li>
+<li><p>Fixed bug in removing ‘old’ Spectra 2D-map when reloading a ‘new’ one</p></li>
+</ul>
+</section>
 <section id="version-2024-1-january-16-2024">
 <h2>Version 2024.1 (January 16, 2024)<a class="headerlink" href="#version-2024-1-january-16-2024" title="Permalink to this heading"></a></h2>
 <p>New features:</p>
@@ -130,7 +155,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../user_guide/gui.html" class="btn btn-neutral float-left" title="GUI description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../api/modules.html" class="btn btn-neutral float-right" title="fitspy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../dev_guide/dev_notes.html" class="btn btn-neutral float-right" title="Developers Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

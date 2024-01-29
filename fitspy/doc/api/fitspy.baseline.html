@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.baseline module &mdash; Fitspy 2024.1 documentation</title>
+  <title>fitspy.baseline module &mdash; Fitspy 2024.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="fitspy.models module" href="fitspy.models.html" />
-    <link rel="prev" title="fitspy.__init__0 module" href="fitspy.__init__0.html" /> 
+    <link rel="prev" title="fitspy.app.utils module" href="fitspy.app.utils.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.1
+                2024.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,8 +55,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide/dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul class="current">
@@ -64,13 +73,13 @@
 <li class="toctree-l2 current"><a class="reference internal" href="fitspy.html">fitspy package</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="fitspy.html#subpackages">Subpackages</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="fitspy.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="fitspy.__init__0.html">fitspy.__init__0 module</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">fitspy.baseline module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.models.html">fitspy.models module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.spectra.html">fitspy.spectra module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.spectra_map.html">fitspy.spectra_map module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.spectrum.html">fitspy.spectrum module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.utils.html">fitspy.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.utils_mp.html">fitspy.utils_mp module</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.html#module-fitspy">Module contents</a></li>
@@ -151,11 +160,34 @@ detection with ‘Spectrum.auto_baseline’</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="fitspy.baseline.BaseLine.sigma">
 <span class="sig-name descname"><span class="pre">sigma</span></span><a class="headerlink" href="#fitspy.baseline.BaseLine.sigma" title="Permalink to this definition"></a></dt>
-<dd><p>Smoothing coefficient related to a gaussian filtering when defining
-baseline attached points to the spectrum</p>
+<dd><p>Smoothing coefficient (standard deviation) related to a gaussian
+filtering when defining baseline attached points to the spectrum</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.baseline.BaseLine.attached">
+<span class="sig-name descname"><span class="pre">attached</span></span><a class="headerlink" href="#fitspy.baseline.BaseLine.attached" title="Permalink to this definition"></a></dt>
+<dd><p>Activation key for attach the baseline points to the spectrum</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.baseline.BaseLine.is_subtracted">
+<span class="sig-name descname"><span class="pre">is_subtracted</span></span><a class="headerlink" href="#fitspy.baseline.BaseLine.is_subtracted" title="Permalink to this definition"></a></dt>
+<dd><p>Key used to indicate whether the baseline has been subtracted from the
+spectrum</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -168,7 +200,7 @@ baseline attached points to the spectrum</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.baseline.BaseLine.attach_points">
-<span class="sig-name descname"><span class="pre">attach_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.baseline.BaseLine.attach_points" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">attach_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.baseline.BaseLine.attach_points" title="Permalink to this definition"></a></dt>
 <dd><p>Return baseline points attached to (x,y) ‘spectrum’ profile coords</p>
 </dd></dl>
 
@@ -180,14 +212,14 @@ baseline attached points to the spectrum</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.baseline.BaseLine.eval">
-<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.baseline.BaseLine.eval" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.baseline.BaseLine.eval" title="Permalink to this definition"></a></dt>
 <dd><p>Evaluate the baseline on a ‘x’ support and a ‘y’ attached profile
-possibily smoothed with a gaussian filter</p>
+possibly smoothed with a gaussian filter</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.baseline.BaseLine.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.baseline.BaseLine.plot" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Baseline'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.baseline.BaseLine.plot" title="Permalink to this definition"></a></dt>
 <dd><p>Plot the baseline and its related points</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -197,7 +229,9 @@ possibily smoothed with a gaussian filter</p>
 If None, create a support from the baseline extrema points</p></li>
 <li><p><strong>y</strong> (<em>iterable</em><em> of </em><em>floats</em><em>, </em><em>optional</em>) – Values for baseline points attachment (if provided), sharing the
 same x coordinates</p></li>
-<li><p><strong>sigma</strong> (<em>float</em><em>, </em><em>optional</em>) – Smoothing gaussian filter coefficient applied to ‘y’</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Label displays in the figure</p></li>
+<li><p><strong>show_all</strong> (<em>bool</em><em>, </em><em>optional</em>) – Activation key to display the primary baseline components (before
+attachment)</p></li>
 </ul>
 </dd>
 </dl>
@@ -211,7 +245,7 @@ same x coordinates</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="fitspy.__init__0.html" class="btn btn-neutral float-left" title="fitspy.__init__0 module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitspy.app.utils.html" class="btn btn-neutral float-left" title="fitspy.app.utils module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="fitspy.models.html" class="btn btn-neutral float-right" title="fitspy.models module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

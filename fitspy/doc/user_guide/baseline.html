@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baselines and Background models &mdash; Fitspy 2024.1 documentation</title>
+  <title>Baselines and Background models &mdash; Fitspy 2024.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.1
+                2024.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,8 +62,17 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide/dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul>
@@ -103,12 +112,12 @@
 </ul>
 <section id="baseline-approach">
 <h2>Baseline approach<a class="headerlink" href="#baseline-approach" title="Permalink to this heading"></a></h2>
-<p>This approach entails manually predefining points to establish the baseline profile that will be subtracted before fitting.</p>
+<p>This approach involves manually predefining points to establish the baseline profile that will be subtracted before fitting.</p>
 <p>From the baseline peaks, the profile all along the spectrum support is obtained by interpolation either from <strong>piecewise</strong> or <strong>polynomial</strong> approximations.</p>
 <figure class="align-center">
 <img alt="../_images/gen_figures_baseline.png" src="../_images/gen_figures_baseline.png" />
 </figure>
-<p>When setting a parameter named <code class="code docutils literal notranslate"><span class="pre">attached</span></code> to True, the baseline points are attached to the corresponding spectrum intensity profile.
+<p>When setting a parameter named <code class="code docutils literal notranslate"><span class="pre">attached</span></code> to <code class="code docutils literal notranslate"><span class="pre">True</span></code>, the baseline points are attached to the corresponding spectrum intensity profile.
 This feature allows to adapt the baseline points to the spectrum notably when processing a dataset of spectra that have variations in intensity.</p>
 <figure class="align-center">
 <img alt="../_images/gen_figures_baseline_attached.png" src="../_images/gen_figures_baseline_attached.png" />
@@ -124,12 +133,13 @@ This feature allows to adapt the baseline points to the spectrum notably when pr
 <p>The available predefined <strong>BKG models</strong> are <code class="code docutils literal notranslate"><span class="pre">Constant</span></code>, <code class="code docutils literal notranslate"><span class="pre">Linear</span></code>, <code class="code docutils literal notranslate"><span class="pre">Parabolic</span></code>, <code class="code docutils literal notranslate"><span class="pre">Exponential</span></code> related to the <cite>lmfit</cite> standard models defined <a class="reference external" href="https://lmfit.github.io/lmfit-py/builtin_models.html">here</a>.</p>
 <section id="user-defined-background-models">
 <h3>User-defined background models<a class="headerlink" href="#user-defined-background-models" title="Permalink to this heading"></a></h3>
-<p>In the <code class="code docutils literal notranslate"><span class="pre">%HOMEUSER%/Fitspy</span></code> directory, user-defined models can be defined through expressions written in a file named  <code class="code docutils literal notranslate"><span class="pre">bkg_models.txt</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Linear_1</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">constant</span>
-<span class="n">Exponential_1</span> <span class="o">=</span> <span class="n">ampli</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">coef</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<p>User-defined models can be defined through literal expressions in a <em>‘.txt’</em> file or from python scripts in a <em>‘.py’</em> file.</p>
+<p>Example of two models defined by literal expressions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Linear_1</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">intercept</span>
+<span class="n">Exponential_1</span> <span class="o">=</span> <span class="n">ampli</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">coef</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>or using Python encoding, in a file named  <code class="code docutils literal notranslate"><span class="pre">bkg_models.py</span></code>:</p>
+<p>Example of two models defined in python:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">fitspy</span> <span class="kn">import</span> <span class="n">BKG_MODELS</span>
 
@@ -144,15 +154,19 @@ This feature allows to adapt the baseline points to the spectrum notably when pr
 <span class="n">BKG_MODELS</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;Exponential_2&quot;</span><span class="p">:</span> <span class="n">exponential</span><span class="p">})</span>
 </pre></div>
 </div>
-<p>where in the examples given above, the resulting <code class="code docutils literal notranslate"><span class="pre">Linear_1</span></code>, <code class="code docutils literal notranslate"><span class="pre">Linear_2</span></code> models yield identical results to those obtained from the predefined <code class="code docutils literal notranslate"><span class="pre">Linear</span></code> model, when converged.
+<p>Through the GUI, the corresponding <em>‘.txt’</em> or <em>‘.py’</em> files can be loaded via the button <code class="code docutils literal notranslate"><span class="pre">Load</span></code> located to the right of the <strong>BKG_MODEL</strong> combobox.</p>
+<p>In python, the users models can be loaded by the related functions <a class="reference internal" href="../api/fitspy.utils.html#fitspy.utils.load_models_from_txt" title="fitspy.utils.load_models_from_txt"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_models_from_txt()</span></code></a> and <a class="reference internal" href="../api/fitspy.utils.html#fitspy.utils.load_models_from_py" title="fitspy.utils.load_models_from_py"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_models_from_py()</span></code></a>.
+<em>(See example in</em> <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/ex_gui_users_defined_models.py">ex_gui_users_defined_models.py</a> <em>)</em></p>
+<p>For recurrent use, the user-defined models can be defined in files named <code class="code docutils literal notranslate"><span class="pre">bkg_models.txt</span></code> or <code class="code docutils literal notranslate"><span class="pre">bkg_models.py</span></code> to put in <code class="code docutils literal notranslate"><span class="pre">%HOMEUSER%/Fitspy</span></code>.</p>
+<p>Note that in the examples given above, the resulting <code class="code docutils literal notranslate"><span class="pre">Linear_1</span></code>, <code class="code docutils literal notranslate"><span class="pre">Linear_2</span></code> models yield identical results to those obtained from the predefined <code class="code docutils literal notranslate"><span class="pre">Linear</span></code> model, when converged.
 The same for <code class="code docutils literal notranslate"><span class="pre">Exponential_1</span></code>, <code class="code docutils literal notranslate"><span class="pre">Exponential_2</span></code> and <code class="code docutils literal notranslate"><span class="pre">Exponential</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Unlike predefined models, user-defined models do not have ‘guess’ parameter fitting functions.
-All parameters are initialized to 1.
-This can lead to poor convergence of the background.
-To prevent this, it is advisable to review the model parameters using appropriate multiplier coefficients, considering that the initial values for the parameters are 1.</p>
-<p>Example: for a x-range in [0, 1000], the Exponential functions should be rather defined as <code class="code docutils literal notranslate"><span class="pre">ampli</span> <span class="pre">*</span> <span class="pre">np.exp(-coef</span> <span class="pre">*</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">1000)</span></code></p>
+<p>Unlike predefined models, user-defined models do not have associated functions to determine their initial values for the fitting.</p>
+<p><strong>All the parameters are initialized to 1.</strong></p>
+<p>This can lead to wrong convergence.
+To prevent this, it is advisable to review the model parameters using appropriate multiplier coefficients.</p>
+<p>Example: for a x-range in [0, 1000], the Exponential functions should be rather defined as <code class="code docutils literal notranslate"><span class="pre">ampli</span> <span class="pre">*</span> <span class="pre">exp(-coef</span> <span class="pre">*</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">1000)</span></code></p>
 </div>
 </section>
 </section>

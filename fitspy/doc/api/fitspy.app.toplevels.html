@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.app.toplevels module &mdash; Fitspy 2024.1 documentation</title>
+  <title>fitspy.app.toplevels module &mdash; Fitspy 2024.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.1
+                2024.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,8 +55,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide/dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul class="current">
@@ -122,15 +131,15 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_entry_models_labels">
-<span class="sig-name descname"><span class="pre">add_entry_models_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_entry_models_labels" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_entry_peak_labels">
+<span class="sig-name descname"><span class="pre">add_entry_peak_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_entry_peak_labels" title="Permalink to this definition"></a></dt>
 <dd><p>Add Tk.Entry at (row, col) linked to models_labels[i]</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_combobox_models">
-<span class="sig-name descname"><span class="pre">add_combobox_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_combobox_models" title="Permalink to this definition"></a></dt>
-<dd><p>Add Tk.Combobox at (row, col) linked to models[i]</p>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_combobox_peak_model">
+<span class="sig-name descname"><span class="pre">add_combobox_peak_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_combobox_peak_model" title="Permalink to this definition"></a></dt>
+<dd><p>Add Tk.Combobox at (row, col) linked to peak_models[i]</p>
 </dd></dl>
 
 <dl class="py method">
@@ -172,7 +181,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.delete_models">
 <span class="sig-name descname"><span class="pre">delete_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.delete_models" title="Permalink to this definition"></a></dt>
-<dd><p>Delete selected models</p>
+<dd><p>Delete selected (peak) models</p>
 </dd></dl>
 
 <dl class="py method">
@@ -205,6 +214,13 @@
 <dd><p>Show/Hide the TopLevel frame</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ProgressBar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.toplevels.</span></span><span class="sig-name descname"><span class="pre">ProgressBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ProgressBar" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to create a progress bar</p>
 </dd></dl>
 
 <dl class="py class">

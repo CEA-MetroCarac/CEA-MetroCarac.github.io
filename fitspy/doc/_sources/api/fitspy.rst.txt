@@ -21,6 +21,7 @@ Submodules
    fitspy.spectra_map
    fitspy.spectrum
    fitspy.utils
+   fitspy.utils_mp
 
 Module contents
 ---------------

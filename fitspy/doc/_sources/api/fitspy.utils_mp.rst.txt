@@ -1,0 +1,9 @@
+fitspy.utils\_mp module
+=======================
+
+.. automodule:: fitspy.utils_mp
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

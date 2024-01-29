@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Fitspy 2024.1 documentation</title>
+  <title>Index &mdash; Fitspy 2024.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -36,7 +36,7 @@
               <img src="_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.1
+                2024.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -59,6 +59,10 @@
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release_notes/release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dev_guide/dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul>
@@ -125,7 +129,7 @@
 </li>
       <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_combobox_bkg_model">add_combobox_bkg_model() (fitspy.app.toplevels.TabView method)</a>
 </li>
-      <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_combobox_models">add_combobox_models() (fitspy.app.toplevels.TabView method)</a>
+      <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_combobox_peak_model">add_combobox_peak_model() (fitspy.app.toplevels.TabView method)</a>
 </li>
       <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_entry">add_entry() (fitspy.app.toplevels.TabView method)</a>
 
@@ -133,7 +137,7 @@
         <li><a href="api/fitspy.app.utils.html#fitspy.app.utils.add_entry">(in module fitspy.app.utils)</a>
 </li>
       </ul></li>
-      <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_entry_models_labels">add_entry_models_labels() (fitspy.app.toplevels.TabView method)</a>
+      <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_entry_peak_labels">add_entry_peak_labels() (fitspy.app.toplevels.TabView method)</a>
 </li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.add_items">add_items() (fitspy.app.callbacks.Callbacks method)</a>
 
@@ -144,11 +148,9 @@
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.add_items_from_dir">add_items_from_dir() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
       <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_model">add_model() (fitspy.app.toplevels.TabView method)</a>
-
-      <ul>
-        <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.add_model">(fitspy.spectrum.Spectrum method)</a>
 </li>
-      </ul></li>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.add_peak_model">add_peak_model() (fitspy.spectrum.Spectrum method)</a>
+</li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.add_peaks_point">add_peaks_point() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
       <li><a href="api/fitspy.baseline.html#fitspy.baseline.BaseLine.add_point">add_point() (fitspy.baseline.BaseLine method)</a>
@@ -163,10 +165,10 @@
         <li><a href="api/fitspy.spectra.html#fitspy.spectra.Spectra.apply_model">(fitspy.spectra.Spectra method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.apply_range_to_all">apply_range_to_all() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.app.utils.html#fitspy.app.utils.ToggleFrame.apply_state">apply_state() (fitspy.app.utils.ToggleFrame method)</a>
 </li>
       <li><a href="api/fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.arr">arr (fitspy.spectra_map.SpectraMap attribute)</a>
@@ -175,11 +177,19 @@
 </li>
       <li><a href="api/fitspy.baseline.html#fitspy.baseline.BaseLine.attach_points">attach_points() (fitspy.baseline.BaseLine method)</a>
 </li>
-      <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.attached">attached (fitspy.app.gui.GUI attribute)</a>
+      <li><a href="api/fitspy.baseline.html#fitspy.baseline.BaseLine.attached">attached (fitspy.baseline.BaseLine attribute)</a>
 </li>
       <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.attractor_position">attractor_position (fitspy.app.gui.GUI attribute)</a>
 </li>
       <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.attractors">attractors (fitspy.app.gui.GUI attribute)</a>
+
+      <ul>
+        <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.attractors">(fitspy.spectrum.Spectrum attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.attractors_calculation">attractors_calculation() (fitspy.spectrum.Spectrum method)</a>
+</li>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.attractors_params">attractors_params (fitspy.spectrum.Spectrum attribute)</a>
 </li>
       <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.attractors_settings">attractors_settings (fitspy.app.gui.GUI attribute)</a>
 </li>
@@ -219,13 +229,19 @@
 </li>
       <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.baseline">baseline (fitspy.spectrum.Spectrum attribute)</a>
 </li>
-      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.baseline_history">baseline_history (fitspy.spectrum.Spectrum attribute)</a>
+      <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.baseline_attached">baseline_attached (fitspy.app.gui.GUI attribute)</a>
 </li>
-      <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.baseline_mode">baseline_mode (fitspy.app.gui.GUI attribute)</a>
+      <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.baseline_distance">baseline_distance (fitspy.app.gui.GUI attribute)</a>
+</li>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.baseline_history">baseline_history (fitspy.spectrum.Spectrum attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.baseline_mode">baseline_mode (fitspy.app.gui.GUI attribute)</a>
+</li>
       <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.baseline_order_max">baseline_order_max (fitspy.app.gui.GUI attribute)</a>
+</li>
+      <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.baseline_sigma">baseline_sigma (fitspy.app.gui.GUI attribute)</a>
 </li>
       <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.bkg_model">bkg_model (fitspy.spectrum.Spectrum attribute)</a>
 </li>
@@ -255,10 +271,10 @@
 </li>
       <li><a href="api/fitspy.utils.html#fitspy.utils.closest_index">closest_index() (in module fitspy.utils)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.utils.html#fitspy.utils.closest_item">closest_item() (in module fitspy.utils)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.colorize_from_fit_status">colorize_from_fit_status() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
       <li><a href="api/fitspy.app.utils.html#fitspy.app.utils.convert_dict_from_tk_variables">convert_dict_from_tk_variables() (in module fitspy.app.utils)</a>
@@ -271,7 +287,9 @@
         <li><a href="api/fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.create_map">(fitspy.spectra_map.SpectraMap method)</a>
 </li>
       </ul></li>
-      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.create_model">create_model() (fitspy.spectrum.Spectrum static method)</a>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.create_model">create_model() (in module fitspy.spectrum)</a>
+</li>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.create_peak_model">create_peak_model() (fitspy.spectrum.Spectrum static method)</a>
 </li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.current_spectrum">current_spectrum (fitspy.app.callbacks.Callbacks attribute)</a>
 </li>
@@ -283,7 +301,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.del_baseline_point">del_baseline_point() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
-      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.del_model">del_model() (fitspy.spectrum.Spectrum method)</a>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.del_peak_model">del_peak_model() (fitspy.spectrum.Spectrum method)</a>
 </li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.del_peaks_point">del_peaks_point() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
@@ -307,12 +325,8 @@
 </li>
       <li><a href="api/fitspy.app.utils.html#fitspy.app.utils.ToggleFrame.disable">disable() (fitspy.app.utils.ToggleFrame method)</a>
 </li>
-      <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.distance">distance (fitspy.app.gui.GUI attribute)</a>
-
-      <ul>
-        <li><a href="api/fitspy.baseline.html#fitspy.baseline.BaseLine.distance">(fitspy.baseline.BaseLine attribute)</a>
+      <li><a href="api/fitspy.baseline.html#fitspy.baseline.BaseLine.distance">distance (fitspy.baseline.BaseLine attribute)</a>
 </li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -354,14 +368,14 @@
       <ul>
         <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.fit">(fitspy.spectrum.Spectrum method)</a>
 </li>
-        <li><a href="api/fitspy.spectra.html#fitspy.spectra.fit">(in module fitspy.spectra)</a>
+        <li><a href="api/fitspy.utils_mp.html#fitspy.utils_mp.fit">(in module fitspy.utils_mp)</a>
 </li>
       </ul></li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.fit_all">fit_all() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
       <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.fit_method">fit_method (fitspy.spectrum.Spectrum attribute)</a>
 </li>
-      <li><a href="api/fitspy.spectra.html#fitspy.spectra.fit_mp">fit_mp() (in module fitspy.spectra)</a>
+      <li><a href="api/fitspy.utils_mp.html#fitspy.utils_mp.fit_mp">fit_mp() (in module fitspy.utils_mp)</a>
 </li>
       <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.fit_negative">fit_negative (fitspy.spectrum.Spectrum attribute)</a>
 </li>
@@ -374,13 +388,6 @@
 
       <ul>
         <li><a href="api/fitspy.html#module-fitspy">module</a>
-</li>
-      </ul></li>
-      <li>
-    fitspy.__init__0
-
-      <ul>
-        <li><a href="api/fitspy.__init__0.html#module-fitspy.__init__0">module</a>
 </li>
       </ul></li>
       <li>
@@ -404,8 +411,6 @@
         <li><a href="api/fitspy.app.gui.html#module-fitspy.app.gui">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     fitspy.app.toplevels
 
@@ -413,6 +418,8 @@
         <li><a href="api/fitspy.app.toplevels.html#module-fitspy.app.toplevels">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     fitspy.app.utils
 
@@ -460,6 +467,13 @@
 
       <ul>
         <li><a href="api/fitspy.utils.html#module-fitspy.utils">module</a>
+</li>
+      </ul></li>
+      <li>
+    fitspy.utils_mp
+
+      <ul>
+        <li><a href="api/fitspy.utils_mp.html#module-fitspy.utils_mp">module</a>
 </li>
       </ul></li>
       <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.fitspy_launcher">fitspy_launcher() (in module fitspy.app.gui)</a>
@@ -528,11 +542,15 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.img">img (fitspy.spectra_map.SpectraMap attribute)</a>
 </li>
+      <li><a href="api/fitspy.utils_mp.html#fitspy.utils_mp.initializer">initializer() (in module fitspy.utils_mp)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.intensity">intensity (fitspy.spectra_map.SpectraMap attribute)</a>
 </li>
       <li><a href="api/fitspy.app.utils.html#fitspy.app.utils.interactive_entry">interactive_entry() (in module fitspy.app.utils)</a>
+</li>
+      <li><a href="api/fitspy.baseline.html#fitspy.baseline.BaseLine.is_subtracted">is_subtracted (fitspy.baseline.BaseLine attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -558,10 +576,10 @@
         <li><a href="api/fitspy.baseline.html#fitspy.baseline.BaseLine.load_baseline">(fitspy.baseline.BaseLine method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.utils.html#fitspy.utils.load_from_json">load_from_json() (in module fitspy.utils)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.load_map">load_map() (fitspy.spectra_map.SpectraMap static method)</a>
 </li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.load_model">load_model() (fitspy.app.callbacks.Callbacks method)</a>
@@ -570,7 +588,13 @@
         <li><a href="api/fitspy.spectra.html#fitspy.spectra.Spectra.load_model">(fitspy.spectra.Spectra static method)</a>
 </li>
       </ul></li>
+      <li><a href="api/fitspy.utils.html#fitspy.utils.load_models_from_py">load_models_from_py() (in module fitspy.utils)</a>
+</li>
+      <li><a href="api/fitspy.utils.html#fitspy.utils.load_models_from_txt">load_models_from_txt() (in module fitspy.utils)</a>
+</li>
       <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.load_profile">load_profile() (fitspy.spectrum.Spectrum method)</a>
+</li>
+      <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.load_user_model">load_user_model() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
       <li><a href="api/fitspy.models.html#fitspy.models.lorentzian">lorentzian() (in module fitspy.models)</a>
 </li>
@@ -594,19 +618,11 @@
       </ul></li>
       <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.model_has_changed">model_has_changed() (fitspy.app.toplevels.TabView method)</a>
 </li>
-      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.models">models (fitspy.spectrum.Spectrum attribute)</a>
-</li>
-      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.models_index">models_index (fitspy.spectrum.Spectrum attribute)</a>
-</li>
-      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.models_labels">models_labels (fitspy.spectrum.Spectrum attribute)</a>
-</li>
       <li>
     module
 
       <ul>
         <li><a href="api/fitspy.html#module-fitspy">fitspy</a>
-</li>
-        <li><a href="api/fitspy.__init__0.html#module-fitspy.__init__0">fitspy.__init__0</a>
 </li>
         <li><a href="api/fitspy.app.html#module-fitspy.app">fitspy.app</a>
 </li>
@@ -629,6 +645,8 @@
         <li><a href="api/fitspy.spectrum.html#module-fitspy.spectrum">fitspy.spectrum</a>
 </li>
         <li><a href="api/fitspy.utils.html#module-fitspy.utils">fitspy.utils</a>
+</li>
+        <li><a href="api/fitspy.utils_mp.html#module-fitspy.utils_mp">fitspy.utils_mp</a>
 </li>
       </ul></li>
   </ul></td>
@@ -685,11 +703,11 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.param_has_changed">param_has_changed() (fitspy.app.toplevels.TabView method)</a>
 </li>
-      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.peaks">peaks (fitspy.spectrum.Spectrum attribute)</a>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.peak_index">peak_index (fitspy.spectrum.Spectrum attribute)</a>
 </li>
-      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.peaks_calculation">peaks_calculation() (fitspy.spectrum.Spectrum method)</a>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.peak_labels">peak_labels (fitspy.spectrum.Spectrum attribute)</a>
 </li>
-      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.peaks_params">peaks_params (fitspy.spectrum.Spectrum attribute)</a>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.peak_models">peak_models (fitspy.spectrum.Spectrum attribute)</a>
 </li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.plot">plot() (fitspy.app.callbacks.Callbacks method)</a>
 
@@ -699,10 +717,10 @@
         <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.plot">(fitspy.spectrum.Spectrum method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.plot_map">plot_map() (fitspy.spectra_map.SpectraMap method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.plot_map_update">plot_map_update() (fitspy.spectra_map.SpectraMap method)</a>
 </li>
       <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.plot_residual">plot_residual() (fitspy.spectrum.Spectrum method)</a>
@@ -710,6 +728,12 @@
       <li><a href="api/fitspy.baseline.html#fitspy.baseline.BaseLine.points">points (fitspy.baseline.BaseLine attribute)</a>
 </li>
       <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.preprocess">preprocess() (fitspy.spectrum.Spectrum method)</a>
+</li>
+      <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.ProgressBar">ProgressBar (class in fitspy.app.toplevels)</a>
+</li>
+      <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.progressbar">progressbar (fitspy.app.gui.GUI attribute)</a>
+</li>
+      <li><a href="api/fitspy.spectra.html#fitspy.spectra.progressbar">progressbar() (in module fitspy.spectra)</a>
 </li>
       <li><a href="api/fitspy.models.html#fitspy.models.pseudovoigt">pseudovoigt() (in module fitspy.models)</a>
 </li>
@@ -773,6 +797,8 @@
         <li><a href="api/fitspy.spectra.html#fitspy.spectra.Spectra.save_figures">(fitspy.spectra.Spectra method)</a>
 </li>
       </ul></li>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.save_params">save_params() (fitspy.spectrum.Spectrum method)</a>
+</li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.save_results">save_results() (fitspy.app.callbacks.Callbacks method)</a>
 
       <ul>
@@ -782,6 +808,8 @@
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.save_selection">save_selection() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
       <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.save_settings">save_settings() (fitspy.app.gui.GUI method)</a>
+</li>
+      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.save_stats">save_stats() (fitspy.spectrum.Spectrum method)</a>
 </li>
       <li><a href="api/fitspy.utils.html#fitspy.utils.save_to_json">save_to_json() (in module fitspy.utils)</a>
 </li>
@@ -795,18 +823,24 @@
 </li>
       <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.set_attributes">set_attributes() (fitspy.spectrum.Spectrum method)</a>
 </li>
-      <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.set_bkg_model">set_bkg_model() (fitspy.spectrum.Spectrum method)</a>
+      <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.set_baseline">set_baseline() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
+      <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.set_bkg_model">set_bkg_model() (fitspy.app.callbacks.Callbacks method)</a>
+
+      <ul>
+        <li><a href="api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.set_bkg_model">(fitspy.spectrum.Spectrum method)</a>
+</li>
+      </ul></li>
       <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.set_header">set_header() (fitspy.app.toplevels.TabView method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.app.utils.html#fitspy.app.utils.FilesSelector.set_options">set_options() (fitspy.app.utils.FilesSelector method)</a>
 </li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.set_range">set_range() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.set_spectrum_range">set_spectrum_range() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.Settings">Settings (class in fitspy.app.toplevels)</a>
 </li>
       <li><a href="api/fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.shape_map">shape_map (fitspy.spectra_map.SpectraMap attribute)</a>
@@ -823,12 +857,8 @@
 </li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.show_plot">show_plot (fitspy.app.callbacks.Callbacks attribute)</a>
 </li>
-      <li><a href="api/fitspy.app.gui.html#fitspy.app.gui.GUI.sigma">sigma (fitspy.app.gui.GUI attribute)</a>
-
-      <ul>
-        <li><a href="api/fitspy.baseline.html#fitspy.baseline.BaseLine.sigma">(fitspy.baseline.BaseLine attribute)</a>
+      <li><a href="api/fitspy.baseline.html#fitspy.baseline.BaseLine.sigma">sigma (fitspy.baseline.BaseLine attribute)</a>
 </li>
-      </ul></li>
       <li><a href="api/fitspy.spectra_map.html#fitspy.spectra_map.SpectraMap.slider">slider (fitspy.spectra_map.SpectraMap attribute)</a>
 </li>
       <li><a href="api/fitspy.spectra.html#fitspy.spectra.Spectra">Spectra (class in fitspy.spectra)</a>
@@ -893,13 +923,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_attractors_settings">update_attractors_settings() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
+      <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_baseline">update_baseline() (fitspy.app.callbacks.Callbacks method)</a>
+</li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_figure_settings">update_figure_settings() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_fit_settings">update_fit_settings() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
       <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_markers">update_markers() (fitspy.app.callbacks.Callbacks method)</a>
-</li>
-      <li><a href="api/fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_peaks">update_peaks() (fitspy.app.callbacks.Callbacks method)</a>
 </li>
       <li><a href="api/fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.update_stats">update_stats() (fitspy.app.toplevels.TabView method)</a>
 </li>

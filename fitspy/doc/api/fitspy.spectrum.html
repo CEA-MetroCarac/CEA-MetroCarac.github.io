@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.spectrum module &mdash; Fitspy 2024.1 documentation</title>
+  <title>fitspy.spectrum module &mdash; Fitspy 2024.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.1
+                2024.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,8 +55,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide/dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul class="current">
@@ -64,13 +73,13 @@
 <li class="toctree-l2 current"><a class="reference internal" href="fitspy.html">fitspy package</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="fitspy.html#subpackages">Subpackages</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="fitspy.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="fitspy.__init__0.html">fitspy.__init__0 module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.baseline.html">fitspy.baseline module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.models.html">fitspy.models module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.spectra.html">fitspy.spectra module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.spectra_map.html">fitspy.spectra_map module</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">fitspy.spectrum module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.utils.html">fitspy.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.utils_mp.html">fitspy.utils_mp module</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.html#module-fitspy">Module contents</a></li>
@@ -109,6 +118,12 @@
   <section id="module-fitspy.spectrum">
 <span id="fitspy-spectrum-module"></span><h1>fitspy.spectrum module<a class="headerlink" href="#module-fitspy.spectrum" title="Permalink to this heading"></a></h1>
 <p>Class dedicated to spectrum processing</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fitspy.spectrum.create_model">
+<span class="sig-prename descclassname"><span class="pre">fitspy.spectrum.</span></span><span class="sig-name descname"><span class="pre">create_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.create_model" title="Permalink to this definition"></a></dt>
+<dd><p>Return a ‘model’ (peak_model or ‘bkg_model’) object</p>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.spectrum.</span></span><span class="sig-name descname"><span class="pre">Spectrum</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum" title="Permalink to this definition"></a></dt>
@@ -182,9 +197,9 @@ normalization</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.peaks">
-<span class="sig-name descname"><span class="pre">peaks</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.peaks" title="Permalink to this definition"></a></dt>
-<dd><p>Indices of peaks</p>
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.attractors">
+<span class="sig-name descname"><span class="pre">attractors</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.attractors" title="Permalink to this definition"></a></dt>
+<dd><p>Indices of attractors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list of ints</p>
@@ -193,10 +208,10 @@ normalization</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.peaks_params">
-<span class="sig-name descname"><span class="pre">peaks_params</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.peaks_params" title="Permalink to this definition"></a></dt>
-<dd><p>Dictionary passed to scipy.signal.find_peaks for peaks determination.
-Could be a dictionary with Tkinter.Variable as values.</p>
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.attractors_params">
+<span class="sig-name descname"><span class="pre">attractors_params</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.attractors_params" title="Permalink to this definition"></a></dt>
+<dd><p>Dictionary passed to scipy.signal.find_peaks for attractors
+determination. Could be a dictionary with Tkinter.Variable as values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
@@ -205,34 +220,25 @@ Could be a dictionary with Tkinter.Variable as values.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.models">
-<span class="sig-name descname"><span class="pre">models</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.models" title="Permalink to this definition"></a></dt>
-<dd><p>List of the lmfit models</p>
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.baseline">
+<span class="sig-name descname"><span class="pre">baseline</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.baseline" title="Permalink to this definition"></a></dt>
+<dd><p>Baseline associated to the spectrum (to subract)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of lmfit.Model</p>
+<dd class="field-odd"><p>Baseline object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.models_labels">
-<span class="sig-name descname"><span class="pre">models_labels</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.models_labels" title="Permalink to this definition"></a></dt>
-<dd><p>List of labels associated to the models. Default is [‘1’, ‘2’, ‘3’, …]</p>
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.baseline_history">
+<span class="sig-name descname"><span class="pre">baseline_history</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.baseline_history" title="Permalink to this definition"></a></dt>
+<dd><p>Concatenation list of all baselines applied to the spectrum. Each item
+of the list consist in the max order of the baseline polynom and the
+(x, y) baseline points coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.models_index">
-<span class="sig-name descname"><span class="pre">models_index</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.models_index" title="Permalink to this definition"></a></dt>
-<dd><p>Counter used for models indexing when creating a lmfit.Model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>itertools.count</p>
+<dd class="field-odd"><p>list of list - DEPRECATED from v2024.2</p>
 </dd>
 </dl>
 </dd></dl>
@@ -246,6 +252,39 @@ Could be a dictionary with Tkinter.Variable as values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>lmfit.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.peak_models">
+<span class="sig-name descname"><span class="pre">peak_models</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.peak_models" title="Permalink to this definition"></a></dt>
+<dd><p>List of peak models</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of lmfit.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.peak_labels">
+<span class="sig-name descname"><span class="pre">peak_labels</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.peak_labels" title="Permalink to this definition"></a></dt>
+<dd><p>List of labels associated to the peak models. Default is [‘1’, ‘2’, …]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.peak_index">
+<span class="sig-name descname"><span class="pre">peak_index</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.peak_index" title="Permalink to this definition"></a></dt>
+<dd><p>Counter used for peak models indexing when creating a lmfit.Model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>itertools.count</p>
 </dd>
 </dl>
 </dd></dl>
@@ -290,7 +329,11 @@ Default is 200.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.result_fit">
 <span class="sig-name descname"><span class="pre">result_fit</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.result_fit" title="Permalink to this definition"></a></dt>
-<dd><p>Object resulting from lmfit fitting</p>
+<dd><p>Object resulting from lmfit fitting. Default value is an ‘empty’
+function that enables to address a ‘result_fit.success’ status.
+In Multithreading, due to the potential non-picklable objects that the
+ModelResult may contain, result_fit is limited to success (bool) and
+fit_report (str).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>lmfit.ModelResult</p>
@@ -298,33 +341,9 @@ Default is 200.</p>
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.baseline">
-<span class="sig-name descname"><span class="pre">baseline</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.baseline" title="Permalink to this definition"></a></dt>
-<dd><p>Baseline associated to the spectrum (to be removed)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Baseline object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.baseline_history">
-<span class="sig-name descname"><span class="pre">baseline_history</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.baseline_history" title="Permalink to this definition"></a></dt>
-<dd><p>Concatenation list of all baselines applied to the spectrum. Each item
-of the list consist in the max order of the baseline polynome and the
-(x, y) baseline points coordinates</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of list</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.set_attributes">
-<span class="sig-name descname"><span class="pre">set_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict_attrs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fit_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.set_attributes" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fit_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.set_attributes" title="Permalink to this definition"></a></dt>
 <dd><p>Set attributes from a dictionary (obtained from a .json reloading)</p>
 </dd></dl>
 
@@ -350,35 +369,35 @@ has been correctly defined (y_min value ~ 0)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.peaks_calculation">
-<span class="sig-name descname"><span class="pre">peaks_calculation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.peaks_calculation" title="Permalink to this definition"></a></dt>
-<dd><p>Calculate peaks positions ordered wrt decreasing intensities</p>
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.attractors_calculation">
+<span class="sig-name descname"><span class="pre">attractors_calculation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.attractors_calculation" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate attractors positions ordered wrt decreasing intensities</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.create_model">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ampli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm_l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm_r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.create_model" title="Permalink to this definition"></a></dt>
-<dd><p>Create a ‘lmfit’ model</p>
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.create_peak_model">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_peak_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ampli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm_l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm_r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.create_peak_model" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ‘lmfit’ model associated to one peak</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> (<em>int</em>) – Index used to create the model ‘prefix’</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – Index used to create the ‘prefix’ associated to the peak model</p></li>
 <li><p><strong>model_name</strong> (<em>str</em>) – Model name among ‘Gaussian’, ‘Lorentzian’, ‘PseudoVoigt’,
 ‘GaussianAsym’, ‘LorentzianAsym’</p></li>
-<li><p><strong>x0</strong> (<em>floats</em>) – Parameters associated to the model</p></li>
-<li><p><strong>ampli</strong> (<em>floats</em>) – Parameters associated to the model</p></li>
-<li><p><strong>fwhm</strong> (<em>floats</em><em>, </em><em>optional</em>) – Optional parameters passed to the model.
-Default values are 2.</p></li>
-<li><p><strong>fwhm_l</strong> (<em>floats</em><em>, </em><em>optional</em>) – Optional parameters passed to the model.
-Default values are 2.</p></li>
-<li><p><strong>fwhm_r</strong> (<em>floats</em><em>, </em><em>optional</em>) – Optional parameters passed to the model.
-Default values are 2.</p></li>
+<li><p><strong>x0</strong> (<em>float</em>) – Position of the peak model</p></li>
+<li><p><strong>ampli</strong> (<em>float</em>) – Amplitude of the peak model.</p></li>
+<li><p><strong>fwhm</strong> (<em>floats</em><em>, </em><em>optional</em>) – Optional parameters passed to the model related to the Full Width
+at Half Maximum. Default values are 2.</p></li>
+<li><p><strong>fwhm_l</strong> (<em>floats</em><em>, </em><em>optional</em>) – Optional parameters passed to the model related to the Full Width
+at Half Maximum. Default values are 2.</p></li>
+<li><p><strong>fwhm_r</strong> (<em>floats</em><em>, </em><em>optional</em>) – Optional parameters passed to the model related to the Full Width
+at Half Maximum. Default values are 2.</p></li>
 <li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – Optional parameter passed to the ‘PseudoVoigt’ model.
 Default values is 0.5.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>model</strong></p>
+<dd class="field-even"><p><strong>peak_model</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>lmfit.Model</p>
@@ -393,24 +412,34 @@ Default values is 0.5.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.add_model">
-<span class="sig-name descname"><span class="pre">add_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.add_model" title="Permalink to this definition"></a></dt>
-<dd><p>Add model (=peak) passing model_name and indice position or parameters</p>
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.add_peak_model">
+<span class="sig-name descname"><span class="pre">add_peak_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ampli</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm_l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm_r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.add_peak_model" title="Permalink to this definition"></a></dt>
+<dd><p>Add a peak model passing model_name and indice position or parameters</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ind</strong> (<em>int</em>) – index related to x-position for x0 peak localization</p></li>
 <li><p><strong>model_name</strong> (<em>str</em>) – Model name among ‘Gaussian’, ‘Lorentzian’, ‘GaussianAsym’,
 ‘LorentzianAsym’</p></li>
+<li><p><strong>x0</strong> (<em>float</em>) – Position of the peak model</p></li>
+<li><p><strong>ampli</strong> (<em>float</em><em>, </em><em>Optional</em>) – Amplitude of the peak model. If None, consider the amplitude of the
+spectrum profile at position x0</p></li>
+<li><p><strong>fwhm</strong> (<em>floats</em><em>, </em><em>optional</em>) – Optional parameters passed to the model related to the Full Width
+at Half Maximum. Default values are x-step size (x[1]-x[0]).</p></li>
+<li><p><strong>fwhm_l</strong> (<em>floats</em><em>, </em><em>optional</em>) – Optional parameters passed to the model related to the Full Width
+at Half Maximum. Default values are x-step size (x[1]-x[0]).</p></li>
+<li><p><strong>fwhm_r</strong> (<em>floats</em><em>, </em><em>optional</em>) – Optional parameters passed to the model related to the Full Width
+at Half Maximum. Default values are x-step size (x[1]-x[0]).</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – Optional parameter passed to the ‘PseudoVoigt’ model.
+Default values is 0.5.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.del_model">
-<span class="sig-name descname"><span class="pre">del_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.del_model" title="Permalink to this definition"></a></dt>
-<dd><p>Delete the ith-model</p>
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.del_peak_model">
+<span class="sig-name descname"><span class="pre">del_peak_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.del_peak_model" title="Permalink to this definition"></a></dt>
+<dd><p>Delete the ith-peak model</p>
 </dd></dl>
 
 <dl class="py method">
@@ -440,7 +469,7 @@ Ex: Model(‘LorentzianAsym’…) -&gt; ‘lorentzian_asym’</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_ite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.fit" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_ite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fit the Spectrum models</p>
 </dd></dl>
 
@@ -452,8 +481,9 @@ Ex: Model(‘LorentzianAsym’…) -&gt; ‘lorentzian_asym’</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.subtract_baseline">
-<span class="sig-name descname"><span class="pre">subtract_baseline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attached</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_to_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.subtract_baseline" title="Permalink to this definition"></a></dt>
-<dd><p>Subtract the baseline to the spectrum</p>
+<span class="sig-name descname"><span class="pre">subtract_baseline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.subtract_baseline" title="Permalink to this definition"></a></dt>
+<dd><p>Subtract the baseline to the spectrum
+if this has not been done previously</p>
 </dd></dl>
 
 <dl class="py method">
@@ -465,7 +495,7 @@ Ex: Model(‘LorentzianAsym’…) -&gt; ‘lorentzian_asym’</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_peaks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_negative_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.plot" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_attractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_negative_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.plot" title="Permalink to this definition"></a></dt>
 <dd><p>Plot the spectrum with the fitted models and Return the profiles</p>
 </dd></dl>
 
@@ -476,9 +506,21 @@ Ex: Model(‘LorentzianAsym’…) -&gt; ‘lorentzian_asym’</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.save_params">
+<span class="sig-name descname"><span class="pre">save_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirname_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.save_params" title="Permalink to this definition"></a></dt>
+<dd><p>Save fit parameters in a ‘.csv’ file located in ‘dirname_params’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.save_stats">
+<span class="sig-name descname"><span class="pre">save_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirname_stats</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.save_stats" title="Permalink to this definition"></a></dt>
+<dd><p>Save statistics in a ‘.txt’ file located in ‘dirname_stats’</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.save">
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.save" title="Permalink to this definition"></a></dt>
-<dd><p>Return a ‘dict_attrs’ dictionary from the spectrum attributes and
+<dd><p>Return a ‘model_dict’ dictionary from the spectrum attributes and
 Save it if a ‘fname_json’ is given</p>
 </dd></dl>
 

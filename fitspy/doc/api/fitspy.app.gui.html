@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.app.gui module &mdash; Fitspy 2024.1 documentation</title>
+  <title>fitspy.app.gui module &mdash; Fitspy 2024.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.1
+                2024.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,8 +55,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide/dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul class="current">
@@ -176,6 +185,17 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.progressbar">
+<span class="sig-name descname"><span class="pre">progressbar</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.progressbar" title="Permalink to this definition"></a></dt>
+<dd><p>Tkinter.TopLevel derivative object with progression bar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ProgressBar obj</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">range_min,</span> <span class="pre">range_max</span></span></dt>
 <dd><p>Range associated to the spectrum support</p>
@@ -220,8 +240,8 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.gui.GUI.attached">
-<span class="sig-name descname"><span class="pre">attached</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.attached" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.baseline_attached">
+<span class="sig-name descname"><span class="pre">baseline_attached</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.baseline_attached" title="Permalink to this definition"></a></dt>
 <dd><p>Activation keyword for baseline points attachment to the spectra</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -231,8 +251,8 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.gui.GUI.sigma">
-<span class="sig-name descname"><span class="pre">sigma</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.sigma" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.baseline_sigma">
+<span class="sig-name descname"><span class="pre">baseline_sigma</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.baseline_sigma" title="Permalink to this definition"></a></dt>
 <dd><p>Smoothing gaussian coefficient applied to the spectra when calculating
 the attached baseline points</p>
 <dl class="field-list simple">
@@ -243,8 +263,8 @@ the attached baseline points</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.gui.GUI.distance">
-<span class="sig-name descname"><span class="pre">distance</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.distance" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.baseline_distance">
+<span class="sig-name descname"><span class="pre">baseline_distance</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.baseline_distance" title="Permalink to this definition"></a></dt>
 <dd><p>Minimum distance used by ‘spectrum.auto_baseline’</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>

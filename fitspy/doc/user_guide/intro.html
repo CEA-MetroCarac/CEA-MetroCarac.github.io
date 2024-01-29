@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Introduction &mdash; Fitspy 2024.1 documentation</title>
+  <title>Introduction &mdash; Fitspy 2024.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.1
+                2024.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -61,8 +61,17 @@
 <li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide/dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul>
@@ -97,10 +106,11 @@
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
 <section id="what-is-fitspy">
 <h2>What is Fitspy<a class="headerlink" href="#what-is-fitspy" title="Permalink to this heading"></a></h2>
-<p><cite>Fitspy</cite> is a dedicated tool for spectral fitting — <strong>and only for spectral fitting</strong> — with the following characteristics or functionalities:</p>
+<p><cite>Fitspy</cite> is a dedicated tool for spectral fitting — <strong>and only for spectral fitting</strong> — with the following characteristics:</p>
 <ul class="simple">
 <li><p><strong>Agnostic Nature</strong>: <cite>Fitspy</cite> is not tied to any specific physical quantity or database. It is designed to process spectra regardless of their x-support and y-intensity without requiring prior knowledge.</p></li>
 <li><p><strong>Python Implementation</strong>: <cite>Fitspy</cite> is coded in Python. As a result, spectra can be easily processed using Python scripts, catering to individuals with basic knowledge of the language.</p></li>
+<li><p><strong>User Models</strong>: <cite>Fitspy</cite> allows users to input their own models either in the form of literal expressions (for simple models) or through Python scripts (for more complex models).</p></li>
 <li><p><strong>2D Maps</strong>: <cite>Fitspy</cite> has been designed to handle spectra derived from 2D acquisitions. Note that the beyond “2D”, dimensions can encompass time or any other dimension. When dealing with 2D data, an interactive map in the <cite>Fitspy</cite> GUI allows users to locate and select spectra of interest easily.</p></li>
 <li><p><strong>Multiprocessing Capabilities</strong>: <cite>Fitspy</cite> enables spectral fit processing on multiple processors, enhancing efficiency.</p></li>
 <li><p><strong>Constrained Parameters</strong>: Leveraging the <a class="reference external" href="https://lmfit.github.io//lmfit-py/">lmfit</a> library, <cite>Fitspy</cite> empowers users to impose constraints on parameter ranges or establish constraints between parameters using literal expressions.</p></li>
@@ -115,14 +125,14 @@
 <span class="n">fitspy</span>
 </pre></div>
 </div>
-<p>For a full install:</p>
+<p>For a full install and examples and tests execution:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">CEA</span><span class="o">-</span><span class="n">MetroCarac</span><span class="o">/</span><span class="n">fitspy</span><span class="o">.</span><span class="n">git</span>
 <span class="n">fitspy</span>
 
 <span class="c1"># examples execution</span>
 <span class="n">cd</span> <span class="n">fitspy</span><span class="o">/</span><span class="n">examples</span>
-<span class="n">python</span> <span class="n">ex0_gui_auto_decomposition</span><span class="o">.</span><span class="n">py</span>
-<span class="n">python</span> <span class="n">ex1_gui_reload_model</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">ex_gui_auto_decomposition</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">ex_gui_reload_model</span><span class="o">.</span><span class="n">py</span>
 <span class="o">...</span>
 
 <span class="c1"># tests execution</span>

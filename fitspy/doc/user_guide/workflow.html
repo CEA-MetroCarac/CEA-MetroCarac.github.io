@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Workflow &mdash; Fitspy 2024.1 documentation</title>
+  <title>Workflow &mdash; Fitspy 2024.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="GUI description" href="gui.html" />
-    <link rel="prev" title="Peak models" href="peak_models.html" /> 
+    <link rel="prev" title="Fitting" href="fitting.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.1
+                2024.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,13 +53,23 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitting.html">Fitting</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Workflow</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#gui-mode">GUI Mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scripting-mode">Scripting Mode</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide/dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul>
@@ -103,7 +113,7 @@
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/workflow.png"><img alt="../_images/workflow.png" src="../_images/workflow.png" style="width: 300px;" /></a>
 </figure>
-<br><p>To create a <cite>Fitspy</cite> model:</p>
+<br><p><strong>To create a `Fitspy` model:</strong></p>
 <ul class="simple">
 <li><p>(<a class="reference external" href="gui.html?files_selection.html">1</a>) <strong>Select file(s) from</strong> <code class="code docutils literal notranslate"><span class="pre">Select</span> <span class="pre">Files</span></code>  <strong>or</strong>  <code class="code docutils literal notranslate"><span class="pre">Select</span> <span class="pre">Dir</span></code></p></li>
 <li><p>(<a class="reference external" href="gui.html?overall_settings.html">2</a>) <em>Define the</em> <code class="code docutils literal notranslate"><span class="pre">X-range</span></code></p></li>
@@ -117,8 +127,8 @@
 <li><p>(<a class="reference external" href="gui.html?fitting">11</a>) <em>Use</em> <code class="code docutils literal notranslate"><span class="pre">Parameters</span></code> <em>to see the results and to set bounds and constraints for a new fitting</em></p></li>
 <li><p>(<a class="reference external" href="gui.html?models">13</a>) <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Select</span></code> <em>or</em> <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">All</span></code> <em>the `Models` in a `.json` file (to be replayed later)</em></p></li>
 </ul>
-<p>(*) <strong>use left/right click on the figure to add/delete a baseline or a peak point</strong></p>
-<p>Once saved, a <cite>Fitspy</cite> model enables to recover a previous state (as-it) if all the spectra defined in the model can be loaded again as follows:</p>
+<p><strong>(*)</strong> <em>use left/right click on the figure to add/delete a baseline or a peak point</em></p>
+<p>Once saved, a <cite>Fitspy</cite> model enables to recover a previous state (as-it, if all the spectra defined in the model can be loaded again) as follows:</p>
 <ul class="simple">
 <li><p>(<a class="reference external" href="gui.html?fitting">14</a>) <code class="code docutils literal notranslate"><span class="pre">Reload</span></code> <em>the `Fitspy` model (`.json` file)</em></p></li>
 <li><p>(<a class="reference external" href="gui.html?fitting">10</a>) <code class="code docutils literal notranslate"><span class="pre">Fit</span></code> <strong>or</strong> <code class="code docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">All</span></code> <strong>the selected spectrum/spectra</strong></p></li>
@@ -141,63 +151,43 @@
 <span class="n">spectrum</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="p">()</span>
 
 <span class="c1"># load a spectrum to create the model</span>
-<span class="n">spectrum</span><span class="o">.</span><span class="n">load_profile</span><span class="p">(</span><span class="n">fname</span><span class="o">=...</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=...</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=...</span><span class="p">)</span>
+<span class="n">spectrum</span><span class="o">.</span><span class="n">load_profile</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\Users\...\H-000.txt&quot;</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">650</span><span class="p">)</span>
 
 <span class="c1"># baseline definition and subtract</span>
-<span class="n">spectrum</span><span class="o">.</span><span class="n">baseline</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">,],</span> <span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">]]</span> <span class="c1"># (x, y) baseline points coordinates</span>
+<span class="n">spectrum</span><span class="o">.</span><span class="n">baseline</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="p">[</span><span class="mi">52</span><span class="p">,</span> <span class="mi">28</span><span class="p">]]</span> <span class="c1"># (x, y) baseline points coordinates</span>
 <span class="n">spectrum</span><span class="o">.</span><span class="n">subtract_baseline</span><span class="p">()</span>
 
-<span class="c1"># model creation (based on 2 peaks) and saving</span>
-<span class="n">model0</span> <span class="o">=</span> <span class="n">spectrum</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Lorentzian&#39;</span><span class="p">,</span> <span class="n">x0</span><span class="o">=...</span><span class="p">,</span> <span class="n">ampli</span><span class="o">=...</span><span class="p">)</span>
-<span class="n">model1</span> <span class="o">=</span> <span class="n">spectrum</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Lorentzian&#39;</span><span class="p">,</span> <span class="n">x0</span><span class="o">=...</span><span class="p">,</span> <span class="n">ampli</span><span class="o">=...</span><span class="p">)</span>
-<span class="n">spectrum</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="n">model0</span><span class="p">,</span> <span class="n">model1</span><span class="p">]</span>
-<span class="n">spectrum</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fname_json</span><span class="o">=...</span><span class="p">)</span>
+<span class="c1"># peak models creation (based on 2 peaks)</span>
+<span class="n">spectrum</span><span class="o">.</span><span class="n">add_peak_model</span><span class="p">(</span><span class="s1">&#39;Lorentzian&#39;</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">322</span><span class="p">)</span>
+<span class="n">spectrum</span><span class="o">.</span><span class="n">add_peak_model</span><span class="p">(</span><span class="s1">&#39;Gaussian&#39;</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">402</span><span class="p">)</span>
+
+<span class="c1"># model saving</span>
+<span class="n">spectrum</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fname_json</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\Users\...\model.json&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For more details about functions and arguments to pass, see the <a class="reference external" href="../api/fitspy.html">API doc</a>.</p>
-<p>A <cite>Fitspy</cite> model (‘.json’ file) is applied to a data set as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fitspy.spectra</span> <span class="kn">import</span> <span class="n">Spectra</span>
+<p>Once defined, a <cite>Fitspy</cite> model saved in a ‘.json’ file can be applied to a more consequent data set as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">fitspy.spectra</span> <span class="kn">import</span> <span class="n">Spectra</span>
 <span class="kn">from</span> <span class="nn">fitspy.spectrum</span> <span class="kn">import</span> <span class="n">Spectrum</span>
 
-<span class="c1"># Fitspy model to be applied</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Spectra</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">fname_json</span><span class="o">=...</span><span class="p">)</span>
 
 <span class="c1"># list of the spectra pathnames to handle</span>
-<span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="n">dirname</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\...&quot;</span><span class="p">)</span>
+<span class="n">fnames</span> <span class="o">=</span> <span class="n">dirname</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.txt&#39;</span><span class="p">)</span>
 
+<span class="c1"># Spectra object creation</span>
 <span class="n">spectra</span> <span class="o">=</span> <span class="n">Spectra</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">:</span>
     <span class="n">spectrum</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="p">()</span>
     <span class="n">spectrum</span><span class="o">.</span><span class="n">load_profile</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
     <span class="n">spectra</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
 
-<span class="c1"># apply the model with fitting</span>
-<span class="n">spectra</span><span class="o">.</span><span class="n">apply_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ncpus</span><span class="o">=...</span><span class="p">)</span>
+<span class="c1"># Fitspy model loading and application</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Spectra</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">fname_json</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\Users\...\model.json&quot;</span><span class="p">)</span>
+<span class="n">spectra</span><span class="o">.</span><span class="n">apply_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ncpus</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
 <span class="c1"># save the calculated fitting parameters</span>
-<span class="n">spectra</span><span class="o">.</span><span class="n">save_results</span><span class="p">(</span><span class="n">dirname_results</span><span class="o">=...</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Note that a ‘.csv’ parameters file can be used to define first a basic <cite>spectrum</cite> model only based on <cite>peaks</cite> models definition, this one used to define more globally a <cite>spectra</cite> model as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">fitspy.spectra</span> <span class="kn">import</span> <span class="n">Spectra</span>
-<span class="kn">from</span> <span class="nn">fitspy.spectrum</span> <span class="kn">import</span> <span class="n">Spectrum</span>
-
-<span class="n">dfr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname_csv</span><span class="o">=...</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
-<span class="n">peaks_model</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dfr</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dfr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">:])</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span>
-    <span class="n">peaks_model</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-
-<span class="n">spectrum</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="p">()</span>
-<span class="n">spectrum</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="n">peaks_models</span>
-
-<span class="c1"># Basic Fitspy model to be applied (without baseline, x-range, ... considerations)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">spectrum</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-
-<span class="c1"># model application (same as above)</span>
-<span class="o">...</span>
+<span class="n">spectra</span><span class="o">.</span><span class="n">save_results</span><span class="p">(</span><span class="n">dirname_results</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\Users\...\results&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -207,7 +197,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="peak_models.html" class="btn btn-neutral float-left" title="Peak models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitting.html" class="btn btn-neutral float-left" title="Fitting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="gui.html" class="btn btn-neutral float-right" title="GUI description" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

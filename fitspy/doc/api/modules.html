@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy &mdash; Fitspy 2024.1 documentation</title>
+  <title>fitspy &mdash; Fitspy 2024.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -12,7 +12,7 @@
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-
+  
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
@@ -23,23 +23,23 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="fitspy package" href="fitspy.html" />
-    <link rel="prev" title="GUI description" href="../user_guide/gui.html" />
+    <link rel="prev" title="Developers Notes" href="../dev_guide/dev_notes.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
 
-
-
+          
+          
           <a href="../index.html" class="icon icon-home">
             Fitspy
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.1
+                2024.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,8 +55,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide/dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul class="current">
@@ -89,7 +98,7 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-
+             
   <section id="fitspy">
 <h1>fitspy<a class="headerlink" href="#fitspy" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
@@ -117,9 +126,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.spectra.html">fitspy.spectra module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.fit_mp"><code class="docutils literal notranslate"><span class="pre">fit_mp()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.Spectra"><code class="docutils literal notranslate"><span class="pre">Spectra</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.spectra.html#fitspy.spectra.progressbar"><code class="docutils literal notranslate"><span class="pre">progressbar()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.spectra_map.html">fitspy.spectra_map module</a><ul>
@@ -127,6 +135,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.spectrum.html">fitspy.spectrum module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.create_model"><code class="docutils literal notranslate"><span class="pre">create_model()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.spectrum.html#fitspy.spectrum.Spectrum"><code class="docutils literal notranslate"><span class="pre">Spectrum</span></code></a></li>
 </ul>
 </li>
@@ -138,6 +147,14 @@
 <li class="toctree-l4"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.check_or_rename"><code class="docutils literal notranslate"><span class="pre">check_or_rename()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.load_from_json"><code class="docutils literal notranslate"><span class="pre">load_from_json()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.save_to_json"><code class="docutils literal notranslate"><span class="pre">save_to_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.load_models_from_txt"><code class="docutils literal notranslate"><span class="pre">load_models_from_txt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.utils.html#fitspy.utils.load_models_from_py"><code class="docutils literal notranslate"><span class="pre">load_models_from_py()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.utils_mp.html">fitspy.utils_mp module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.utils_mp.html#fitspy.utils_mp.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.utils_mp.html#fitspy.utils_mp.initializer"><code class="docutils literal notranslate"><span class="pre">initializer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fitspy.utils_mp.html#fitspy.utils_mp.fit_mp"><code class="docutils literal notranslate"><span class="pre">fit_mp()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -153,7 +170,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../user_guide/gui.html" class="btn btn-neutral float-left" title="GUI description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../dev_guide/dev_notes.html" class="btn btn-neutral float-left" title="Developers Notes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="fitspy.html" class="btn btn-neutral float-right" title="fitspy package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -166,7 +183,7 @@
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+   
 
 </footer>
         </div>
@@ -177,7 +194,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
+  </script> 
 
 </body>
 </html>

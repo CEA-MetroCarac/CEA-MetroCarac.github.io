@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.app package &mdash; Fitspy 2024.1 documentation</title>
+  <title>fitspy.app package &mdash; Fitspy 2024.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.1
+                2024.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,8 +55,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide/dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul class="current">
@@ -136,17 +145,20 @@
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.on_press_baseline_peaks"><code class="docutils literal notranslate"><span class="pre">Callbacks.on_press_baseline_peaks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.add_baseline_point"><code class="docutils literal notranslate"><span class="pre">Callbacks.add_baseline_point()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.del_baseline_point"><code class="docutils literal notranslate"><span class="pre">Callbacks.del_baseline_point()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_baseline"><code class="docutils literal notranslate"><span class="pre">Callbacks.update_baseline()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.set_baseline"><code class="docutils literal notranslate"><span class="pre">Callbacks.set_baseline()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.load_baseline"><code class="docutils literal notranslate"><span class="pre">Callbacks.load_baseline()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.auto_baseline"><code class="docutils literal notranslate"><span class="pre">Callbacks.auto_baseline()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.subtract_baseline"><code class="docutils literal notranslate"><span class="pre">Callbacks.subtract_baseline()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.subtract_baseline_to_all"><code class="docutils literal notranslate"><span class="pre">Callbacks.subtract_baseline_to_all()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.delete_baseline"><code class="docutils literal notranslate"><span class="pre">Callbacks.delete_baseline()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_attractors"><code class="docutils literal notranslate"><span class="pre">Callbacks.update_attractors()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_attractors_settings"><code class="docutils literal notranslate"><span class="pre">Callbacks.update_attractors_settings()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_peaks"><code class="docutils literal notranslate"><span class="pre">Callbacks.update_peaks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.load_user_model"><code class="docutils literal notranslate"><span class="pre">Callbacks.load_user_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_attractors"><code class="docutils literal notranslate"><span class="pre">Callbacks.update_attractors()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.add_peaks_point"><code class="docutils literal notranslate"><span class="pre">Callbacks.add_peaks_point()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.del_peaks_point"><code class="docutils literal notranslate"><span class="pre">Callbacks.del_peaks_point()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.auto_peaks"><code class="docutils literal notranslate"><span class="pre">Callbacks.auto_peaks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.set_bkg_model"><code class="docutils literal notranslate"><span class="pre">Callbacks.set_bkg_model()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.update_fit_settings"><code class="docutils literal notranslate"><span class="pre">Callbacks.update_fit_settings()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.colorize_from_fit_status"><code class="docutils literal notranslate"><span class="pre">Callbacks.colorize_from_fit_status()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks.fit"><code class="docutils literal notranslate"><span class="pre">Callbacks.fit()</span></code></a></li>
@@ -179,12 +191,13 @@
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.attractors_settings"><code class="docutils literal notranslate"><span class="pre">GUI.attractors_settings</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.fit_settings"><code class="docutils literal notranslate"><span class="pre">GUI.fit_settings</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.tabview"><code class="docutils literal notranslate"><span class="pre">GUI.tabview</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.progressbar"><code class="docutils literal notranslate"><span class="pre">GUI.progressbar</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.normalize_mode"><code class="docutils literal notranslate"><span class="pre">GUI.normalize_mode</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.attractor_position"><code class="docutils literal notranslate"><span class="pre">GUI.attractor_position</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.attractors"><code class="docutils literal notranslate"><span class="pre">GUI.attractors</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.attached"><code class="docutils literal notranslate"><span class="pre">GUI.attached</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.sigma"><code class="docutils literal notranslate"><span class="pre">GUI.sigma</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.distance"><code class="docutils literal notranslate"><span class="pre">GUI.distance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.baseline_attached"><code class="docutils literal notranslate"><span class="pre">GUI.baseline_attached</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.baseline_sigma"><code class="docutils literal notranslate"><span class="pre">GUI.baseline_sigma</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.baseline_distance"><code class="docutils literal notranslate"><span class="pre">GUI.baseline_distance</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.baseline_mode"><code class="docutils literal notranslate"><span class="pre">GUI.baseline_mode</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.baseline_order_max"><code class="docutils literal notranslate"><span class="pre">GUI.baseline_order_max</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.gui.html#fitspy.app.gui.GUI.model"><code class="docutils literal notranslate"><span class="pre">GUI.model</span></code></a></li>
@@ -210,8 +223,8 @@
 <li class="toctree-l2"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView"><code class="docutils literal notranslate"><span class="pre">TabView</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_entry"><code class="docutils literal notranslate"><span class="pre">TabView.add_entry()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_check_button"><code class="docutils literal notranslate"><span class="pre">TabView.add_check_button()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_entry_models_labels"><code class="docutils literal notranslate"><span class="pre">TabView.add_entry_models_labels()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_combobox_models"><code class="docutils literal notranslate"><span class="pre">TabView.add_combobox_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_entry_peak_labels"><code class="docutils literal notranslate"><span class="pre">TabView.add_entry_peak_labels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_combobox_peak_model"><code class="docutils literal notranslate"><span class="pre">TabView.add_combobox_peak_model()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.add_combobox_bkg_model"><code class="docutils literal notranslate"><span class="pre">TabView.add_combobox_bkg_model()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.label_has_changed"><code class="docutils literal notranslate"><span class="pre">TabView.label_has_changed()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.param_has_changed"><code class="docutils literal notranslate"><span class="pre">TabView.param_has_changed()</span></code></a></li>
@@ -226,6 +239,7 @@
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.TabView.show_hide"><code class="docutils literal notranslate"><span class="pre">TabView.show_hide()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.ProgressBar"><code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.Settings"><code class="docutils literal notranslate"><span class="pre">Settings</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.Settings.frame_creation"><code class="docutils literal notranslate"><span class="pre">Settings.frame_creation()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="fitspy.app.toplevels.html#fitspy.app.toplevels.Settings.update"><code class="docutils literal notranslate"><span class="pre">Settings.update()</span></code></a></li>
