@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.app.callbacks module &mdash; Fitspy 2024.2 documentation</title>
+  <title>fitspy.app.callbacks module &mdash; Fitspy 2024.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.2
+                2024.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,12 +52,13 @@
               <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/outputs.html">Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -235,13 +236,25 @@ fit_settings.params[‘ncpus’]</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.update_figure_settings">
 <span class="sig-name descname"><span class="pre">update_figure_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.update_figure_settings" title="Permalink to this definition"></a></dt>
-<dd><p>Update attractors settings</p>
+<dd><p>Update figure settings</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.rescale">
 <span class="sig-name descname"><span class="pre">rescale</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.rescale" title="Permalink to this definition"></a></dt>
 <dd><p>Rescale the figure</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.outliers_calculation">
+<span class="sig-name descname"><span class="pre">outliers_calculation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.outliers_calculation" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the outliers (limit)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.set_outliers_coef">
+<span class="sig-name descname"><span class="pre">set_outliers_coef</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.set_outliers_coef" title="Permalink to this definition"></a></dt>
+<dd><p>Set the outliers coefficient</p>
 </dd></dl>
 
 <dl class="py method">
@@ -252,8 +265,8 @@ fit_settings.params[‘ncpus’]</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.app.callbacks.Callbacks.show_hide_results">
-<span class="sig-name descname"><span class="pre">show_hide_results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.show_hide_results" title="Permalink to this definition"></a></dt>
-<dd><p>Show/Hide the results ‘tabview’</p>
+<span class="sig-name descname"><span class="pre">show_hide_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.callbacks.Callbacks.show_hide_results" title="Permalink to this definition"></a></dt>
+<dd><p>Show/Hide the ‘paramsview’ or the ‘statsview’</p>
 </dd></dl>
 
 <dl class="py method">

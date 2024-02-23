@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baselines and Background models &mdash; Fitspy 2024.2 documentation</title>
+  <title>Baselines and Background models &mdash; Fitspy 2024.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Peak models" href="peak_models.html" />
-    <link rel="prev" title="Input data files formats" href="input_data.html" /> 
+    <link rel="prev" title="Input data files" href="input_data.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.2
+                2024.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,7 +52,7 @@
               <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Baselines and Background models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#baseline-approach">Baseline approach</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#background-model">Background model</a><ul>
@@ -65,6 +65,7 @@
 <li class="toctree-l1"><a class="reference internal" href="fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -122,7 +123,7 @@ This feature allows to adapt the baseline points to the spectrum notably when pr
 <figure class="align-center">
 <img alt="../_images/gen_figures_baseline_attached.png" src="../_images/gen_figures_baseline_attached.png" />
 </figure>
-<p>Note that to minimize the impact of noise in the baseline attached-points definition, a smoothing can be considered on the spectra intensities before linking. This smoothing is based on a gaussian filtering considering <code class="code docutils literal notranslate"><span class="pre">sigma</span></code> as the standard deviation.</p>
+<p>Note that to minimize the impact of noise in the baseline attached-points definition, a smoothing can be considered on the spectra intensities before linking. This smoothing is based on a gaussian filtering considering <code class="code docutils literal notranslate"><span class="pre">sigma</span></code> (in pixel) as the standard deviation.</p>
 </section>
 <section id="background-model">
 <h2>Background model<a class="headerlink" href="#background-model" title="Permalink to this heading"></a></h2>
@@ -154,18 +155,18 @@ This feature allows to adapt the baseline points to the spectrum notably when pr
 <span class="n">BKG_MODELS</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;Exponential_2&quot;</span><span class="p">:</span> <span class="n">exponential</span><span class="p">})</span>
 </pre></div>
 </div>
-<p>Through the GUI, the corresponding <em>‘.txt’</em> or <em>‘.py’</em> files can be loaded via the button <code class="code docutils literal notranslate"><span class="pre">Load</span></code> located to the right of the <strong>BKG_MODEL</strong> combobox.</p>
+<p>Through the GUI, the corresponding <em>‘.txt’</em> or <em>‘.py’</em> files can be loaded via the button <code class="code docutils literal notranslate"><span class="pre">Load</span></code> located to the right of the <strong>BKG model</strong> combobox.</p>
 <p>In python, the users models can be loaded by the related functions <a class="reference internal" href="../api/fitspy.utils.html#fitspy.utils.load_models_from_txt" title="fitspy.utils.load_models_from_txt"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_models_from_txt()</span></code></a> and <a class="reference internal" href="../api/fitspy.utils.html#fitspy.utils.load_models_from_py" title="fitspy.utils.load_models_from_py"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_models_from_py()</span></code></a>.
 <em>(See example in</em> <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/ex_gui_users_defined_models.py">ex_gui_users_defined_models.py</a> <em>)</em></p>
 <p>For recurrent use, the user-defined models can be defined in files named <code class="code docutils literal notranslate"><span class="pre">bkg_models.txt</span></code> or <code class="code docutils literal notranslate"><span class="pre">bkg_models.py</span></code> to put in <code class="code docutils literal notranslate"><span class="pre">%HOMEUSER%/Fitspy</span></code>.</p>
+<p>The variable associated with the support must necessarily be used in expressions under the term <code class="code docutils literal notranslate"><span class="pre">x</span></code> and the mathematical functions must be designated according to the terminology defined in the <a class="reference external" href="https://newville.github.io/asteval/basics.html#built-in-functions">asteval</a> package.</p>
 <p>Note that in the examples given above, the resulting <code class="code docutils literal notranslate"><span class="pre">Linear_1</span></code>, <code class="code docutils literal notranslate"><span class="pre">Linear_2</span></code> models yield identical results to those obtained from the predefined <code class="code docutils literal notranslate"><span class="pre">Linear</span></code> model, when converged.
 The same for <code class="code docutils literal notranslate"><span class="pre">Exponential_1</span></code>, <code class="code docutils literal notranslate"><span class="pre">Exponential_2</span></code> and <code class="code docutils literal notranslate"><span class="pre">Exponential</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Unlike predefined models, user-defined models do not have associated functions to determine their initial values for the fitting.</p>
-<p><strong>All the parameters are initialized to 1.</strong></p>
-<p>This can lead to wrong convergence.
-To prevent this, it is advisable to review the model parameters using appropriate multiplier coefficients.</p>
+<p><strong>All the parameters are initialized to 1.</strong> This can lead to wrong convergence.</p>
+<p>To prevent this, it is advisable to review the model parameters using appropriate multiplier coefficients.</p>
 <p>Example: for a x-range in [0, 1000], the Exponential functions should be rather defined as <code class="code docutils literal notranslate"><span class="pre">ampli</span> <span class="pre">*</span> <span class="pre">exp(-coef</span> <span class="pre">*</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">1000)</span></code></p>
 </div>
 </section>
@@ -176,7 +177,7 @@ To prevent this, it is advisable to review the model parameters using appropriat
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="input_data.html" class="btn btn-neutral float-left" title="Input data files formats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="input_data.html" class="btn btn-neutral float-left" title="Input data files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="peak_models.html" class="btn btn-neutral float-right" title="Peak models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

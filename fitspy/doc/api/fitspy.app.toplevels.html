@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.app.toplevels module &mdash; Fitspy 2024.2 documentation</title>
+  <title>fitspy.app.toplevels module &mdash; Fitspy 2024.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.2
+                2024.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,12 +52,13 @@
               <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/outputs.html">Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -114,104 +115,124 @@
 <span id="fitspy-app-toplevels-module"></span><h1>fitspy.app.toplevels module<a class="headerlink" href="#module-fitspy.app.toplevels" title="Permalink to this heading"></a></h1>
 <p>Module dedicated to external widgets (Tkinter.Toplevel) creation</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.toplevels.</span></span><span class="sig-name descname"><span class="pre">TabView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ResultView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.toplevels.</span></span><span class="sig-name descname"><span class="pre">ResultView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ResultView" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Class for spectra models fit results and parameters displaying</p>
+<p>Master class used by ParamsView and StatsView</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_entry">
-<span class="sig-name descname"><span class="pre">add_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_entry" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ResultView.show_hide">
+<span class="sig-name descname"><span class="pre">show_hide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ResultView.show_hide" title="Permalink to this definition"></a></dt>
+<dd><p>Show/Hide the TopLevel frame</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.toplevels.</span></span><span class="sig-name descname"><span class="pre">ParamsView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fitspy.app.toplevels.ResultView" title="fitspy.app.toplevels.ResultView"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResultView</span></code></a></p>
+<p>Class for models parameters displaying</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.add_entry">
+<span class="sig-name descname"><span class="pre">add_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.add_entry" title="Permalink to this definition"></a></dt>
 <dd><p>Add Tk.Entry at (row, col) linked to params[i][key][arg]</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_check_button">
-<span class="sig-name descname"><span class="pre">add_check_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_check_button" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.add_check_button">
+<span class="sig-name descname"><span class="pre">add_check_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.add_check_button" title="Permalink to this definition"></a></dt>
 <dd><p>Add Tk.Checkbutton at (row, col) linked to params[i][key][arg]</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_entry_peak_labels">
-<span class="sig-name descname"><span class="pre">add_entry_peak_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_entry_peak_labels" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.add_entry_peak_labels">
+<span class="sig-name descname"><span class="pre">add_entry_peak_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.add_entry_peak_labels" title="Permalink to this definition"></a></dt>
 <dd><p>Add Tk.Entry at (row, col) linked to models_labels[i]</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_combobox_peak_model">
-<span class="sig-name descname"><span class="pre">add_combobox_peak_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_combobox_peak_model" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.add_combobox_peak_model">
+<span class="sig-name descname"><span class="pre">add_combobox_peak_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.add_combobox_peak_model" title="Permalink to this definition"></a></dt>
 <dd><p>Add Tk.Combobox at (row, col) linked to peak_models[i]</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_combobox_bkg_model">
-<span class="sig-name descname"><span class="pre">add_combobox_bkg_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_combobox_bkg_model" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.add_combobox_bkg_model">
+<span class="sig-name descname"><span class="pre">add_combobox_bkg_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.add_combobox_bkg_model" title="Permalink to this definition"></a></dt>
 <dd><p>Add Tk.Combobox at (row, col) linked to the bkg_model</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.label_has_changed">
-<span class="sig-name descname"><span class="pre">label_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.label_has_changed" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.label_has_changed">
+<span class="sig-name descname"><span class="pre">label_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.label_has_changed" title="Permalink to this definition"></a></dt>
 <dd><p>Update the label related to the ith-model</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.param_has_changed">
-<span class="sig-name descname"><span class="pre">param_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.param_has_changed" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.param_has_changed">
+<span class="sig-name descname"><span class="pre">param_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.param_has_changed" title="Permalink to this definition"></a></dt>
 <dd><p>Update the ‘key’-param ‘arg’-value related to the ith-model</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.model_has_changed">
-<span class="sig-name descname"><span class="pre">model_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.model_has_changed" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.model_has_changed">
+<span class="sig-name descname"><span class="pre">model_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.model_has_changed" title="Permalink to this definition"></a></dt>
 <dd><p>Update the model function related to the ith-model</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.bkg_model_has_changed">
-<span class="sig-name descname"><span class="pre">bkg_model_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.bkg_model_has_changed" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.bkg_model_has_changed">
+<span class="sig-name descname"><span class="pre">bkg_model_has_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.bkg_model_has_changed" title="Permalink to this definition"></a></dt>
 <dd><p>Update the ‘bkg_model’</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.set_header">
-<span class="sig-name descname"><span class="pre">set_header</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.set_header" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.set_header">
+<span class="sig-name descname"><span class="pre">set_header</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.set_header" title="Permalink to this definition"></a></dt>
 <dd><p>Set the TabView header</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.delete_models">
-<span class="sig-name descname"><span class="pre">delete_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.delete_models" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.delete_models">
+<span class="sig-name descname"><span class="pre">delete_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.delete_models" title="Permalink to this definition"></a></dt>
 <dd><p>Delete selected (peak) models</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.update" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.update" title="Permalink to this definition"></a></dt>
 <dd><p>Update the Tabview</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.add_model">
-<span class="sig-name descname"><span class="pre">add_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.add_model" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.add_model">
+<span class="sig-name descname"><span class="pre">add_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.add_model" title="Permalink to this definition"></a></dt>
 <dd><p>Add model in the Tabview</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.update_stats">
-<span class="sig-name descname"><span class="pre">update_stats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.update_stats" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ParamsView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ParamsView.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Delete all the values contained in frames</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.StatsView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.toplevels.</span></span><span class="sig-name descname"><span class="pre">StatsView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.StatsView" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fitspy.app.toplevels.ResultView" title="fitspy.app.toplevels.ResultView"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResultView</span></code></a></p>
+<p>Class for fit statistics displaying</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.StatsView.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.StatsView.update" title="Permalink to this definition"></a></dt>
 <dd><p>Update the statistics</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.delete" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.app.toplevels.StatsView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.StatsView.delete" title="Permalink to this definition"></a></dt>
 <dd><p>Delete all the values contained in frames</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.toplevels.TabView.show_hide">
-<span class="sig-name descname"><span class="pre">show_hide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.TabView.show_hide" title="Permalink to this definition"></a></dt>
-<dd><p>Show/Hide the TopLevel frame</p>
 </dd></dl>
 
 </dd></dl>
@@ -221,6 +242,12 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.toplevels.</span></span><span class="sig-name descname"><span class="pre">ProgressBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ProgressBar" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class to create a progress bar</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.toplevels.ProgressBar.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntot</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.toplevels.ProgressBar.show" title="Permalink to this definition"></a></dt>
+<dd><p>Show the progress bar according to the spectra.pbar_index value</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">

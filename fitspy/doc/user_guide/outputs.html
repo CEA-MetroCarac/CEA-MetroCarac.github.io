@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outputs &mdash; Fitspy 2024.3 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release Notes" href="../release_notes/release_notes.html" />
+    <link rel="prev" title="GUI description" href="gui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fitspy
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="baseline.html">Baselines and Background models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="peak_models.html">Peak models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitting.html">Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">GUI description</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#outputs-models">Outputs models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fit-results">Fit results</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide/dev_notes.html">Developers Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">fitspy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fitspy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Outputs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/user_guide/outputs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="outputs">
+<h1>Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h1>
+<p>Fitspy provides two types of outputs:</p>
+<ul class="simple">
+<li><p>those related to the <strong>models</strong>,</p></li>
+<li><p>and those related to the fits (<strong>parameters</strong> of the fitted models and <strong>statistics</strong>).</p></li>
+</ul>
+<section id="outputs-models">
+<h2>Outputs models<a class="headerlink" href="#outputs-models" title="Permalink to this heading"></a></h2>
+<p>The <strong>output models</strong> consist of .json files in which all parameters of the spectrum and spectra objects have been saved so as to be able:</p>
+<ul>
+<li><p>either to recreate the previously obtained results <strong>identically</strong></p></li>
+<li><p>or to apply the first spectrum model to other data sets (without considering the <code class="code docutils literal notranslate"><span class="pre">fname</span></code> value):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;fname&quot;</span><span class="p">:</span> <span class="s2">&quot;../examples/data/spectra_2/spectrum_2_1.txt&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;range_min&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
+      <span class="s2">&quot;range_max&quot;</span><span class="p">:</span> <span class="mf">957.299</span><span class="p">,</span>
+      <span class="s2">&quot;norm_mode&quot;</span><span class="p">:</span> <span class="s2">&quot;Attractor&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;norm_position_ref&quot;</span><span class="p">:</span> <span class="mi">685</span><span class="p">,</span>
+      <span class="s2">&quot;peaks&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">88</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">307</span><span class="p">,</span> <span class="mi">188</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">262</span><span class="p">,</span> <span class="mi">113</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">285</span><span class="p">,</span> <span class="mi">145</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">231</span><span class="p">,</span> <span class="mi">330</span><span class="p">,</span> <span class="mi">464</span><span class="p">,</span> <span class="mi">431</span><span class="p">,</span> <span class="mi">394</span><span class="p">,</span> <span class="mi">366</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+      <span class="s2">&quot;peaks_params&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s2">&quot;distance&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+         <span class="s2">&quot;prominence&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s2">&quot;threshold&quot;</span><span class="p">:</span> <span class="mi">0</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;models_labels&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Peak IV&quot;</span><span class="p">,</span> <span class="s2">&quot;Peak II&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Peak I&quot;</span><span class="p">,</span> <span class="s2">&quot;Peak III&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;bkg_model&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">&quot;fit_method&quot;</span><span class="p">:</span> <span class="s2">&quot;Leastsq&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;fit_negative&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+      <span class="s2">&quot;max_ite&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+      <span class="s2">&quot;attached&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+      <span class="s2">&quot;baseline&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s2">&quot;points&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">201.1400035483871</span><span class="p">,</span> <span class="mf">954.8547838709676</span><span class="p">],</span> <span class="p">[</span><span class="mf">164.91378720565154</span><span class="p">,</span> <span class="mf">228.197032967033</span><span class="p">]],</span>
+         <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;Linear&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;order_max&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+         <span class="s2">&quot;distance&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+         <span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s2">&quot;attached&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+         <span class="s2">&quot;is_subtracted&quot;</span><span class="p">:</span> <span class="n">true</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;models&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Lorentzian&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="s2">&quot;ampli&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">377.8408958125738</span><span class="p">,</span>
+                  <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                  <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="n">Infinity</span><span class="p">,</span>
+                  <span class="s2">&quot;vary&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="s2">&quot;expr&quot;</span><span class="p">:</span> <span class="n">null</span>
+               <span class="p">},</span>
+               <span class="s2">&quot;x0&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">342.94548419455225</span><span class="p">,</span>
+                  <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="mf">322.195</span><span class="p">,</span>
+                  <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mf">362.195</span><span class="p">,</span>
+                  <span class="s2">&quot;vary&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="s2">&quot;expr&quot;</span><span class="p">:</span> <span class="n">null</span>
+               <span class="p">},</span>
+               <span class="s2">&quot;fwhm&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">2.643513972868272</span><span class="p">,</span>
+                  <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                  <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                  <span class="s2">&quot;vary&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="s2">&quot;expr&quot;</span><span class="p">:</span> <span class="n">null</span>
+               <span class="p">}</span>
+            <span class="p">}</span>
+         <span class="p">},</span>
+         <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Lorentzian&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="s2">&quot;ampli&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">98.30555093353449</span><span class="p">,</span>
+                  <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                  <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="n">Infinity</span><span class="p">,</span>
+                  <span class="s2">&quot;vary&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="s2">&quot;expr&quot;</span><span class="p">:</span> <span class="n">null</span>
+               <span class="p">},</span>
+               <span class="o">...</span>
+         <span class="p">},</span>
+         <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="fit-results">
+<h2>Fit results<a class="headerlink" href="#fit-results" title="Permalink to this heading"></a></h2>
+<p>Once fitted, a spectra data set can generate several files related to the fitting statistics and the fitted parameters.</p>
+<p>In a ‘results’ directory (to be specified by the user), the <strong>statistics</strong> files are built when clicking on <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Results</span></code> in the GUI, according to the following model: {spectrum basename}**_stats.txt** file).</p>
+<p>The same for the <strong>fitted parameters</strong> attached to each spectrum: {spectrum basename}**.csv** file)</p>
+<ul>
+<li><p>Example of <strong>statistics</strong> returned in <em>ordered_map.txt  X=1757.0  Y=65_stats.txt</em> (obtained from <em>examples/ex_gui_users_defined_models_2d_map.py</em>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">Fit</span> <span class="n">Statistics</span><span class="p">]]</span>
+<span class="c1"># fitting method   = leastsq</span>
+<span class="c1"># function evals   = 93</span>
+<span class="c1"># data points      = 575</span>
+<span class="c1"># variables        = 17</span>
+<span class="n">chi</span><span class="o">-</span><span class="n">square</span>         <span class="o">=</span> <span class="mf">112158.281</span>
+<span class="n">reduced</span> <span class="n">chi</span><span class="o">-</span><span class="n">square</span> <span class="o">=</span> <span class="mf">201.000503</span>
+<span class="n">Akaike</span> <span class="n">info</span> <span class="n">crit</span>   <span class="o">=</span> <span class="mf">3066.14539</span>
+<span class="n">Bayesian</span> <span class="n">info</span> <span class="n">crit</span> <span class="o">=</span> <span class="mf">3140.16968</span>
+<span class="n">R</span><span class="o">-</span><span class="n">squared</span>          <span class="o">=</span> <span class="mf">0.97525302</span>
+<span class="p">[[</span><span class="n">Variables</span><span class="p">]]</span>
+<span class="n">m01_ampli</span><span class="p">:</span>  <span class="mf">914.225148</span> <span class="o">+/-</span> <span class="mf">10.5474510</span> <span class="p">(</span><span class="mf">1.15</span><span class="o">%</span><span class="p">)</span> <span class="p">(</span><span class="n">init</span> <span class="o">=</span> <span class="mf">950.0121</span><span class="p">)</span>
+<span class="n">m01_fwhm</span><span class="p">:</span>   <span class="mf">9.56464045</span> <span class="o">+/-</span> <span class="mf">0.20679661</span> <span class="p">(</span><span class="mf">2.16</span><span class="o">%</span><span class="p">)</span> <span class="p">(</span><span class="n">init</span> <span class="o">=</span> <span class="mf">9.594399</span><span class="p">)</span>
+<span class="n">m01_x0</span><span class="p">:</span>     <span class="mf">520.183187</span> <span class="o">+/-</span> <span class="mf">0.05449477</span> <span class="p">(</span><span class="mf">0.01</span><span class="o">%</span><span class="p">)</span> <span class="p">(</span><span class="n">init</span> <span class="o">=</span> <span class="mf">520.1866</span><span class="p">)</span>
+<span class="n">m02_ampli</span><span class="p">:</span>  <span class="mf">25.7308415</span> <span class="o">+/-</span> <span class="mf">3.15171955</span> <span class="p">(</span><span class="mf">12.25</span><span class="o">%</span><span class="p">)</span> <span class="p">(</span><span class="n">init</span> <span class="o">=</span> <span class="mf">44.85308</span><span class="p">)</span>
+<span class="n">m02_fwhm</span><span class="p">:</span>   <span class="mf">89.0443082</span> <span class="o">+/-</span> <span class="mf">20.7241979</span> <span class="p">(</span><span class="mf">23.27</span><span class="o">%</span><span class="p">)</span> <span class="p">(</span><span class="n">init</span> <span class="o">=</span> <span class="mf">88.40916</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">slope</span><span class="p">:</span>     <span class="o">-</span><span class="mf">0.01339502</span> <span class="o">+/-</span> <span class="mf">0.00379213</span> <span class="p">(</span><span class="mf">28.31</span><span class="o">%</span><span class="p">)</span> <span class="p">(</span><span class="n">init</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.01434605</span><span class="p">)</span>
+<span class="n">intercept</span><span class="p">:</span>  <span class="mf">35.2928118</span> <span class="o">+/-</span> <span class="mf">2.39248326</span> <span class="p">(</span><span class="mf">6.78</span><span class="o">%</span><span class="p">)</span> <span class="p">(</span><span class="n">init</span> <span class="o">=</span> <span class="mf">35.87932</span><span class="p">)</span>
+<span class="p">[[</span><span class="n">Correlations</span><span class="p">]]</span> <span class="p">(</span><span class="n">unreported</span> <span class="n">correlations</span> <span class="n">are</span> <span class="o">&lt;</span> <span class="mf">0.100</span><span class="p">)</span>
+<span class="n">C</span><span class="p">(</span><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">)</span>     <span class="o">=</span> <span class="o">-</span><span class="mf">0.8110</span>
+<span class="n">C</span><span class="p">(</span><span class="n">m02_fwhm</span><span class="p">,</span> <span class="n">intercept</span><span class="p">)</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">0.6385</span>
+<span class="n">C</span><span class="p">(</span><span class="n">m04_fwhm</span><span class="p">,</span> <span class="n">m04_x0</span><span class="p">)</span>     <span class="o">=</span> <span class="o">+</span><span class="mf">0.6378</span>
+<span class="n">C</span><span class="p">(</span><span class="n">m01_fwhm</span><span class="p">,</span> <span class="n">m05_x0</span><span class="p">)</span>     <span class="o">=</span> <span class="o">+</span><span class="mf">0.5982</span>
+<span class="n">C</span><span class="p">(</span><span class="n">m01_fwhm</span><span class="p">,</span> <span class="n">m05_fwhm</span><span class="p">)</span>   <span class="o">=</span> <span class="o">-</span><span class="mf">0.5258</span>
+<span class="n">C</span><span class="p">(</span><span class="n">m05_fwhm</span><span class="p">,</span> <span class="n">m05_x0</span><span class="p">)</span>     <span class="o">=</span> <span class="o">-</span><span class="mf">0.5191</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p>Example of the <strong>fitted parameters</strong> in <em>ordered_map.txt  X=1757.0  Y=65.csv</em>:</p></li>
+</ul>
+<figure class="align-left">
+<a class="reference internal image-reference" href="../_images/params_csv.png"><img alt="../_images/params_csv.png" src="../_images/params_csv.png" style="width: 75%;" /></a>
+</figure>
+<br><p>Also, a file, named <strong>results.csv</strong>, that concatenates all the parameters (ordered by names) of all the fitted spectra, is automatically generated when clicking on <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Results</span></code> in the GUI.</p>
+<ul class="simple">
+<li><p>Example of <em>results.csv</em> (extract):</p></li>
+</ul>
+<figure class="align-left">
+<a class="reference internal image-reference" href="../_images/params_all_csv.png"><img alt="../_images/params_all_csv.png" src="../_images/params_all_csv.png" style="width: 100%;" /></a>
+</figure>
+<br><p>Finally, when dealing with 2d-map spectra, the button <code class="code docutils literal notranslate"><span class="pre">Export</span></code> enables to write the current displayed data in a .csv file as: {spectrum basename}_{parameter name}_{label}.csv file.</p>
+<ul class="simple">
+<li><p>Example of <em>ordered_map_ampli_2.csv</em> (extract):</p></li>
+</ul>
+<figure class="align-left">
+<a class="reference internal image-reference" href="../_images/params_2d_map_csv.png"><img alt="../_images/params_2d_map_csv.png" src="../_images/params_2d_map_csv.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gui.html" class="btn btn-neutral float-left" title="GUI description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../release_notes/release_notes.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The Fitspy development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

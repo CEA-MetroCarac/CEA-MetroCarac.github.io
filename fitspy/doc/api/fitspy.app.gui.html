@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.app.gui module &mdash; Fitspy 2024.2 documentation</title>
+  <title>fitspy.app.gui module &mdash; Fitspy 2024.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.2
+                2024.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,12 +52,13 @@
               <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/outputs.html">Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -174,12 +175,23 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.gui.GUI.tabview">
-<span class="sig-name descname"><span class="pre">tabview</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.tabview" title="Permalink to this definition"></a></dt>
-<dd><p>Tkinter.TopLevel derivative object for fitting results models displaying</p>
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.paramsview">
+<span class="sig-name descname"><span class="pre">paramsview</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.paramsview" title="Permalink to this definition"></a></dt>
+<dd><p>Tkinter.TopLevel derivative object for fitting models params displaying</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>TabView obj</p>
+<dd class="field-odd"><p>ParamsView obj</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.statsview">
+<span class="sig-name descname"><span class="pre">statsview</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.statsview" title="Permalink to this definition"></a></dt>
+<dd><p>Tkinter.TopLevel derivative object for fitting stats results displaying</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>StatsView obj</p>
 </dd>
 </dl>
 </dd></dl>
@@ -235,6 +247,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Tkinter.BooleanVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.outliers_coef">
+<span class="sig-name descname"><span class="pre">outliers_coef</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.outliers_coef" title="Permalink to this definition"></a></dt>
+<dd><p>Coefficient applied to the outliers limits</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.DoubleVar</p>
 </dd>
 </dl>
 </dd></dl>
@@ -386,7 +409,7 @@ as spectra_map attributes</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="fitspy.app.gui.Appli">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.gui.</span></span><span class="sig-name descname"><span class="pre">Appli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1550x950'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.gui.Appli" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.gui.</span></span><span class="sig-name descname"><span class="pre">Appli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1550x950'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_terminal_exit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.gui.Appli" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#fitspy.app.gui.GUI" title="fitspy.app.gui.GUI"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUI</span></code></a></p>
 <p>Application for spectra fitting</p>
 <dl class="py attribute">
@@ -396,6 +419,17 @@ as spectra_map attributes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Tkinter.Tk object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.Appli.force_terminal_exit">
+<span class="sig-name descname"><span class="pre">force_terminal_exit</span></span><a class="headerlink" href="#fitspy.app.gui.Appli.force_terminal_exit" title="Permalink to this definition"></a></dt>
+<dd><p>Key to force terminal session to exit after ‘root’ destroying</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.spectra module &mdash; Fitspy 2024.2 documentation</title>
+  <title>fitspy.spectra module &mdash; Fitspy 2024.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.2
+                2024.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,12 +52,13 @@
               <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/outputs.html">Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -134,6 +135,17 @@
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.spectra.Spectra.pbar_index">
+<span class="sig-name descname"><span class="pre">pbar_index</span></span><a class="headerlink" href="#fitspy.spectra.Spectra.pbar_index" title="Permalink to this definition"></a></dt>
+<dd><p>Index related to the Progress bar during the fit processing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>spectra_list</strong> (<em>list</em><em> of </em><em>Spectrum objects</em><em>, </em><em>optional</em>) – </p>
@@ -152,10 +164,22 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectra.Spectra.intensity">
+<span class="sig-name descname"><span class="pre">intensity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra.Spectra.intensity" title="Permalink to this definition"></a></dt>
+<dd><p>Return the raw intensity array related to spectra AND spectra maps</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectra.Spectra.get_objects">
 <span class="sig-name descname"><span class="pre">get_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra.Spectra.get_objects" title="Permalink to this definition"></a></dt>
 <dd><p>Return spectrum and parent (spectra or spectra map)
 related to ‘fname’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectra.Spectra.outliers_limit_calculation">
+<span class="sig-name descname"><span class="pre">outliers_limit_calculation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra.Spectra.outliers_limit_calculation" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the outliers limit from ‘coef’ * intensity_ref</p>
 </dd></dl>
 
 <dl class="py method">
@@ -213,7 +237,7 @@ fitspy model</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectra.Spectra.apply_model">
-<span class="sig-name descname"><span class="pre">apply_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tk_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fit_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra.Spectra.apply_model" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">apply_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra.Spectra.apply_model" title="Permalink to this definition"></a></dt>
 <dd><p>Apply ‘model’ to all or part of the spectra</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -222,14 +246,18 @@ fitspy model</p></li>
 Spectrum.save() for instance)</p></li>
 <li><p><strong>fnames</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – List of the spectrum.fname to handle.
 If None, apply the model to all the spectra</p></li>
-<li><p><strong>ncpus</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of CPU to work with in fitting</p></li>
+<li><p><strong>ncpus</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of CPU to use during the fit processing</p></li>
 <li><p><strong>fit_only</strong> (<em>bool</em><em>, </em><em>optional</em>) – Activation key to process only fitting</p></li>
-<li><p><strong>tk_progressbar</strong> (<em>ProgressBar obj</em><em>, </em><em>optional</em>) – Progression bar using tkinter.ttk.Progressbar to follow the
-‘apply_model’ progression</p></li>
-<li><p><strong>fit_kwargs</strong> (<em>dict</em>) – Keywords arguments passed to spectrum.fit()</p></li>
+<li><p><strong>show_progressbar</strong> (<em>bool</em><em>, </em><em>optional</em>) – Activation key to show the progress bar</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectra.Spectra.progressbar">
+<span class="sig-name descname"><span class="pre">progressbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queue_incr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra.Spectra.progressbar" title="Permalink to this definition"></a></dt>
+<dd><p>Progress bar</p>
 </dd></dl>
 
 <dl class="py method">
@@ -253,12 +281,6 @@ spectrum contained in the ‘spectra’ list</p></li>
 <dd><p>Return a Spectra object from a .json file</p>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="fitspy.spectra.progressbar">
-<span class="sig-prename descclassname"><span class="pre">fitspy.spectra.</span></span><span class="sig-name descname"><span class="pre">progressbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queue_incr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tk_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectra.progressbar" title="Permalink to this definition"></a></dt>
-<dd><p>Progress bar</p>
 </dd></dl>
 
 </section>

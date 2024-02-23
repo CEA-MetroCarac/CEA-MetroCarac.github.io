@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Peak models &mdash; Fitspy 2024.2 documentation</title>
+  <title>Peak models &mdash; Fitspy 2024.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -40,7 +40,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.2
+                2024.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,7 +53,7 @@
               <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Peak models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#predefined-models">Predefined models</a><ul>
@@ -70,6 +70,7 @@
 <li class="toctree-l1"><a class="reference internal" href="fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -110,7 +111,7 @@
              
   <section id="peak-models">
 <h1>Peak models<a class="headerlink" href="#peak-models" title="Permalink to this heading"></a></h1>
-<p>As for the background models, the peak models in <cite>Fitspy</cite> are issued either from predefined models, or by he user-defined models.</p>
+<p>As for the background models, the peak models in <cite>Fitspy</cite> are issued either from <strong>predefined models</strong>, or by <strong>user-defined models</strong>.</p>
 <section id="predefined-models">
 <h2>Predefined models<a class="headerlink" href="#predefined-models" title="Permalink to this heading"></a></h2>
 <p>The predefined peak models available in <cite>Fitspy</cite> relies on the following parameters:</p>
@@ -176,16 +177,12 @@
 </pre></div>
 </div>
 <p>where in the examples given above, the resulting <code class="code docutils literal notranslate"><span class="pre">Gaussian_1</span></code>, <code class="code docutils literal notranslate"><span class="pre">Gaussian_2</span></code> and <code class="code docutils literal notranslate"><span class="pre">Gaussian_3</span></code> yield identical results to those obtained from the predefined <code class="code docutils literal notranslate"><span class="pre">Gaussian</span></code> model.</p>
-<p>As with the background models:</p>
-<p>Through the GUI, the corresponding <em>‘.txt’</em> or <em>‘.py’</em> files can be loaded via the button <code class="code docutils literal notranslate"><span class="pre">Load</span></code> located to the right of the <strong>MODEL</strong> combobox.</p>
+<p>The users models must be defined with the same parameters that those used in the predefined models concerning the peak position and amplitude (<code class="code docutils literal notranslate"><span class="pre">x</span></code> and <code class="code docutils literal notranslate"><span class="pre">ampli</span></code>). Concerning the width of the peak models, it is recommended (but not required) to use the <code class="code docutils literal notranslate"><span class="pre">fwhm</span></code> (or derived parameter). Extra parameters can also be used but in such cases, it is important to know that these parameters will be initialized to 1 before the fitting process and will be not subject to any range limitations.</p>
+<p>Similarly to the background models:</p>
+<p>Through the GUI, the corresponding <em>‘.txt’</em> or <em>‘.py’</em> files can be loaded via the button <code class="code docutils literal notranslate"><span class="pre">Load</span></code> located to the right of the <strong>Peak model</strong> combobox.</p>
 <p>In python, the users models can be loaded by the functions <a class="reference internal" href="../api/fitspy.utils.html#fitspy.utils.load_models_from_txt" title="fitspy.utils.load_models_from_txt"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_models_from_txt()</span></code></a> and <a class="reference internal" href="../api/fitspy.utils.html#fitspy.utils.load_models_from_py" title="fitspy.utils.load_models_from_py"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_models_from_py()</span></code></a>.
 <em>(See example in</em> <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/ex_gui_users_defined_models.py">ex_gui_users_defined_models.py</a> <em>)</em></p>
 <p>For recurrent use, the user-defined models can be defined in files named <code class="code docutils literal notranslate"><span class="pre">peak_models.txt</span></code> or <code class="code docutils literal notranslate"><span class="pre">peak_models.py</span></code> to put in <code class="code docutils literal notranslate"><span class="pre">%HOMEUSER%/Fitspy</span></code>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The users models can be defined with parameters that differ from those used in the predefined models. In such cases, these parameters are initialized to 1 for the fitting process and are not subject to any range limitations.</p>
-<p>However, it is strongly recommended to use the same parameters as much as possible as those used in the predefined models.</p>
-</div>
 </section>
 </section>
 

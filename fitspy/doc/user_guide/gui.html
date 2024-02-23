@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GUI description &mdash; Fitspy 2024.2 documentation</title>
+  <title>GUI description &mdash; Fitspy 2024.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Release Notes" href="../release_notes/release_notes.html" />
+    <link rel="next" title="Outputs" href="outputs.html" />
     <link rel="prev" title="Workflow" href="workflow.html" /> 
 </head>
 
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.2
+                2024.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,7 +52,7 @@
               <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="peak_models.html">Peak models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fitting.html">Fitting</a></li>
@@ -69,6 +69,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#d-map-figures">2D-map Figures</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -116,16 +117,16 @@
 <img alt="../_images/files_selector.png" src="../_images/files_selector.png" />
 </figure>
 <br><p><code class="code docutils literal notranslate"><span class="pre">Select</span> <span class="pre">Files</span></code> enables to load spectra (as ‘.txt’ files) selected individually or by block while <code class="code docutils literal notranslate"><span class="pre">Select</span> <span class="pre">Dir.</span></code> loads all spectra that are contained in a selected directory.</p>
-<p>Once loaded in the GUI, if <cite>Fitspy</cite> detects that a ‘.txt’ file corresponds to a 2D-map input data file (via the tabulation <code class="code docutils literal notranslate"><span class="pre">t</span></code> as first character), this one is expanded.
-That is to say that each spectra of the 2D-map appears individually in the files selection widget according to the 2D-map file basename and the (X) and (Y) spectrum coordinates in the grid as prefix:</p>
+<p><strong>2D-map</strong>: Once loaded in the GUI, if <cite>Fitspy</cite> detects that a ‘.txt’ file corresponds to a 2D-map input data file (via the tabulation <code class="code docutils literal notranslate"><span class="pre">t</span></code> as first character), this one is expanded.
+That is to say that each spectrum of the 2D-map appears individually in the files selection widget according to the 2D-map file basename and the (X) and (Y) spectrum coordinates in the grid as prefix:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">basename</span><span class="p">}</span> <span class="n">X</span><span class="o">=</span><span class="p">{</span><span class="n">X</span><span class="p">}</span> <span class="n">Y</span><span class="o">=</span><span class="p">{</span><span class="n">Y</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>A  2D-map figure is also opened to facilitate both the spectrum selection and the interaction with the files selector widget.</p>
-<figure class="align-center" id="id1">
+<figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/2d-map.png"><img alt="../_images/2d-map.png" src="../_images/2d-map.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-text">interactive 2D-map figure resulting from a <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/data/2D_maps/ordered_map.txt">fully defined ordered acquisition grid</a></span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text">interactive 2D-map figure resulting from this <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/data/2D_maps/ordered_map.txt">fully defined ordered acquisition grid</a></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -138,10 +139,10 @@ That is to say that each spectra of the 2D-map appears individually in the files
 <p><code class="code docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">eval</span></code> and <code class="code docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">eval</span> <span class="pre">All</span></code>  perform automatic evaluation of the baseline and peak positions and conduct fitting on the selected spectra or all the spectra (respectively).</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">settings</span></code> enables the saving of user settings in a <strong>settings.json</strong> file located in the <code class="code docutils literal notranslate"><span class="pre">%HOMEUSER%/Fitspy</span></code> directory (open this file to have a look on which and how settings are saved).</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Reinitialize</span></code> and <code class="code docutils literal notranslate"><span class="pre">Reinitialize</span> <span class="pre">All</span></code> reinitialize the spectrum and all the spectra (resp.) to their original values.</p>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id3">
 <img alt="../_images/show_all.png" src="../_images/show_all.png" />
 <figcaption>
-<p><span class="caption-text">Example of the global display obtained with <code class="code docutils literal notranslate"><span class="pre">Show</span> <span class="pre">All</span></code></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Example of the global display obtained with <code class="code docutils literal notranslate"><span class="pre">Show</span> <span class="pre">All</span></code></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -185,34 +186,33 @@ It’s important to note that a ‘<em>n</em>’-order polynomial approximation 
 <section id="fitting">
 <h2>Fitting<a class="headerlink" href="#fitting" title="Permalink to this heading"></a></h2>
 <figure class="align-center">
-<img alt="../_images/peaks.png" src="../_images/peaks.png" />
+<img alt="../_images/fitting.png" src="../_images/fitting.png" />
 </figure>
 <br><p><strong>The current frame is activated and deactivated when clicking on it.</strong></p>
 <p><code class="code docutils literal notranslate"><span class="pre">Auto</span></code> can be used for the automatic determination of peaks, considering the selected <code class="code docutils literal notranslate"><span class="pre">Peak</span> <span class="pre">model</span></code>.</p>
-<p>For manual peaks positioning by the user, each <code class="code docutils literal notranslate"><span class="pre">Peak</span> <span class="pre">model</span></code> (to be chosen between <strong>Gaussian</strong>, <strong>Lorentzian</strong>, <strong>Asymetric Gaussian</strong>, <strong>Asymetric Lorentzian</strong>, <strong>Pseudovoigt</strong> or Custom models, see <a class="reference external" href="peak_models.html">here</a>) is applied when left-clicking in the figure. (A right-click in the figure removes the nearest peak).</p>
-<p><code class="code docutils literal notranslate"><span class="pre">Fit</span></code> and <code class="code docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">All</span></code> perform the fitting based on the conditions defined in the <code class="code docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">Settings</span></code> widget:</p>
+<p>For manual peaks positioning by the user, each <code class="code docutils literal notranslate"><span class="pre">Peak</span> <span class="pre">model</span></code> (to be chosen between <strong>Gaussian</strong>, <strong>Lorentzian</strong>, <strong>Asymetric Gaussian</strong>, <strong>Asymetric Lorentzian</strong>, <strong>Pseudovoigt</strong> or as a <strong>user-defined model</strong>, see <a class="reference external" href="peak_models.html">here</a>) is applied when left-clicking in the figure. (A right-click in the figure removes the nearest peak).</p>
+<p><code class="code docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">Selec.</span></code> and <code class="code docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">All</span></code> perform the fitting based on the conditions defined in the <code class="code docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">Settings</span></code> widget:</p>
 <figure class="align-center">
 <img alt="../_images/fit_settings.png" src="../_images/fit_settings.png" />
 </figure>
-<br><p><cite>maximum iterations</cite> can be used to limit the number of iterations, saving CPU time processing consequently.
+<br><p><code class="code docutils literal notranslate"><span class="pre">maximum</span> <span class="pre">iterations</span></code> and <code class="code docutils literal notranslate"><span class="pre">xtol</span></code> can be used to limit the number of iterations, saving CPU time processing consequently.
 (An iteration corresponds to a gradient descent attached to all the fit parameters).</p>
 <p>Spectrum fit success or failure (related to reaching a fit convergence criterion before reaching the <cite>maxmimum iterations</cite>) is displayed in green or orange (resp.) in the file selector widget.</p>
 <p><strong>It is worth noting that performing several successive fits on a spectrum may slightly change the fitted parameters.</strong></p>
-<p><code class="code docutils literal notranslate"><span class="pre">Parameters</span></code> allows the visualization of parameters values and statistics related to the fitting process.
-The <code class="code docutils literal notranslate"><span class="pre">Parameters</span></code> widget can be used to interact with each of the spectra (deleting or labeling peak models, redefining models).
+<p><code class="code docutils literal notranslate"><span class="pre">Stats</span></code> opens a frame that reports the statistics related to the fitting process.</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">Parameters</span></code> widget can be used to interact with each of the spectra (deleting or labeling peak models, redefining models, …).
 By default, all parameters are considered as free but may be fixed during the fitting using the right-handed selection boxes.</p>
 <figure class="align-center">
 <img alt="../_images/parameters.png" src="../_images/parameters.png" />
 </figure>
 <br><p>Bounds and fit constraints can be addressed by activating the dedicated selectors located at the top of the parameters widget.</p>
-<p><strong>Bounding</strong> consists in giving left and right parameters bounds.&lt;br&gt;</p>
-<p><strong>Constraints</strong> relies on expressions that can be parameters-dependent, using the prefix defined in the 2nd column.&lt;br&gt;
+<p><strong>Bounding</strong> consists in giving left and right parameters bounds.</p>
+<p><strong>Constraints</strong> relies on literal expressions that can be parameters-dependent, using the prefix defined in the 2nd column.
 The example below shows how to constrain the second fitted peak to be half the amplitude of the first one.</p>
 <figure class="align-center">
 <img alt="../_images/fit_constraint.png" src="../_images/fit_constraint.png" />
 </figure>
-<br><p><code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">(.csv)</span></code> consists of saving the fitted parameters and related statistics in a
-folder predefined by the user, respectively in a .csv and a .txt file using the spectrum file basename.</p>
+<br><p><code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Results</span></code> consists of saving the fitted parameters and related statistics in a folder predefined by the user, respectively in a .csv and a .txt file using the spectrum file basename (See <a class="reference external" href="outputs.html#fit-results">here</a>  for more details).</p>
 </section>
 <section id="models">
 <h2>Models<a class="headerlink" href="#models" title="Permalink to this heading"></a></h2>
@@ -223,15 +223,15 @@ folder predefined by the user, respectively in a .csv and a .txt file using the 
 <p><code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Selec.</span></code> or <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">All</span></code> allows saving the spectra processing associated with the selected spectra in the files selection widget, or with all the spectra (resp.).</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Reload</span></code> replays exactly the spectra processing related to the imported <em>.json</em>.
 This implies that all the files defined in the <em>.json</em>  are reachable when reloading.</p>
-<p><code class="code docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Model</span></code> consists of reloading the spectrum model (baseline and peaks definition, …) but <strong>not the spectrum file itself</strong>, related to the first model saved in the <em>.json</em>.</p>
-<p><code class="code docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">to</span> <span class="pre">Sel.</span></code> or <code class="code docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">to</span> <span class="pre">All</span></code> allows applying the loaded model to the spectra selected in the files selection widget, or to all the spectra (resp.).</p>
+<p><code class="code docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Model</span></code> consists of reloading the first spectrum model (baseline and peaks definition, …) but <strong>not the spectrum file itself</strong>, related to the first model saved in the <em>.json</em>.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">to</span> <span class="pre">Sel.</span></code> or <code class="code docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">to</span> <span class="pre">All</span></code> allows applying <strong>strictly</strong> <em>(ie without considering the parameters defined in the GUI)</em> the loaded model to the spectra selected in the files selection widget, or to all the spectra (resp.).</p>
 </section>
 <section id="main-figure">
 <h2>Main Figure<a class="headerlink" href="#main-figure" title="Permalink to this heading"></a></h2>
 <p>The main Figure widget displays the loaded spectra and allows manipulation of baseline and peaks models with the mouse.</p>
 <p>The standard navigation toolbar from <em>Matplotlib</em> allows panning, zooming and saving the current figure.
 The function associated with the <img alt="home" src="../_images/home.png" />
-icon has been reconfigured to allow spectra rescaling.</p>
+icon has been reconfigured to allow the figure rescaling on the current displayed spectrum.</p>
 <figure class="align-center">
 <img alt="../_images/navigation_toolbox.png" src="../_images/navigation_toolbox.png" />
 </figure>
@@ -240,18 +240,18 @@ icon has been reconfigured to allow spectra rescaling.</p>
 <img alt="../_images/figure_settings.png" src="../_images/figure_settings.png" />
 </figure>
 <br><p><code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">All</span> <span class="pre">(.png)</span></code> (at the bottom) allows saving all the spectra figures in .png format. (Be cautious with 2D-maps as they can generate a large number of figures).</p>
-<p>Note that to ease copy/paste, <code class="code docutils literal notranslate"><span class="pre">CTRL+C</span></code> allows putting the current figure in the clipboard (only available on Windows).</p>
+<p>Note that to ease copy/paste, <code class="code docutils literal notranslate"><span class="pre">CTRL+C</span></code> allows putting the current figure in the clipboard. <strong>(Only available on Windows).</strong></p>
 </section>
 <section id="d-map-figures">
 <h2>2D-map Figures<a class="headerlink" href="#d-map-figures" title="Permalink to this heading"></a></h2>
 <p>The 2D-map Figure widgets allow easy selection of spectra and interaction with the cursor selection of the files selector widget.</p>
-<p>By default, the full range of integrated spectra intensity is displayed.
-A range slider in the figure allows specifying the summation bounds.
-Once peaks have been defined, the corresponding model parameters can be also visualized in the 2D-map figures.</p>
-<figure class="align-center" id="id3">
+<p>By default, the full range of integrated spectra intensity is displayed with a range slider in the figure that allows specifying the summation bounds.</p>
+<p>Once fitted, the parameters values can be visualized in the 2D-map figures.</p>
+<p>All the maps displayed in the 2D-map Figure can be exported in a .csv file by clicking on the <code class="code docutils literal notranslate"><span class="pre">Export</span> <span class="pre">(.csv)</span></code> button.</p>
+<figure class="align-center" id="id4">
 <img alt="../_images/2d-map_intensity_fwhm.png" src="../_images/2d-map_intensity_fwhm.png" />
 <figcaption>
-<p><span class="caption-text">left: intensity field in a 2D-map figure (default mode). right: FWHM values associated to ‘Peak I’ (obtained after fitting).</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text">left: intensity field in a 2D-map figure (default mode). right: amplitude values associated to the 2nd peak (obtained after fitting).</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -262,7 +262,7 @@ Once peaks have been defined, the corresponding model parameters can be also vis
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="workflow.html" class="btn btn-neutral float-left" title="Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../release_notes/release_notes.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="outputs.html" class="btn btn-neutral float-right" title="Outputs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

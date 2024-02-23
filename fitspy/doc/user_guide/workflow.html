@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Workflow &mdash; Fitspy 2024.2 documentation</title>
+  <title>Workflow &mdash; Fitspy 2024.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.2
+                2024.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,7 +52,7 @@
               <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="peak_models.html">Peak models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fitting.html">Fitting</a></li>
@@ -62,6 +62,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -102,10 +103,10 @@
              
   <section id="workflow">
 <h1>Workflow<a class="headerlink" href="#workflow" title="Permalink to this heading"></a></h1>
-<p>all the spectra fitting operations can be realized both by the GUI or by python scripts.</p>
+<p>All the spectra fitting operations can be realized both through the GUI or by python scripts.</p>
 <p>However, although python scripts can be very practical when working with repetitive actions (like batches in the case of parametric studies for instance), from a practical point of view, it is easier:</p>
 <ul class="simple">
-<li><p>1/ to use the GUI to define <strong>visually</strong> a <cite>Fitspy</cite> model then</p></li>
+<li><p>1/ to use the GUI to define a <cite>Fitspy</cite> model <strong>visually</strong>, then</p></li>
 <li><p>2/ to apply it to new data sets.</p></li>
 </ul>
 <section id="gui-mode">
@@ -119,33 +120,32 @@
 <li><p>(<a class="reference external" href="gui.html?overall_settings.html">2</a>) <em>Define the</em> <code class="code docutils literal notranslate"><span class="pre">X-range</span></code></p></li>
 <li><p>(<a class="reference external" href="gui.html?baseline.html">3</a>) <em>Click on the</em> <code class="code docutils literal notranslate"><span class="pre">Baseline</span></code> <em>panel to activate it (if not)</em></p></li>
 <li><p>(<a class="reference external" href="gui.html?baseline.html">4</a>) <em>Select baseline points on the main figure</em> <strong>(*)</strong></p></li>
-<li><p>(<a class="reference external" href="gui.html?baseline.html">5</a>) <code class="code docutils literal notranslate"><span class="pre">subtract</span></code> the baseline to the selected spectra <em>or</em> <code class="code docutils literal notranslate"><span class="pre">subtract</span> <span class="pre">All</span></code> the baseline(s)</p></li>
-<li><p>(<a class="reference external" href="gui.html?fitting.html">6</a>) <strong>Click on the</strong> <code class="code docutils literal notranslate"><span class="pre">Peaks</span></code> <strong>panel to activate it (if not)</strong></p></li>
+<li><p>(<a class="reference external" href="gui.html?baseline.html">5</a>) <code class="code docutils literal notranslate"><span class="pre">Subtract</span> <span class="pre">Selec.</span></code> the baseline to the selected spectra <em>or</em> <code class="code docutils literal notranslate"><span class="pre">Subtract</span> <span class="pre">All</span></code> the baseline(s)</p></li>
+<li><p>(<a class="reference external" href="gui.html?fitting.html">6</a>) <strong>Click on the</strong> <code class="code docutils literal notranslate"><span class="pre">Fitting</span></code> <strong>panel to activate it (if not)</strong></p></li>
 <li><p>(<a class="reference external" href="gui.html?fitting.html">7</a>) <strong>Select a</strong> <code class="code docutils literal notranslate"><span class="pre">Peak</span> <span class="pre">model</span></code></p></li>
 <li><p>(<a class="reference external" href="gui.html?fitting">8</a>) <em>Select a peak point on the main figure</em> <strong>(*)</strong></p></li>
 <li><p>(<a class="reference external" href="gui.html?fitting">9</a>) <em>Add a background</em> (<code class="code docutils literal notranslate"><span class="pre">BKG</span> <span class="pre">model</span></code>) <em>to be fitted</em></p></li>
-<li><p>(<a class="reference external" href="gui.html?fitting">11</a>) <em>Use</em> <code class="code docutils literal notranslate"><span class="pre">Parameters</span></code> <em>to see the results and to set bounds and constraints for a new fitting</em></p></li>
+<li><p>(<a class="reference external" href="gui.html?fitting">10</a>) <em>Use</em> <code class="code docutils literal notranslate"><span class="pre">Parameters</span></code> <em>to see the results and to set bounds and constraints for a new fitting</em></p></li>
 <li><p>(<a class="reference external" href="gui.html?models">13</a>) <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Select</span></code> <em>or</em> <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">All</span></code> <em>the `Models` in a `.json` file (to be replayed later)</em></p></li>
 </ul>
 <p><strong>(*)</strong> <em>use left/right click on the figure to add/delete a baseline or a peak point</em></p>
 <p>Once saved, a <cite>Fitspy</cite> model enables to recover a previous state (as-it, if all the spectra defined in the model can be loaded again) as follows:</p>
 <ul class="simple">
 <li><p>(<a class="reference external" href="gui.html?fitting">14</a>) <code class="code docutils literal notranslate"><span class="pre">Reload</span></code> <em>the `Fitspy` model (`.json` file)</em></p></li>
-<li><p>(<a class="reference external" href="gui.html?fitting">10</a>) <code class="code docutils literal notranslate"><span class="pre">Fit</span></code> <strong>or</strong> <code class="code docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">All</span></code> <strong>the selected spectrum/spectra</strong></p></li>
-<li><p>(<a class="reference external" href="fitting.html">12</a>) <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">(.csv)</span></code> <strong>the fitting parameters</strong></p></li>
+<li><p>(<a class="reference external" href="gui.html?fitting">11</a>) <code class="code docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">Selec.</span></code> <strong>or</strong> <code class="code docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">All</span></code> <strong>the spectra</strong></p></li>
+<li><p>(<a class="reference external" href="fitting.html">12</a>) <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Results</span></code> (<strong>fitted parameters</strong> and <strong>statistics</strong>)</p></li>
 </ul>
 <p>Or, after removing all spectra in the file selector widget (<code class="code docutils literal notranslate"><span class="pre">Remove</span> <span class="pre">All</span></code>), the <cite>Fitspy</cite> model can be apply to another data set as follows:</p>
 <ul class="simple">
 <li><p>(<a class="reference external" href="gui.html?files_selection.html">1</a>) <strong>Select file(s) from</strong> <code class="code docutils literal notranslate"><span class="pre">Select</span> <span class="pre">Files</span></code>  <strong>or</strong>  <code class="code docutils literal notranslate"><span class="pre">Select</span> <span class="pre">Dir</span></code></p></li>
-<li><p>(<a class="reference external" href="gui.html?models">13</a>) <code class="code docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Model</span></code> <a href="#id17"><span class="problematic" id="id18">*</span></a>(associated to the first <cite>spectra</cite> if several)</p></li>
-<li><p>(<a class="reference external" href="gui.html?models">13</a>) <code class="code docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">to</span> <span class="pre">Sel.</span></code> <em>or</em> <code class="code docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">to</span> <span class="pre">All</span></code></p></li>
-<li><p>(<a class="reference external" href="gui.html?fitting">10</a>) <code class="code docutils literal notranslate"><span class="pre">Fit</span></code> <strong>or</strong> <code class="code docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">All</span></code> <strong>the selected spectrum/spectra</strong></p></li>
-<li><p>(<a class="reference external" href="fitting.html">12</a>) <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">(.csv)</span></code> <strong>the fitting parameters</strong></p></li>
+<li><p>(<a class="reference external" href="gui.html?models">15</a>) <code class="code docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Model</span></code> <a href="#id17"><span class="problematic" id="id18">*</span></a>(associated to the first <cite>spectra</cite> if several)</p></li>
+<li><p>(<a class="reference external" href="gui.html?models">16</a>) <code class="code docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">to</span> <span class="pre">Sel.</span></code> <em>or</em> <code class="code docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">to</span> <span class="pre">All</span></code></p></li>
+<li><p>(<a class="reference external" href="fitting.html">12</a>) <code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Results</span></code> (<strong>fitted parameters</strong> and <strong>statistics</strong>)</p></li>
 </ul>
 </section>
 <section id="scripting-mode">
 <h2>Scripting Mode<a class="headerlink" href="#scripting-mode" title="Permalink to this heading"></a></h2>
-<p>Although it is more recommended to use the GUI to define <strong>visually</strong> a <cite>Fitspy</cite> model, here is a partial example of how to do it by script:</p>
+<p>Although it is more recommended to use the GUI to define a <cite>Fitspy</cite> model <strong>visually</strong> , here is a partial example of how to do it by script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fitspy.spectrum</span> <span class="kn">import</span> <span class="n">Spectrum</span>
 
 <span class="n">spectrum</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="p">()</span>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release Notes &mdash; Fitspy 2024.2 documentation</title>
+  <title>Release Notes &mdash; Fitspy 2024.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Developers Notes" href="../dev_guide/dev_notes.html" />
-    <link rel="prev" title="GUI description" href="../user_guide/gui.html" /> 
+    <link rel="prev" title="Outputs" href="../user_guide/outputs.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.2
+                2024.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,16 +52,18 @@
               <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/outputs.html">Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-2024-3-february-23-2024">Version 2024.3 (February 23, 2024)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-2024-2-january-29-2024">Version 2024.2 (January 29, 2024)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-2024-1-january-16-2024">Version 2024.1 (January 16, 2024)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-2023-x">Version 2023.x</a></li>
@@ -103,6 +105,30 @@
              
   <section id="release-notes">
 <h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading"></a></h1>
+<section id="version-2024-3-february-23-2024">
+<h2>Version 2024.3 (February 23, 2024)<a class="headerlink" href="#version-2024-3-february-23-2024" title="Permalink to this heading"></a></h2>
+<p>New features:</p>
+<ul class="simple">
+<li><p>noise is now estimated and a noise level criteria enables to automatically deactivate peak models in noisy regions.</p></li>
+<li><p>optional outlier detection has been added, enabling the disregarding of outliers during baseline calculation and fitting processes.</p></li>
+<li><p>‘xtol’ fitting parameter has been added (associated with ‘leastsq’ and ‘least_square’ fitting methods).</p></li>
+<li><p>all fitted parameters from all loaded spectra can now be saved in a single file named ‘results.csv’.</p></li>
+</ul>
+<p>Enhancements:</p>
+<ul class="simple">
+<li><p>multi-threaded calculations return now the complete fit report.</p></li>
+<li><p>a new boolean argument, ‘reinit_guess’, has been added in Spectrum.fit(), enabling the adjustment of initial values for ‘ampli’ and ‘fwhm’ to the current spectrum. This helps circumvent “ill-conditioned” peak models (with fwhm~0) resulting from previous ‘Fitspy’ model calculations.</p></li>
+<li><p>lists are now written to .json files on a single line.</p></li>
+<li><p>parameters and statistics displaying have been separated.</p></li>
+</ul>
+<p>Bug fixes:</p>
+<ul class="simple">
+<li><p>the index count used to label the models was not reset to 1 when reloading a model</p></li>
+<li><p>2d-maps with a single X or Y coordinate were not supported</p></li>
+<li><p>the Lorentzian model could previously return Nan values when dealing with fwhm=0</p></li>
+<li><p>the threads execution used by apply_model() to display the different progress bars did not quit correctly in some cases</p></li>
+</ul>
+</section>
 <section id="version-2024-2-january-29-2024">
 <h2>Version 2024.2 (January 29, 2024)<a class="headerlink" href="#version-2024-2-january-29-2024" title="Permalink to this heading"></a></h2>
 <p>New features:</p>
@@ -110,17 +136,34 @@
 <li><p>Add a progressbar in the terminal and in the GUI to follow the calculation progression during the fit processing</p></li>
 <li><p>Enable the loading of user-defined models through dedicated ‘Load’ buttons in the GUI.</p></li>
 </ul>
-<p>Bug fixes/enhancements:</p>
+<p>Enhancements:</p>
 <ul class="simple">
-<li><p>Fixed bug when reloading ‘old’ model.json in which <code class="code docutils literal notranslate"><span class="pre">bkg_model</span></code> was absent</p></li>
-<li><p>Baseline format/use revisited to disable multiple baselines subtract capability (the ‘baseline_history’ spectrum attributes has been removed)</p></li>
 <li><p>Display the models parameters on the figure whatever the fit status</p></li>
 <li><p>Highlight/reduce the peak model curve linewidth according to the fit success status</p></li>
 <li><p>Reproduce the same view when reloading a model, considering the fit success status</p></li>
-<li><p>Fixed bug when using user-defined model in multithreading</p></li>
 <li><p>Take into account the ‘fit_kws’ through the ‘kwargs’ of Spectrum.fit() to be passed to the lmfit Model.fit()</p></li>
+</ul>
+<p>Code changes:</p>
+<ul class="simple">
+<li><p>Baseline format/use revisited to disable multiple baselines subtract capability (the ‘baseline_history’ spectrum attributes has been removed)</p></li>
+<li><dl class="simple">
+<dt>Spectrum attributes has benn changed from:</dt><dd><ul>
+<li><p>‘peaks’ to ‘attractors’</p></li>
+<li><p>‘peaks_params’ to ‘attractors_params’</p></li>
+<li><p>‘models’ to ‘peak_models’</p></li>
+<li><p>‘models_labels’ to ‘peak_labels’</p></li>
+<li><p>‘models_index’ to ‘peak_index’</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Bug fixes:</p>
+<ul class="simple">
+<li><p>Fixed bug when reloading ‘old’ model.json in which <code class="code docutils literal notranslate"><span class="pre">bkg_model</span></code> was absent</p></li>
+<li><p>Fixed bug when using user-defined model in multithreading</p></li>
 <li><p>Fixed bug in bkg_model plotting</p></li>
-<li><p>Fixed bug in removing ‘old’ Spectra 2D-map when reloading a ‘new’ one</p></li>
+<li><p>Fixed bug in removing ‘old’ Spectra 2D-map when reloading a ‘new’ one (the ‘old’ Spectra 2D-map figures are now closed)</p></li>
 </ul>
 </section>
 <section id="version-2024-1-january-16-2024">
@@ -132,16 +175,19 @@
 <li><p>in 2D-map, in addition to intensity, the model parameters can now be displayed and the corresponding 2D field can be exported in a .csv file</p></li>
 <li><p>Spectra, Spectrum and SpectraMap class have now their own dedicated .py modules</p></li>
 </ul>
-<p>Bug fixes/enhancements:</p>
+<p>Enhancements:</p>
+<ul class="simple">
+<li><p>Add background visualization and display the corresponding parameters in the tabview</p></li>
+<li><p>Display only the used parameters models in the tabview</p></li>
+<li><p>Add xmin and xmax (optional) arguments to spectrum.load_profile() to ease the x-range setting when loading profiles by python scripts</p></li>
+</ul>
+<p>Bug fixes:</p>
 <ul class="simple">
 <li><p>Fixed bug for system identification that enables clipboard copy on Windows only</p></li>
 <li><p>Fixed bug on data paths in the examples</p></li>
 <li><p>Make the application exit correctly and add a widget to confirm it</p></li>
 <li><p>Fixed bug: make the fitting possible for a standalone background model</p></li>
-<li><p>Add background visualization and display the corresponding parameters in the tabview</p></li>
 <li><p>Fixed bug: enable the background models to be saved and reloaded</p></li>
-<li><p>Display only the used parameters models in the tabview</p></li>
-<li><p>Add xmin and xmax (optional) arguments to spectrum.load_profile() to ease the x-range setting when loading profiles by python scripts</p></li>
 </ul>
 </section>
 <section id="version-2023-x">
@@ -154,7 +200,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../user_guide/gui.html" class="btn btn-neutral float-left" title="GUI description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../user_guide/outputs.html" class="btn btn-neutral float-left" title="Outputs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../dev_guide/dev_notes.html" class="btn btn-neutral float-right" title="Developers Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

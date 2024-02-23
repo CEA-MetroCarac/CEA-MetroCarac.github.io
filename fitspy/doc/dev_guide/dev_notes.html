@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Developers Notes &mdash; Fitspy 2024.2 documentation</title>
+  <title>Developers Notes &mdash; Fitspy 2024.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.2
+                2024.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,12 +52,13 @@
               <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/input_data.html">Input data files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/baseline.html">Baselines and Background models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/peak_models.html">Peak models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/gui.html">GUI description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/outputs.html">Outputs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -66,6 +67,8 @@
 <p class="caption" role="heading"><span class="caption-text">Developers Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Developers Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#issues">Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pull-requests">Pull Requests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#todo-list">TODO List</a></li>
 </ul>
 </li>
@@ -101,18 +104,32 @@
              
   <section id="developers-notes">
 <h1>Developers Notes<a class="headerlink" href="#developers-notes" title="Permalink to this heading"></a></h1>
-<p>Developers are warmly encouraged to collaborate and contribute to the ongoing improvement of Fitspy.</p>
+<p>Fitspy is a new project (started in 2023).</p>
+<p>Developers are warmly encouraged to collaborate and contribute to the ongoing improvement of Fitspy. Contributions are welcome in the form of bug reports, documentation, code , feature requests, and more…</p>
+<p>… keeping in mind that Fitspy must maintain its primary goal: to remain as simple, generic and user-friendly as possible :)</p>
+<section id="issues">
+<h2>Issues<a class="headerlink" href="#issues" title="Permalink to this heading"></a></h2>
+<p>The <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/issues">issue tracker</a> can be used to report bugs or propose new features. When reporting a bug, the following is useful:</p>
+<ul class="simple">
+<li><p>give a minimal example demonstrating the bug,</p></li>
+<li><p>copy and paste the error traceback.</p></li>
+</ul>
+</section>
+<section id="pull-requests">
+<h2>Pull Requests<a class="headerlink" href="#pull-requests" title="Permalink to this heading"></a></h2>
+<p>If you want to contribute to improve the Fitspy source code, you can send us a <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/pulls">pull request</a> against the main branch. Small bug fixes and corrections to the user guide are typically a good starting point. But don’t hesitate also for significant code contributions, such as support for a new file format - if needed, we’ll help you to get the code ready to common standards.</p>
+</section>
 <section id="todo-list">
 <h2>TODO List<a class="headerlink" href="#todo-list" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>investigate erratic timelaps when opening files with tkinter.filedialog</p></li>
-<li><p>improve convergence speed during spectra dataset fitting</p></li>
 <li><p>update dynamically the 2D map figure during fitting</p></li>
-<li><p>add option to remove overshoots in profiles (‘cosmic rays’)</p></li>
-<li><p>fix expected floating-point in sigma with interactive_entry</p></li>
 <li><p>make widgets size depending on the users screen size</p></li>
 <li><p>enable widget stretching</p></li>
-<li><p>change Tkinter for pyQt or PySide :)</p></li>
+<li><p><strong>change Tkinter for pyQt or PySide</strong> :) (task scheduled for mid-2024)</p></li>
+<li><p>create a fitspy icon for the taskbar</p></li>
+<li><p>create an ‘About’</p></li>
+<li><p>add the progress bar inside the GUI</p></li>
 </ul>
 </section>
 </section>
