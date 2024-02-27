@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GUI description &mdash; Fitspy 2024.3 documentation</title>
+  <title>GUI description &mdash; Fitspy 2024.4 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Outputs" href="outputs.html" />
-    <link rel="prev" title="Workflow" href="workflow.html" /> 
+    <link rel="prev" title="Auto mode" href="auto_mode.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.3
+                2024.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -57,6 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="peak_models.html">Peak models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fitting.html">Fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_mode.html">Auto mode</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">GUI description</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#files-selection">Files selection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#global-actions">Global actions</a></li>
@@ -123,10 +124,10 @@ That is to say that each spectrum of the 2D-map appears individually in the file
 </pre></div>
 </div>
 <p>A  2D-map figure is also opened to facilitate both the spectrum selection and the interaction with the files selector widget.</p>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/2d-map.png"><img alt="../_images/2d-map.png" src="../_images/2d-map.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-text">interactive 2D-map figure resulting from this <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/data/2D_maps/ordered_map.txt">fully defined ordered acquisition grid</a></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">interactive 2D-map figure resulting from this <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/data/2D_maps/ordered_map.txt">fully defined ordered acquisition grid</a></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -139,10 +140,10 @@ That is to say that each spectrum of the 2D-map appears individually in the file
 <p><code class="code docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">eval</span></code> and <code class="code docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">eval</span> <span class="pre">All</span></code>  perform automatic evaluation of the baseline and peak positions and conduct fitting on the selected spectra or all the spectra (respectively).</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">settings</span></code> enables the saving of user settings in a <strong>settings.json</strong> file located in the <code class="code docutils literal notranslate"><span class="pre">%HOMEUSER%/Fitspy</span></code> directory (open this file to have a look on which and how settings are saved).</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Reinitialize</span></code> and <code class="code docutils literal notranslate"><span class="pre">Reinitialize</span> <span class="pre">All</span></code> reinitialize the spectrum and all the spectra (resp.) to their original values.</p>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id4">
 <img alt="../_images/show_all.png" src="../_images/show_all.png" />
 <figcaption>
-<p><span class="caption-text">Example of the global display obtained with <code class="code docutils literal notranslate"><span class="pre">Show</span> <span class="pre">All</span></code></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Example of the global display obtained with <code class="code docutils literal notranslate"><span class="pre">Show</span> <span class="pre">All</span></code></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -156,6 +157,9 @@ That is to say that each spectrum of the 2D-map appears individually in the file
 <p><code class="code docutils literal notranslate"><span class="pre">Attractors</span></code> are associated with local maxima intensities. When activated, attractors are used for locating baseline and peaks points.
 The attractors points are calculated using scipy.signal.find_peaks() based on the parameters defined in <code class="code docutils literal notranslate"><span class="pre">Settings</span></code>.
 Refer to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html">scipy.signal.find_peaks</a> for more details.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">Outliers</span> <span class="pre">Calc</span></code> allows defining a line (called in <cite>Fitspy</cite> <strong>outliers_limit</strong>) from which values above are considered as outliers.
+This line is defined as corresponding to the envelope of the spectra multiplied by the <code class="code docutils literal notranslate"><span class="pre">coef</span></code> factor.
+Consequently, the spectra loaded at the time of defining this line must be consistent with each other. (See <a class="reference external" href="fitting.html#outliers">here</a> for more details).</p>
 </section>
 <section id="baseline">
 <h2>Baseline<a class="headerlink" href="#baseline" title="Permalink to this heading"></a></h2>
@@ -248,10 +252,10 @@ icon has been reconfigured to allow the figure rescaling on the current displaye
 <p>By default, the full range of integrated spectra intensity is displayed with a range slider in the figure that allows specifying the summation bounds.</p>
 <p>Once fitted, the parameters values can be visualized in the 2D-map figures.</p>
 <p>All the maps displayed in the 2D-map Figure can be exported in a .csv file by clicking on the <code class="code docutils literal notranslate"><span class="pre">Export</span> <span class="pre">(.csv)</span></code> button.</p>
-<figure class="align-center" id="id4">
+<figure class="align-center" id="id5">
 <img alt="../_images/2d-map_intensity_fwhm.png" src="../_images/2d-map_intensity_fwhm.png" />
 <figcaption>
-<p><span class="caption-text">left: intensity field in a 2D-map figure (default mode). right: amplitude values associated to the 2nd peak (obtained after fitting).</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">left: intensity field in a 2D-map figure (default mode). right: amplitude values associated to the 2nd peak (obtained after fitting).</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -261,7 +265,7 @@ icon has been reconfigured to allow the figure rescaling on the current displaye
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="workflow.html" class="btn btn-neutral float-left" title="Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="auto_mode.html" class="btn btn-neutral float-left" title="Auto mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="outputs.html" class="btn btn-neutral float-right" title="Outputs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
