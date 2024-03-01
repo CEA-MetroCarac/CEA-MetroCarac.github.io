@@ -73,6 +73,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#models-parameters-coupling">Models parameters coupling</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#performance">Performance</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
@@ -151,6 +152,7 @@
 <h3>Convergence criterion<a class="headerlink" href="#convergence-criterion" title="Permalink to this heading"></a></h3>
 <p>The convergence criterion is most often associated with a threshold to be reached on the calculated residual during the minimization procedure (gradient descent). Each fitting method used by <strong>`lmfit`</strong> has its own way of specifying this criterion.
 For <code class="code docutils literal notranslate"><span class="pre">Leastsq</span></code> and <code class="code docutils literal notranslate"><span class="pre">Least_squares</span></code> the <code class="code docutils literal notranslate"><span class="pre">xtol</span></code> parameter can be pass to the fit function (see the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html">scipy</a> documentation for more details about this parameter). Otherwise, for the other fitting methods, in scripting mode, tolerance criteria can be passed through the <code class="code docutils literal notranslate"><span class="pre">fit_kws</span></code> in the <code class="code docutils literal notranslate"><span class="pre">kwargs</span></code> arguments of the <a class="reference internal" href="../api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.fit" title="fitspy.spectrum.Spectrum.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a> function (in a format compatible with the fit method).</p>
+<p>This convergence criterion naturally has a significant impact on performance. (Refer to the section <a class="reference external" href="fitting.html#performance">above</a>).</p>
 </section>
 <section id="maximum-number-of-iterations">
 <h3>Maximum number of iterations<a class="headerlink" href="#maximum-number-of-iterations" title="Permalink to this heading"></a></h3>
@@ -189,6 +191,49 @@ For <code class="code docutils literal notranslate"><span class="pre">Leastsq</s
 <h3>Models parameters coupling<a class="headerlink" href="#models-parameters-coupling" title="Permalink to this heading"></a></h3>
 <p>Similarly, in the <code class="code docutils literal notranslate"><span class="pre">Parameters</span></code> widget, constraints can be associated with each parameter, by activating the <code class="code docutils literal notranslate"><span class="pre">show</span> <span class="pre">expressions</span></code> box and providing the constraints as explained <a class="reference external" href="gui.html#fitting">here</a>.</p>
 </section>
+</section>
+<section id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this heading"></a></h2>
+<p>The performance varies depending on factors such as the number of spectra to handle, the number of points per spectrum, the number of peaks to fit, the <code class="code docutils literal notranslate"><span class="pre">xtol</span></code> convergence criterion,… and, of course, the machine ‘s performance, including its multiprocessing capabilities.</p>
+<p>Here is an example of the performance obtained from applying the <cite>Fitspy</cite> <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/blob/main/examples/data/2D_maps/model.json">model.json</a> (which includes the baseline removal and fitting 5 peak models per spectrum) to all <strong>1520 spectra</strong> related to the example <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/ex_gui_users_defined_models_2d_map.py">ex_gui_users_defined_models_2d_map.py</a>.</p>
+<table class="docutils align-center" id="id2">
+<caption><span class="caption-text">Performance</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 59%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Machine</p></th>
+<th class="head"><p>Number of processors</p></th>
+<th class="head"><p><code class="code docutils literal notranslate"><span class="pre">xtol</span></code></p></th>
+<th class="head"><p>CPU time (s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PC Windows</p></td>
+<td><p>8 (Intel(R) Core(TM) i5-10400H CPU &#64; 2.60GHz)</p></td>
+<td><p>0.01</p></td>
+<td><p>175</p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows server</p></td>
+<td><p>36 (Intel(R) Xeon(R) Gold 6154 CPU &#64; 3.00GHz)</p></td>
+<td><p>0.01</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Windows server</p></td>
+<td><p>36 (Intel(R) Xeon(R) Gold 6154 CPU &#64; 3.00GHz)</p></td>
+<td><p>0.001</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows server</p></td>
+<td><p>36 (Intel(R) Xeon(R) Gold 6154 CPU &#64; 3.00GHz)</p></td>
+<td><p>0.0001</p></td>
+<td><p>18</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 
