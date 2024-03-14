@@ -1,0 +1,9 @@
+pystack3d.bkg\_removal module
+=============================
+
+.. automodule:: pystack3d.bkg_removal
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

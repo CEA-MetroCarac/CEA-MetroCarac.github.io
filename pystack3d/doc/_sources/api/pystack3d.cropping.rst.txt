@@ -1,0 +1,9 @@
+pystack3d.cropping module
+=========================
+
+.. automodule:: pystack3d.cropping
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

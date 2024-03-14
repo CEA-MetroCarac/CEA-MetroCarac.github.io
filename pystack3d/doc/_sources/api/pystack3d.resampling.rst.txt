@@ -1,0 +1,9 @@
+pystack3d.resampling module
+===========================
+
+.. automodule:: pystack3d.resampling
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

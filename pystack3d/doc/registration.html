@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration &mdash; PyStack3D 2024.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Destriping" href="destriping.html" />
+    <link rel="prev" title="Intensity rescaling" href="intensity_rescaling.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyStack3D
+              <img src="_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="params.html">Parameters settings</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cropping.html">Cropping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bkg_removal.html">Background removal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intensity_rescaling.html">Intensity rescaling</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Registration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="destriping.html">Destriping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cropping_final.html">Cropping final</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">pystack3d</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyStack3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="params.html">Parameters settings</a></li>
+      <li class="breadcrumb-item active">Registration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/registration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="registration">
+<h1>Registration<a class="headerlink" href="#registration" title="Permalink to this heading"></a></h1>
+<p>The registration process step consists of realigning the images with each other.</p>
+<p>This process occurs in two steps.</p>
+<ul class="simple">
+<li><p>the <strong>calculation</strong> of the 3x3 (affine) transformation matrices associated to each pairs of consecutive images (based on the <a class="reference external" href="https://pystackreg.readthedocs.io/en/latest/readme.html">pystackreg</a> library).</p></li>
+<li><p>the <strong>transformation</strong> step as the application of the previous calculated matrices to the full stack.</p></li>
+</ul>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/registration.png"><img alt="_images/registration.png" src="_images/registration.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-text">Illustration of the <strong>registration</strong> process step in the <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/examples/ex_synthetic_stack.py">synthetic test case</a>.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">registration_calculation</span><span class="p">]</span>
+<span class="c1">#area = [5, 35, 5, 35]</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">nb_blocks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">transformation</span> <span class="o">=</span> <span class="s2">&quot;TRANSLATION&quot;</span>
+
+<span class="p">[</span><span class="n">registration_transformation</span><span class="p">]</span>
+<span class="c1">#constant_drift = [-0.3, 1.2]</span>
+<span class="c1">#box_size_averaging = 100</span>
+<span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;edge&quot;</span>
+<span class="c1">#cropping = false</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">area</span></code> is an <strong>optional</strong> keyword used to calculate the transformation matrices with cropped images in the aim to reduce the CPU time.
+Note that the area should be sufficiently large to encompass “features” relevant for the registration processing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">threshold</span></code> is employed to binarize the images during the registration_calculation processing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nb_blocks</span></code> allows decomposing the image into patches (according to a grid defined by the number of blocks in the x and y directions). This spatial division of the images thus enables accounting for non-uniform alignment effects on very large images that could not be captured by a single transformation matrix.</p>
+<p><code class="docutils literal notranslate"><span class="pre">transformation</span></code> sets the type of the transformation to be considered (to choose among ‘TRANSLATION’, ‘RIGID_BODY’, ‘SCALED_ROTATION’, ‘AFFINE’, ‘BILINEAR’). See the <a class="reference external" href="https://pystackreg.readthedocs.io/en/latest/readme.html">pystackreg</a> documentation for more details.</p>
+<p>During the image acquisition, it is not uncommon for drift to occur (visible in the ‘cumulative’ transformation matrix resulting from the calculation step). <code class="docutils literal notranslate"><span class="pre">constant_drift</span></code> allows the user to remove the effect of a <strong>constant</strong> drift between each slide according to the values defined for each of the x and y directions.</p>
+<p>In the case of a large-scale fluctuating drift, the user has the possibility to subtract the resulting mean component from a running average of a size (number of slices) defined by the <code class="docutils literal notranslate"><span class="pre">box_size_averaging</span></code> parameter.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mode</span></code> is associated to the extrapolation method to be considered when applying the transformation matrices (to choose among ‘constant’, ‘edge’, ‘symmetric’, ‘reflect’, ‘wrap’ - see <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.pad.html">numpy.pad</a> for more details. Note that if ‘constant’ is selected, the corresponding value (cval) associated to the extrapolation is by default NaN (np.nan)).</p>
+<p><code class="docutils literal notranslate"><span class="pre">cropping</span></code> is an activation key to perform cropping on the entire stack according to the area of aligned images preserved from any extrapolation effects.(Default value is <code class="docutils literal notranslate"><span class="pre">false</span></code>).</p>
+<section id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading"></a></h2>
+<p>The special plotting related to the <strong>registration_calculation</strong> and the <strong>registration_transformation</strong> process steps generates images in the dedicated <strong>outputs</strong>  folder that are named <strong>registration_calculation.png</strong> and <strong>registration_calculation_cumul.png</strong>.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/registration_calculation.png"><img alt="_images/registration_calculation.png" src="_images/registration_calculation.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>registration_calculation.png</strong> shows the transformation matrices values resulting from the registration of images pairs.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/registration_calculation_cumul.png"><img alt="_images/registration_calculation_cumul.png" src="_images/registration_calculation_cumul.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>registration_calculation_cumul.png</strong> shows the corresponding cumulative transformation used for the full stack images realignment.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intensity_rescaling.html" class="btn btn-neutral float-left" title="Intensity rescaling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="destriping.html" class="btn btn-neutral float-right" title="Destriping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The PyStack3D development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

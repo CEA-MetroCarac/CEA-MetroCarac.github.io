@@ -1,0 +1,9 @@
+pystack3d.registration\_transformation module
+=============================================
+
+.. automodule:: pystack3d.registration_transformation
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

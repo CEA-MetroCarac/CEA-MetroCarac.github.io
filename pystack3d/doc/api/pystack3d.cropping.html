@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pystack3d.cropping module &mdash; PyStack3D 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pystack3d.destriping module" href="pystack3d.destriping.html" />
+    <link rel="prev" title="pystack3d.bkg_removal module" href="pystack3d.bkg_removal.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyStack3D
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../params.html">Parameters settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pystack3d</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pystack3d.html">pystack3d package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pystack3d.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.bkg_removal.html">pystack3d.bkg_removal module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pystack3d.cropping module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.destriping.html">pystack3d.destriping module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.intensity_rescaling.html">pystack3d.intensity_rescaling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.registration_calculation.html">pystack3d.registration_calculation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.registration_transformation.html">pystack3d.registration_transformation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.resampling.html">pystack3d.resampling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.utils.html">pystack3d.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.utils_metadata_fibics.html">pystack3d.utils_metadata_fibics module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.utils_multiprocessing.html">pystack3d.utils_multiprocessing module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pystack3d.html#module-pystack3d">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyStack3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">pystack3d</a></li>
+          <li class="breadcrumb-item"><a href="pystack3d.html">pystack3d package</a></li>
+      <li class="breadcrumb-item active">pystack3d.cropping module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/pystack3d.cropping.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pystack3d.cropping">
+<span id="pystack3d-cropping-module"></span><h1>pystack3d.cropping module<a class="headerlink" href="#module-pystack3d.cropping" title="Permalink to this heading"></a></h1>
+<p>Functions related to the cropping processing</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.cropping.cropping">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.cropping.</span></span><span class="sig-name descname"><span class="pre">cropping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inds_partition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_incr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dirname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.cropping.cropping" title="Permalink to this definition"></a></dt>
+<dd><p>Function dedicated to the cropping processing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fnames</strong> (<em>list os pathlib.Path</em><em>, </em><em>optional</em>) – List of ‘.tif’ filenames to process</p></li>
+<li><p><strong>inds_partition</strong> (<em>list</em><em> of </em><em>ints</em><em>, </em><em>optional</em>) – List of indexes to be considered by the global var SHARED_ARRAY when
+working in multiprocessing</p></li>
+<li><p><strong>queue_incr</strong> (<em>multiprocessing.Queue</em><em>, </em><em>optional</em>) – Queue passed to the function to interact with the progress bar</p></li>
+<li><p><strong>area</strong> (<em>iterable</em><em> of </em><em>4 ints</em><em>, </em><em>optional</em>) – Cropping area defined from coordinates (xmin, xmax, ymin, ymax)</p></li>
+<li><p><strong>output_dirname</strong> (<em>str</em><em>, </em><em>optional</em>) – Directory pathname for process results saving</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.cropping.inds_from_area">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.cropping.</span></span><span class="sig-name descname"><span class="pre">inds_from_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fnames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pid_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dirname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.cropping.inds_from_area" title="Permalink to this definition"></a></dt>
+<dd><p>Return imin, imax, jmin, jmax from ‘area’</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pystack3d.bkg_removal.html" class="btn btn-neutral float-left" title="pystack3d.bkg_removal module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pystack3d.destriping.html" class="btn btn-neutral float-right" title="pystack3d.destriping module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The PyStack3D development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

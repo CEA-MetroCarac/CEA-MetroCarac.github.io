@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intensity rescaling &mdash; PyStack3D 2024.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Registration" href="registration.html" />
+    <link rel="prev" title="Background removal" href="bkg_removal.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyStack3D
+              <img src="_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="params.html">Parameters settings</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cropping.html">Cropping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bkg_removal.html">Background removal</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Intensity rescaling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="registration.html">Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="destriping.html">Destriping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cropping_final.html">Cropping final</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">pystack3d</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyStack3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="params.html">Parameters settings</a></li>
+      <li class="breadcrumb-item active">Intensity rescaling</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/intensity_rescaling.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intensity-rescaling">
+<h1>Intensity rescaling<a class="headerlink" href="#intensity-rescaling" title="Permalink to this heading"></a></h1>
+<p>The <strong>intensity rescaling</strong> process aims at homogenize the gray level histograms between consecutive images.</p>
+<p>To achieve this, a reference histogram is defined, corresponding either to the average histogram across all slices or to a running average along the slices (z-axis).</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/intensity_rescaling.png"><img alt="_images/intensity_rescaling.png" src="_images/intensity_rescaling.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-text">Illustration of the <strong>intensity_rescaling</strong> process step in the <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/examples/ex_synthetic_stack.py">synthetic test case</a>.
+In the present case, the reference histogram has been defined from all the slices. This leads to values after intensity rescaling that are nearly <strong>constant</strong> along the z-axis.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">intensity_rescaling</span><span class="p">]</span>
+<span class="n">nbins</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="c1">#range_bins = [0, 6]</span>
+<span class="n">filter_size</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">nbins</span></code> corresponds to the number of bins associated to the histograms.</p>
+<p><code class="docutils literal notranslate"><span class="pre">range_bins</span></code> defines the range of the gray values to be considered for the binning.
+If this parameter is not specified, then a preliminary loop on all the slices are performed to determine the <strong>min</strong> and <strong>max</strong> values associated to the full stack, leading to <strong>range_bins = [min, max]</strong>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">filter_size</span></code> is related to the running averaging for determining the reference histograms.
+A positive integer value is associated to the number of slices/frames to consider in the running average.
+<code class="docutils literal notranslate"><span class="pre">filter_size</span> <span class="pre">=</span> <span class="pre">-1</span></code> corresponds to an averaging performed across all slices.</p>
+<section id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading"></a></h2>
+<p>The special plotting related to the <strong>intensity_rescaling</strong> process step generates images in the dedicated <strong>outputs</strong>  folder that are named <strong>intensity_rescaling_profiles.png</strong> and <strong>intensity_rescaling_maps.png</strong>.</p>
+<figure class="align-center" id="id2">
+<img alt="_images/intensity_rescaling_profiles.png" src="_images/intensity_rescaling_profiles.png" />
+<figcaption>
+<p><span class="caption-text"><strong>intensity_rescaling_profiles.png</strong> gives the histograms profiles calculated for each slice.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<img alt="_images/intensity_rescaling_maps.png" src="_images/intensity_rescaling_maps.png" />
+<figcaption>
+<p><span class="caption-text"><strong>intensity_rescaling_maps.png</strong> returns the same information but according to intensity maps along the z-axis.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Note that in the map representation the maximal intensity values of the 2D-histogram (near 400) are hidden by the y-axis (# Frames).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bkg_removal.html" class="btn btn-neutral float-left" title="Background removal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="registration.html" class="btn btn-neutral float-right" title="Registration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The PyStack3D development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

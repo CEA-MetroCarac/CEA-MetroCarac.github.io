@@ -1,0 +1,9 @@
+pystack3d.registration\_calculation module
+==========================================
+
+.. automodule:: pystack3d.registration_calculation
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

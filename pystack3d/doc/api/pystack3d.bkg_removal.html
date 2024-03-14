@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pystack3d.bkg_removal module &mdash; PyStack3D 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pystack3d.cropping module" href="pystack3d.cropping.html" />
+    <link rel="prev" title="pystack3d package" href="pystack3d.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyStack3D
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../params.html">Parameters settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pystack3d</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pystack3d.html">pystack3d package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pystack3d.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pystack3d.bkg_removal module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.cropping.html">pystack3d.cropping module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.destriping.html">pystack3d.destriping module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.intensity_rescaling.html">pystack3d.intensity_rescaling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.registration_calculation.html">pystack3d.registration_calculation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.registration_transformation.html">pystack3d.registration_transformation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.resampling.html">pystack3d.resampling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.utils.html">pystack3d.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.utils_metadata_fibics.html">pystack3d.utils_metadata_fibics module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.utils_multiprocessing.html">pystack3d.utils_multiprocessing module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pystack3d.html#module-pystack3d">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyStack3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">pystack3d</a></li>
+          <li class="breadcrumb-item"><a href="pystack3d.html">pystack3d package</a></li>
+      <li class="breadcrumb-item active">pystack3d.bkg_removal module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/pystack3d.bkg_removal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pystack3d.bkg_removal">
+<span id="pystack3d-bkg-removal-module"></span><h1>pystack3d.bkg_removal module<a class="headerlink" href="#module-pystack3d.bkg_removal" title="Permalink to this heading"></a></h1>
+<p>Functions related to the background removal processing</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.init_args">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">init_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nslices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.init_args" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize arguments related to the current processing (‘bkg_removal’) and
+return a specific array to share (coefs)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>dict</em>) – Dictionary related to the current process.
+See the related documentation for more details.</p></li>
+<li><p><strong>nslices</strong> (<em>int</em>) – Number of the total slices to process</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>coefs</strong> – Coefficients of the polynom to be shared during the (multi)processing</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray((len(powers), nslices))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.bkg_removal">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">bkg_removal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inds_partition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_incr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">powers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">10)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_averaging</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HuberT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dirname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.bkg_removal" title="Permalink to this definition"></a></dt>
+<dd><p>Function dedicated to the background removal processing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fnames</strong> (<em>list os pathlib.Path</em><em>, </em><em>optional</em>) – List of ‘.tif’ filenames to process</p></li>
+<li><p><strong>inds_partition</strong> (<em>list</em><em> of </em><em>ints</em><em>, </em><em>optional</em>) – List of indexes to be considered by the global var SHARED_ARRAY when
+working in multiprocessing</p></li>
+<li><p><strong>queue_incr</strong> (<em>multiprocessing.Queue</em><em>, </em><em>optional</em>) – Queue passed to the function to interact with the progress bar</p></li>
+<li><p><strong>powers</strong> (<em>list</em><em> of </em><em>q-lists</em><em> of </em><em>2</em><em> or </em><em>3 ints</em><em>, </em><em>optional</em>) – Powers related to each term of the polynomial basis (in invlex order).
+Example: 1 + y**2 + x + x**2 * y -&gt; [[0, 0], [0, 2], [1, 0], [2, 1]]</p></li>
+<li><p><strong>skip_factors</strong> (<em>tuple</em><em> of </em><em>2</em><em> or </em><em>3 ints</em><em>, </em><em>optional</em>) – Skipping factors in each direction to perform polynomial fitting on
+a reduced image</p></li>
+<li><p><strong>threshold_min</strong> (<em>floats</em><em>, </em><em>optional</em>) – Relative thresholds used to exclude low and high values in the
+background removal processing</p></li>
+<li><p><strong>threshold_max</strong> (<em>floats</em><em>, </em><em>optional</em>) – Relative thresholds used to exclude low and high values in the
+background removal processing</p></li>
+<li><p><strong>skip_averaging</strong> (<em>bool</em><em>, </em><em>optional</em>) – Activation key for averaging when skip_factors is used</p></li>
+<li><p><strong>weight_func</strong> (<em>str</em><em>, </em><em>optional</em>) – Weight function (‘HuberT’ or ‘Hampel’) to consider by the M-estimator.
+For more details see : <a class="reference external" href="https://www.statsmodels.org/stable/rlm.html">https://www.statsmodels.org/stable/rlm.html</a>
+If None, polynomial fitting is calculated according to the classical
+‘leastsq’ algorithm when solving : A.X = B</p></li>
+<li><p><strong>output_dirname</strong> (<em>str</em><em>, </em><em>optional</em>) – Directory pathname for process results saving</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.bkg_saving">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">bkg_saving</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bkg_dirname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bkg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.bkg_saving" title="Permalink to this definition"></a></dt>
+<dd><p>Save bkg image in .png format with vmin, vmax values displayed</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.powers_from_orders">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">powers_from_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">orders</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cross_terms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.powers_from_orders" title="Permalink to this definition"></a></dt>
+<dd><p>Return ‘powers’ from polynomial ‘orders’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>orders</strong> (<em>tuple</em><em> of </em><em>2</em><em> or </em><em>3 ints</em>) – Polynomial orders in x, y and potentially z directions respectively</p></li>
+<li><p><strong>cross_terms</strong> (<em>bool</em><em>, </em><em>optional</em>) – Activation key to take into account cross terms in the polynom</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><strong>powers</strong> – Powers related to each term of the polynomial basis (in invlex order).
+Example:
+orders=(2, 1), cross_terms=False : basis = 1 + y + x + x**2</p>
+<blockquote>
+<div><p>-&gt; powers = [[0, 0], [0, 1], [1, 0], [2, 0]]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>orders=[2, 1], cross_terms=True<span class="classifier">1 + y + x + x*y + x**2 + x**2*y</span></dt><dd><p>-&gt; powers = [[0, 0], [0, 1], [1, 0], [1, 1], [2, 0], [2, 1]]</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of q-lists of 2 or 3 ints</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.powers_from_expr">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">powers_from_expr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_cst_term</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.powers_from_expr" title="Permalink to this definition"></a></dt>
+<dd><p>Return ‘powers’ from expression (in invlex order)</p>
+<p class="rubric">Examples</p>
+<p>&gt;&gt; expr = “y + x + x*y + x**2 + x**2*y”
+&gt;&gt; print(powers_from_expr(expr))
+&gt;&gt; [[0, 1], [1, 0], [1, 1], [2, 0], [2, 1]]
+&gt;&gt; print(powers_from_expr(expr, force_cst_term=True))
+&gt;&gt; [[0, 0], [0, 1], [1, 0], [1, 1], [2, 0], [2, 1]]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.expr_from_powers">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">expr_from_powers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">powers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['x',</span> <span class="pre">'y',</span> <span class="pre">'z']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.expr_from_powers" title="Permalink to this definition"></a></dt>
+<dd><p>Return expression from ‘powers’</p>
+<p class="rubric">Examples</p>
+<p>&gt;&gt; powers = [[0, 1], [1, 0], [1, 1], [2, 0], [2, 1]]
+&gt;&gt; print(expr_from_powers(powers, variables=[‘x’, ‘y’]))
+&gt;&gt; “y + x + x*y + x**2 + x**2*y”</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.eval">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">powers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">10)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_averaging</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HuberT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_basis_precalc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_basis_precalc_skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs_3d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.eval" title="Permalink to this definition"></a></dt>
+<dd><p>Background removal function dedicated to stack3d</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arr</strong> (<em>np.ndarray</em><em>(</em><em>(</em><em>m</em><em>, </em><em>n</em><em>)</em><em>) or </em><em>np.ndarray</em><em>(</em><em>(</em><em>m</em><em>, </em><em>n</em><em>, </em><em>p</em><em>)</em><em>)</em>) – 2D or 3D array</p></li>
+<li><p><strong>powers</strong> (<em>list</em><em> of </em><em>q-lists</em><em> of </em><em>2</em><em> or </em><em>3 ints</em>) – Powers related to each term of the polynomial basis (in invlex order).
+Example: 1 + y**2 + x + x**2 * y -&gt; [[0, 0], [0, 2], [1, 0], [2, 1]]</p></li>
+<li><p><strong>skip_factors</strong> (<em>tuple</em><em> of </em><em>2</em><em> or </em><em>3 ints</em><em>, </em><em>optional</em>) – Skipping factors in each direction to perform polynomial fitting on
+a reduced image</p></li>
+<li><p><strong>threshold_min</strong> (<em>floats</em><em>, </em><em>optional</em>) – <dl class="simple">
+<dt>Thresholds used to exclude low and high values in the background removal</dt><dd><p>processing</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>threshold_max</strong> (<em>floats</em><em>, </em><em>optional</em>) – <dl class="simple">
+<dt>Thresholds used to exclude low and high values in the background removal</dt><dd><p>processing</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>skip_averaging</strong> (<em>bool</em><em>, </em><em>optional</em>) – Activation key for averaging when skip_factors is used.</p></li>
+<li><p><strong>weight_func</strong> (<em>str</em><em>, </em><em>optional</em>) – Weight function (‘HuberT’ or ‘Hampel’) to consider by the M-estimator.
+For more details see : <a class="reference external" href="https://www.statsmodels.org/stable/rlm.html">https://www.statsmodels.org/stable/rlm.html</a>
+If None, polynomial fitting is calculated according to the classical
+‘leastsq’ algorithm when solving : A.X = B</p></li>
+<li><p><strong>poly_basis_precalc</strong> (<em>np.ndarray</em><em>(</em><em>(</em><em>m*n</em><em>, </em><em>q</em><em>)</em><em>, </em><em>optional</em>) – Pre-calculated polynomial basis to significantly decrease CPU time
+when dealing with huge and repetitive task</p></li>
+<li><p><strong>poly_basis_precalc_skip</strong> (<em>np.ndarray</em><em>(</em><em>(</em><em>m//skip_factors</em><em>[</em><em>0</em><em>]</em><em>*n//skip_factors</em><em>[</em><em>1</em><em>]</em><em>,</em>) – </p></li>
+<li><p><strong>q</strong><strong>)</strong> – Pre-calculated polynomial basis taking into account the ‘skip_factors’</p></li>
+<li><p><strong>optional</strong> – Pre-calculated polynomial basis taking into account the ‘skip_factors’</p></li>
+<li><p><strong>kwargs_3d</strong> (<em>dict</em><em>, </em><em>optional</em>) – Dictionary related to 3D background calculation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>arr_bkg</strong> (<em>numpy.ndarray((m, n)) or numpy.ndarray((m, n, p))</em>) – Final array with the background removed</p></li>
+<li><p><strong>bkg</strong> (<em>numpy.ndarray((m, n)) or numpy.ndarray((m, n, p))</em>) – array related to the background</p></li>
+<li><p><strong>coefs</strong> (<em>numpy.ndarray(q)</em>) – Polynomial coefficients resulting from the fit</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.poly_basis_calculation">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">poly_basis_calculation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">powers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.poly_basis_calculation" title="Permalink to this definition"></a></dt>
+<dd><p>Return the polynomial basis related to ‘powers’ and associated to a ND-array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>tuple</em><em> of </em><em>2</em><em> (</em><em>m</em><em>,</em><em>n</em><em>) or </em><em>3</em><em> (</em><em>m</em><em>,</em><em>n</em><em>,</em><em>p</em><em>) </em><em>ints</em>) – shape of the 2D or 3D array</p></li>
+<li><p><strong>powers</strong> (<em>list</em><em> of </em><em>q-lists</em><em> of </em><em>2</em><em> or </em><em>3 ints</em>) – Powers related to each term of the polynomial basis (in invlex order).
+Example: 1 + y**2 + x + x**2 * y -&gt; [[0, 0], [0, 2], [1, 0], [2, 1]]</p></li>
+<li><p><strong>skip_factors</strong> (<em>tuple</em><em> of </em><em>2</em><em> or </em><em>3 ints</em><em>, </em><em>optional</em>) – Skipping factors in each direction to perform polynomial fitting on a
+reduced image</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>poly_basis</strong> – The related polynomial basis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray((m*n, q) or numpy.ndarray((m*n*p, q)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.bkg_calculation">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">bkg_calculation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">powers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_averaging</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HuberT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_basis_precalc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_basis_precalc_skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.bkg_calculation" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate background of a ND-array from polynomial fitting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arr</strong> (<em>np.ndarray</em><em>(</em><em>(</em><em>m</em><em>, </em><em>n</em><em>)</em><em>) or </em><em>np.ndarray</em><em>(</em><em>(</em><em>m</em><em>, </em><em>n</em><em>, </em><em>p</em><em>)</em><em>)</em>) – 2D or 3D array</p></li>
+<li><p><strong>powers</strong> (<em>list</em><em> of </em><em>q-lists</em><em> of </em><em>2</em><em> or </em><em>3 ints</em>) – Powers related to each term of the polynomial basis (in invlex order).
+Example: 1 + y**2 + x + x**2 * y -&gt; [[0, 0], [0, 2], [1, 0], [2, 1]]</p></li>
+<li><p><strong>skip_factors</strong> (<em>tuple</em><em> of </em><em>2</em><em> or </em><em>3 ints</em><em>, </em><em>optional</em>) – Skipping factors in each direction to perform polynomial fitting on a
+reduced image</p></li>
+<li><p><strong>skip_averaging</strong> (<em>bool</em><em>, </em><em>optional</em>) – Activation key for averaging when skip_factors is used.</p></li>
+<li><p><strong>weight_func</strong> (<em>str</em><em>, </em><em>optional</em>) – Weight function (‘HuberT’ or ‘Hampel’) to consider by the M-estimator.
+For more details see : <a class="reference external" href="https://www.statsmodels.org/stable/rlm.html">https://www.statsmodels.org/stable/rlm.html</a>
+If None, polynomial fitting is calculated according to the classical
+‘leastsq’ algorithm when solving : A.X = B</p></li>
+<li><p><strong>poly_basis_precalc</strong> (<em>np.ndarray</em><em>(</em><em>(</em><em>m*n</em><em>, </em><em>q</em><em>)</em><em>)</em><em>, </em><em>optional</em>) – Pre-calculated polynomial basis to significantly decrease CPU time
+when dealing with huge and repetitive task</p></li>
+<li><p><strong>poly_basis_precalc_skip</strong> (<em>np.ndarray</em><em>(</em><em>(</em><em>m//skip_factors</em><em>[</em><em>0</em><em>]</em><em>*n//skip_factors</em><em>[</em><em>1</em><em>]</em><em>,</em>) – </p></li>
+<li><p><strong>q</strong><strong>)</strong> – Pre-calculated polynomial basis taking into account the ‘skip_factors’</p></li>
+<li><p><strong>optional</strong> – Pre-calculated polynomial basis taking into account the ‘skip_factors’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>bkg</strong> (<em>numpy.ndarray((m, n)) or numpy.ndarray((m, n, p))</em>) – array related to the background</p></li>
+<li><p><strong>coefs</strong> (<em>numpy.ndarray(q)</em>) – Polynomial coefficients resulting from the fit where q = len(powers)</p></li>
+<li><p><strong>poly_basis</strong> (<em>numpy.ndarray((m*n, q) or numpy.ndarray((m*n*p, q)</em>) – The related polynomial basis</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.bkg_3d_from_slices">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">bkg_3d_from_slices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_3d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coefs_3d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">powers_3d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_basis_precalc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.bkg_3d_from_slices" title="Permalink to this definition"></a></dt>
+<dd><p>Background calculation on a (2D) slice from 3D coefficients previously
+calculated</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> (<em>int</em>) – Index of the slice to work with (related to shape_3d[2] axis)</p></li>
+<li><p><strong>shape_3d</strong> (<em>tuple</em><em> of </em><em>3 ints</em><em> (</em><em>m</em><em>, </em><em>n</em><em>, </em><em>p</em><em>)</em>) – Shape associated to the 3D Array on which the 3D-Background coefficients
+has been previuosly calculated</p></li>
+<li><p><strong>coefs_3d</strong> (<em>List</em><em> of </em><em>q-floats</em>) – 3D-Background pre-calculated coefficients where q = len(powers)</p></li>
+<li><p><strong>powers_3d</strong> (<em>iterable</em><em> of </em><em>q-iterables</em><em> of </em><em>3 ints</em>) – Powers associated to each term of the polynom (in invlex order).
+Example: 1 + x*z + x**2 * y -&gt; [[0, 0, 0], [1, 0, 1], [2, 1, 0]]</p></li>
+<li><p><strong>poly_basis_precalc</strong> (<em>np.ndarray</em><em>(</em><em>(</em><em>m*n</em><em>, </em><em>q</em><em>)</em><em>, </em><em>optional</em>) – Pre-calculated polynomial basis taking into account the ‘skip_factors’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>bkg</strong> – 3D background estimated on the slice</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray((m, n))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.plot">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_dirname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.plot" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the specific data related to the current process</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pystack3d.html" class="btn btn-neutral float-left" title="pystack3d package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pystack3d.cropping.html" class="btn btn-neutral float-right" title="pystack3d.cropping module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The PyStack3D development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

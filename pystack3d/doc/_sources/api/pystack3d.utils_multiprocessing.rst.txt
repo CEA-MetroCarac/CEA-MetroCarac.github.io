@@ -1,0 +1,9 @@
+pystack3d.utils\_multiprocessing module
+=======================================
+
+.. automodule:: pystack3d.utils_multiprocessing
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

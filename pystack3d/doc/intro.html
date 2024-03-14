@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; PyStack3D 2024.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting started" href="getting_started.html" />
+    <link rel="prev" title="Welcome to the PyStack3D documentation !" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyStack3D
+              <img src="_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-pystack3d">What is PyStack3D ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tests-and-examples-execution">Tests and examples execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#citations">Citations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="params.html">Parameters settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">pystack3d</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyStack3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/intro.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<section id="what-is-pystack3d">
+<h2>What is PyStack3D ?<a class="headerlink" href="#what-is-pystack3d" title="Permalink to this heading"></a></h2>
+<p>PyStack3D is an open source library written in Python which provides tools to do
+images stacks corrections, typically before image segmentation for images issued from FIB-SEM 3D acquisition.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pystack3d</span></code> workflow can be applied to multiple channels and consists in the following optional process steps that can be executed in any order:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cropping</span></code> to reduce the image field of view to a ROI (Region Of Interest)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">background</span> <span class="pre">removal</span></code> to reduce from polynomial approximations artefacts issued for instance from shadowing, charging, …</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">intensity</span> <span class="pre">rescaling</span></code> to homogenize the ‘gray’ intensity distribution between successive frames/slices</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">registration</span></code> to correct the images misalignment due to shifting, drift, rotation, … during the images acquisition</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">destriping</span></code> to minimize artefacts like stripes that can appear in some image acquisition technics</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resampling</span></code> to correct non uniform spatial steps</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cropping_final</span></code> to eliminate artefacts produced near the edges during the image processing or to select another ROI at the end.</p></li>
+</ul>
+<figure class="align-center" id="id1">
+<img alt="_images/process_steps_real.png" src="_images/process_steps_real.png" />
+<figcaption>
+<p><span class="caption-text">Illustration of a FIB-SEM image correction using some of the <strong>PyStack3D</strong> process steps.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">pystack3d</span></code> package install can be realized via a git cloning:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">CEA</span><span class="o">-</span><span class="n">MetroCarac</span><span class="o">/</span><span class="n">pystack3d</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>or by a pypi install:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pystack3d</span>
+</pre></div>
+</div>
+</section>
+<section id="tests-and-examples-execution">
+<h2>Tests and examples execution<a class="headerlink" href="#tests-and-examples-execution" title="Permalink to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pytest</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">CEA</span><span class="o">-</span><span class="n">MetroCarac</span><span class="o">/</span><span class="n">pystack3d</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">pystack3d</span>
+<span class="n">pytest</span>
+<span class="n">python</span> <span class="n">examples</span><span class="o">/</span><span class="n">ex_synthetic_stack</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">examples</span><span class="o">/</span><span class="n">ex_real_stack</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading"></a></h2>
+<p>This work, carried out on the CEA - Platform for Nanocharacterisation (PFNC), was supported by the “Recherche Technologique de Base” program of the French National Research Agency (ANR).</p>
+</section>
+<section id="citations">
+<h2>Citations<a class="headerlink" href="#citations" title="Permalink to this heading"></a></h2>
+<p>In case you use the results of this code in an article, please cite:</p>
+<ul class="simple">
+<li><p>Quéméré P., David T. (2024). PyStack3D: A Python package for fast image stack correction. <em>Journal of Open Source Software. (submitted)</em></p></li>
+</ul>
+<p>additional citations for the <strong>destriping</strong>:</p>
+<ul class="simple">
+<li><p>Pavy K.,  Quéméré P. (2024). Pyvsnr 2.0.0. Zenodo. <a class="reference external" href="https://doi.org/10.5281/zenodo.10623640">https://doi.org/10.5281/zenodo.10623640</a></p></li>
+<li><p>Fehrenbach J., Weiss P., Lorenzo C. (2012). Variational algorithms to remove stationary noise: applications to microscopy imaging. <em>IEEE Transactions on Image Processing 21.10 (2012): 4420-4430.</em></p></li>
+</ul>
+<p>additional citation for the <strong>registration</strong>:</p>
+<ul class="simple">
+<li><p>Thévenaz P., Ruttimann U.E., Unser M. (1998), A Pyramid Approach to Subpixel Registration Based on Intensity, <em>IEEE Transactions on Image Processing, vol. 7, no. 1, pp. 27-41, January 1998</em></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the PyStack3D documentation !" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The PyStack3D development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

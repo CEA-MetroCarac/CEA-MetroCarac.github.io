@@ -1,0 +1,9 @@
+pystack3d.utils\_metadata\_fibics module
+========================================
+
+.. automodule:: pystack3d.utils_metadata_fibics
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

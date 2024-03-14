@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pystack3d.intensity_rescaling module &mdash; PyStack3D 2024.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pystack3d.registration_calculation module" href="pystack3d.registration_calculation.html" />
+    <link rel="prev" title="pystack3d.destriping module" href="pystack3d.destriping.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyStack3D
+              <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../params.html">Parameters settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pystack3d</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pystack3d.html">pystack3d package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pystack3d.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.bkg_removal.html">pystack3d.bkg_removal module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.cropping.html">pystack3d.cropping module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.destriping.html">pystack3d.destriping module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pystack3d.intensity_rescaling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.registration_calculation.html">pystack3d.registration_calculation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.registration_transformation.html">pystack3d.registration_transformation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.resampling.html">pystack3d.resampling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.utils.html">pystack3d.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.utils_metadata_fibics.html">pystack3d.utils_metadata_fibics module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.utils_multiprocessing.html">pystack3d.utils_multiprocessing module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pystack3d.html#module-pystack3d">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyStack3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">pystack3d</a></li>
+          <li class="breadcrumb-item"><a href="pystack3d.html">pystack3d package</a></li>
+      <li class="breadcrumb-item active">pystack3d.intensity_rescaling module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/pystack3d.intensity_rescaling.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pystack3d.intensity_rescaling">
+<span id="pystack3d-intensity-rescaling-module"></span><h1>pystack3d.intensity_rescaling module<a class="headerlink" href="#module-pystack3d.intensity_rescaling" title="Permalink to this heading"></a></h1>
+<p>Functions related to the intensity rescaling processing</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.intensity_rescaling.init_args">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.intensity_rescaling.</span></span><span class="sig-name descname"><span class="pre">init_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nslices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.intensity_rescaling.init_args" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize arguments related to the current processing
+(‘intensity_rescaling’) and return a specific array to share (histo)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>dict</em>) – Dictionary related to the current process.
+See the related documentation for more details.</p></li>
+<li><p><strong>nslices</strong> (<em>int</em>) – Number of the total slices to process</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>histo</strong> – Histogram to be shared during the (multi)processing</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray((nslices, nbins))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.intensity_rescaling.intensity_rescaling">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.intensity_rescaling.</span></span><span class="sig-name descname"><span class="pre">intensity_rescaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inds_partition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_incr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dirname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.intensity_rescaling.intensity_rescaling" title="Permalink to this definition"></a></dt>
+<dd><p>Function for image intensity rescaling</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fnames</strong> (<em>list os pathlib.Path</em><em>, </em><em>optional</em>) – List of ‘.tif’ filenames to process</p></li>
+<li><p><strong>inds_partition</strong> (<em>list</em><em> of </em><em>ints</em><em>, </em><em>optional</em>) – List of indexes to be considered by the global var SHARED_ARRAY when
+working in multiprocessing</p></li>
+<li><p><strong>queue_incr</strong> (<em>multiprocessing.Queue</em><em>, </em><em>optional</em>) – Queue passed to the function to interact with the progress bar</p></li>
+<li><p><strong>nbins</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of bins in the histograms</p></li>
+<li><p><strong>range_bins</strong> (<em>list</em><em> of </em><em>2 floats</em><em>, </em><em>optional</em>) – Range used in the histograms.
+If None, do a preliminary loop on all files to extract [vmin, vmax]</p></li>
+<li><p><strong>filter_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Filter size for the histograms filtering operation (transverse 1d
+uniform filter) used as target for the image intensity rescaling.
+Value filter_size = -1 operates a standard transverse averaging
+through all the slices.</p></li>
+<li><p><strong>output_dirname</strong> (<em>str</em><em>, </em><em>optional</em>) – Directory pathname for process results saving</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.intensity_rescaling.eval">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.intensity_rescaling.</span></span><span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cdf_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_bins</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.intensity_rescaling.eval" title="Permalink to this definition"></a></dt>
+<dd><p>Find closest pixel-matches corresponding to the CDF (Cumulative
+Distribution Function) of the input image, given the value of the CDF H
+of the targeted image at the corresponding x_target location, s.t. :</p>
+<blockquote>
+<div><p>cdf_target = H(x_target) &lt;=&gt; x_target = H-1(cdf_target)</p>
+</div></blockquote>
+<p><a class="reference external" href="https://stackoverflow.com/questions/32655686">https://stackoverflow.com/questions/32655686</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img</strong> (<em>numpy.ndarray</em><em>(</em><em>(</em><em>m</em><em>, </em><em>n</em><em>)</em><em>)</em>) – input image to rescale</p></li>
+<li><p><strong>cdf_target</strong> (<em>list</em><em> of </em><em>'nbins' floats</em>) – CDF to target</p></li>
+<li><p><strong>x_target</strong> (<em>list</em><em> of </em><em>'nbins' floats</em>) – support (gray levels) related to cdf_target values</p></li>
+<li><p><strong>nbins</strong> (<em>int</em>) – Number of bins to consider</p></li>
+<li><p><strong>range_bins</strong> (<em>list</em><em> of </em><em>2 floats</em>) – Range associated to the bins</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>img_rescaled</strong> – the corresponding intensity-rescaled image</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray((m, n))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.intensity_rescaling.cdf_calculation">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.intensity_rescaling.</span></span><span class="sig-name descname"><span class="pre">cdf_calculation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_bins</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.intensity_rescaling.cdf_calculation" title="Permalink to this definition"></a></dt>
+<dd><p>Return the CDF (Cumulative Distribution Function) of an image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img</strong> (<em>numpy.ndarray</em><em>(</em><em>(</em><em>m</em><em>, </em><em>n</em><em>)</em><em>)</em>) – image to handle</p></li>
+<li><p><strong>nbins</strong> (<em>int</em>) – Number of bins to consider</p></li>
+<li><p><strong>range_bins</strong> (<em>list</em><em> of </em><em>2 floats</em>) – Range associated to the bins</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>img_cdf</strong> – The corresponding CDF</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of ‘nbins’ floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.intensity_rescaling.plot">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.intensity_rescaling.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_dirname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.intensity_rescaling.plot" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the specific data related to the current process</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pystack3d.destriping.html" class="btn btn-neutral float-left" title="pystack3d.destriping module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pystack3d.registration_calculation.html" class="btn btn-neutral float-right" title="pystack3d.registration_calculation module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The PyStack3D development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

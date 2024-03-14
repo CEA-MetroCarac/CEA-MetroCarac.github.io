@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting started &mdash; PyStack3D 2024.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parameters settings" href="params.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyStack3D
+              <img src="_static/logo_black.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2024.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#project-directory-organization">Project directory organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workflow-initialization">Workflow initialization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fibics">Fibics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#workflow-execution">Workflow execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outputs">Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="params.html">Parameters settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">pystack3d</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyStack3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/getting_started.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
+<section id="project-directory-organization">
+<h2>Project directory organization<a class="headerlink" href="#project-directory-organization" title="Permalink to this heading"></a></h2>
+<p>To be executed a <strong>PyStack3D</strong> workflow requires both:</p>
+<ul class="simple">
+<li><p>a <code class="docutils literal notranslate"><span class="pre">params.toml</span></code> file defining all the process steps parameters (see the <a class="reference external" href="file:///C:/Users/PQ177701/PycharmProjects/pystack3d/doc/_build/html/params.html">parameters settings</a> section)</p></li>
+<li><p>a <strong>project directory</strong> including the <code class="docutils literal notranslate"><span class="pre">.tif</span></code> images annotated with their respective <strong>slice numbers</strong> and their <strong>z-positions</strong> either in the root directory:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project_dir</span>
+    <span class="o">|--</span> <span class="n">params</span><span class="o">.</span><span class="n">toml</span>
+    <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>   <span class="o">...</span>
+</pre></div>
+</div>
+<p>or in sub-folders for a multi-channels acquisition:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project_dir</span>
+    <span class="o">|--</span> <span class="n">params</span><span class="o">.</span><span class="n">toml</span>
+    <span class="o">|--</span> <span class="n">channel_1</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>           <span class="o">...</span>
+    <span class="o">|--</span> <span class="n">channel_2</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>           <span class="o">...</span>
+</pre></div>
+</div>
+<p>Once executed, the <strong>outputs</strong> directories related to each process step take place inside the <code class="docutils literal notranslate"><span class="pre">process</span></code> directory as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project_dir</span>
+    <span class="o">|--</span> <span class="n">params</span><span class="o">.</span><span class="n">toml</span>
+    <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>   <span class="o">...</span>
+    <span class="o">|--</span> <span class="n">process</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">cropping</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">outputs</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>           <span class="o">...</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">bkg_removal</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">outputs</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>           <span class="o">...</span>
+    <span class="o">|</span>        <span class="o">...</span>
+</pre></div>
+</div>
+<p>or for a multi-channels acquisition:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project_dir</span>
+    <span class="o">|--</span> <span class="n">params</span><span class="o">.</span><span class="n">toml</span>
+    <span class="o">|--</span> <span class="n">channel_1</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>           <span class="o">...</span>
+    <span class="o">|--</span> <span class="n">channel_2</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>           <span class="o">...</span>
+    <span class="o">|--</span> <span class="n">process</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">cropping</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">outputs</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">channel_1</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>   <span class="o">...</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">channel_2</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>   <span class="o">...</span>
+    <span class="o">|</span>       <span class="o">|--</span> <span class="n">bkg_removal</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">outputs</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">channel_1</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>   <span class="o">...</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">channel_2</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|--</span> <span class="n">slice_0001_z</span><span class="o">=</span><span class="mf">0.0100</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
+    <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>   <span class="o">...</span>
+    <span class="o">|</span>        <span class="o">...</span>
+</pre></div>
+</div>
+<p><em>(The content of each ‘output’ directory is detailed below)</em></p>
+</section>
+<section id="workflow-initialization">
+<h2>Workflow initialization<a class="headerlink" href="#workflow-initialization" title="Permalink to this heading"></a></h2>
+<p>All the workflow instructions are provided in a <code class="docutils literal notranslate"><span class="pre">params.toml</span></code>.</p>
+<p>A <strong>raw</strong> <code class="docutils literal notranslate"><span class="pre">params.toml</span></code> is given <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/assets/toml/params.toml">here</a> (to be adapted according to needs).</p>
+<section id="fibics">
+<h3>Fibics<a class="headerlink" href="#fibics" title="Permalink to this heading"></a></h3>
+<p>In the frame of <strong>Fibics</strong> (FIB-SEM) acquisitions, <strong>metadata</strong> can be extracted from the .tif files and the <code class="docutils literal notranslate"><span class="pre">Atlas3D.a3d-setup</span></code> file as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pystack3d.utils_metadata_fibics</span> <span class="kn">import</span> <span class="n">params_from_metadata</span>
+
+<span class="n">params_from_metadata</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">project_dir</span></code> refers to the project directory pathname containing the .tif files and the <code class="docutils literal notranslate"><span class="pre">Atlas3D.a3d-setup</span></code> file (mandatory file).</p>
+<p>By default, the reference <code class="docutils literal notranslate"><span class="pre">params.toml</span></code> file used by <code class="code docutils literal notranslate"><span class="pre">params_from_metadata</span></code> is the <strong>raw</strong> one. But the user can provide another reference .toml file through the <code class="docutils literal notranslate"><span class="pre">fname_toml_ref</span></code> argument:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">params_from_metadata</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fname_toml_ref</span><span class="o">=</span><span class="n">my_toml_ref</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="workflow-execution">
+<h2>Workflow execution<a class="headerlink" href="#workflow-execution" title="Permalink to this heading"></a></h2>
+<p>A <strong>PyStack3D</strong> workflow execution is obtained with the following instructions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pystack3d</span> <span class="kn">import</span> <span class="n">Stack3d</span>
+
+<span class="n">stack</span> <span class="o">=</span> <span class="n">Stack3d</span><span class="p">(</span><span class="n">input_name</span><span class="p">)</span>
+<span class="n">stack</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">process_steps</span><span class="p">,</span> <span class="n">nproc</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">input_name</span></code> corresponds either to the <strong>project directory pathname</strong> or to the <code class="docutils literal notranslate"><span class="pre">params.toml</span></code> in which the project directory pathname has to be defined via the <code class="docutils literal notranslate"><span class="pre">input_dirname</span></code> parameter.</p>
+<p><code class="docutils literal notranslate"><span class="pre">process_steps</span></code> refers either to a single process step or to a list of process steps or can be omitted leading to the execution of the full process steps defined in the <a href="#id1"><span class="problematic" id="id2">``</span></a>params.toml`:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># execute only the &#39;cropping&#39; process step</span>
+<span class="n">stack</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">process_steps</span><span class="o">=</span><span class="s2">&quot;cropping&quot;</span><span class="p">,</span> <span class="n">nproc</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># execute the &#39;cropping&#39; and the &#39;background removal&#39; process steps</span>
+<span class="n">stack</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">process_steps</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cropping&quot;</span><span class="p">,</span> <span class="s2">&quot;bkg_removal&quot;</span><span class="p">],</span> <span class="n">nproc</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># execute all the process steps defined in the &#39;params.toml&#39; file</span>
+<span class="n">stack</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">nproc</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">nproc</span></code> corresponds to the number of CPU to use for the workflow execution.</p>
+<p>Note that an additional boolean keyword named <code class="docutils literal notranslate"><span class="pre">serial</span></code> allows to realize non-serialized calculations when setting to <code class="docutils literal notranslate"><span class="pre">False</span></code> (said differently, with <code class="docutils literal notranslate"><span class="pre">serial</span> <span class="pre">=</span> <span class="pre">False</span></code> the workflow is executed considering for each process step the original raw input data).</p>
+</section>
+<section id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
+<p>Each process steps returns <strong>specific</strong> and <strong>standard</strong> outputs (data and figures) in the related process step <strong>outputs</strong> directory.</p>
+<p><strong>Specific</strong> outputs are related to each process steps. They are described in each of the process steps sections hereafter (if existing).</p>
+<p><strong>Standard</strong> outputs consist in the statistics (min, max, mean) values evolution along the stack axis (z-axis, by convention) <strong>before</strong> and <strong>after</strong> the process step execution, considering for these last ones (‘after’) the statistics without and with a data reformatting compatible with the input data format. Indeed, some process steps may modify the data type (typically from integer to float) or generate data outside the range of authorized data values. <em>(This could happen for instance in the **bkg_removal*</em> process step when subtracting the background that could generate negative or positive overflowed values)*.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/stats_bkg_removal.png"><img alt="_images/stats_bkg_removal.png" src="_images/stats_bkg_removal.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-text">Example of statistics returned by the <strong>bkg_removal</strong> process step in the <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/examples/ex_synthetic_stack.py">synthetic test case</a>.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
+<p>Two examples are provided with the pystack3d package github repository.</p>
+<p>The first one corresponds to a synthetic stack composed of small images. It aims at providing quick overviews of the process steps outcomes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">pystack3d</span>
+<span class="n">python</span> <span class="n">examples</span><span class="o">/</span><span class="n">ex_synthetic_stack</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>The second one is based on a real but reduced stack (8 slices) issued from a FIB-SEM images acquisition. Although reduced, its execution is longer than the previous one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">examples</span><span class="o">/</span><span class="n">ex_real_stack</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="params.html" class="btn btn-neutral float-right" title="Parameters settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, The PyStack3D development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

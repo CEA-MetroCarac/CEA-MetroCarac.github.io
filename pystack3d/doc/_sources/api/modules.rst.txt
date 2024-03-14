@@ -1,0 +1,7 @@
+pystack3d
+=========
+
+.. toctree::
+   :maxdepth: 4
+
+   pystack3d

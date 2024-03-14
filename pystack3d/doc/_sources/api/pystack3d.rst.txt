@@ -1,0 +1,29 @@
+pystack3d package
+=================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pystack3d.bkg_removal
+   pystack3d.cropping
+   pystack3d.destriping
+   pystack3d.intensity_rescaling
+   pystack3d.registration_calculation
+   pystack3d.registration_transformation
+   pystack3d.resampling
+   pystack3d.utils
+   pystack3d.utils_metadata_fibics
+   pystack3d.utils_multiprocessing
+
+Module contents
+---------------
+
+.. automodule:: pystack3d
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:
