@@ -63,6 +63,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="params.html">Parameters settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul>
@@ -177,7 +178,12 @@
     <span class="o">|</span>        <span class="o">...</span>
 </pre></div>
 </div>
-<p><em>(The content of each ‘output’ directory is detailed below)</em></p>
+<p><em>(The content of each ‘outputs’ directory is detailed below)</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As illustrated above, following each process, images of the entire processed stack are saved. Consequently, this requires having a sufficient amount of free disk space.</p>
+<p>For instance, in the case of a stack of 2000 images sized 2000x2000 encoded in 16 bits, each process step will require storing approximately 15GB of data.</p>
+</div>
 </section>
 <section id="workflow-initialization">
 <h2>Workflow initialization<a class="headerlink" href="#workflow-initialization" title="Permalink to this heading"></a></h2>
@@ -226,7 +232,7 @@
 <h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
 <p>Each process steps returns <strong>specific</strong> and <strong>standard</strong> outputs (data and figures) in the related process step <strong>outputs</strong> directory.</p>
 <p><strong>Specific</strong> outputs are related to each process steps. They are described in each of the process steps sections hereafter (if existing).</p>
-<p><strong>Standard</strong> outputs consist in the statistics (min, max, mean) values evolution along the stack axis (z-axis, by convention) <strong>before</strong> and <strong>after</strong> the process step execution, considering for these last ones (‘after’) the statistics without and with a data reformatting compatible with the input data format. Indeed, some process steps may modify the data type (typically from integer to float) or generate data outside the range of authorized data values. <em>(This could happen for instance in the **bkg_removal*</em> process step when subtracting the background that could generate negative or positive overflowed values)*.</p>
+<p><strong>Standard</strong> outputs consist in the statistics (min, max, mean) values evolution along the stack axis (z-axis, by convention) <strong>before</strong> and <strong>after</strong> the process step execution, considering for the ‘after’ values, the statistics without and with data reformatting compatible with the input data format. Indeed, some process steps may modify the data type (typically from integer to float) or generate data outside the range of authorized data values. <em>(This could happen for instance in the</em> <strong>bkg_removal</strong> <em>process step when subtracting the background that could generate negative or positive overflowed values)</em>.</p>
 <figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="_images/stats_bkg_removal.png"><img alt="_images/stats_bkg_removal.png" src="_images/stats_bkg_removal.png" style="width: 80%;" /></a>
 <figcaption>

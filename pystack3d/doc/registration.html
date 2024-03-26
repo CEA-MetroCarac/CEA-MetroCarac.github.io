@@ -66,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cropping_final.html">Cropping final</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul>
@@ -105,10 +106,13 @@
 <li><p>the <strong>calculation</strong> of the 3x3 (affine) transformation matrices associated to each pairs of consecutive images (based on the <a class="reference external" href="https://pystackreg.readthedocs.io/en/latest/readme.html">pystackreg</a> library).</p></li>
 <li><p>the <strong>transformation</strong> step as the application of the previous calculated matrices to the full stack.</p></li>
 </ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/registration_3D.png"><img alt="_images/registration_3D.png" src="_images/registration_3D.png" style="width: 100%;" /></a>
+</figure>
 <figure class="align-center" id="id2">
-<a class="reference internal image-reference" href="_images/registration.png"><img alt="_images/registration.png" src="_images/registration.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/registration.png"><img alt="_images/registration.png" src="_images/registration.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-text">Illustration of the <strong>registration</strong> process step in the <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/examples/ex_synthetic_stack.py">synthetic test case</a>.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Illustration of the <strong>registration</strong> process step in the <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/examples/ex_synthetic_stack.py">synthetic test case</a>. Reminder: shifted slices are located in [20-70]</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">registration_calculation</span><span class="p">]</span>
@@ -120,8 +124,9 @@
 <span class="p">[</span><span class="n">registration_transformation</span><span class="p">]</span>
 <span class="c1">#constant_drift = [-0.3, 1.2]</span>
 <span class="c1">#box_size_averaging = 100</span>
+<span class="n">subpixel</span> <span class="o">=</span> <span class="n">false</span>
 <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;edge&quot;</span>
-<span class="c1">#cropping = false</span>
+<span class="n">cropping</span> <span class="o">=</span> <span class="n">true</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">area</span></code> is an <strong>optional</strong> keyword used to calculate the transformation matrices with cropped images in the aim to reduce the CPU time.
@@ -131,23 +136,25 @@ Note that the area should be sufficiently large to encompass “features” rele
 <p><code class="docutils literal notranslate"><span class="pre">transformation</span></code> sets the type of the transformation to be considered (to choose among ‘TRANSLATION’, ‘RIGID_BODY’, ‘SCALED_ROTATION’, ‘AFFINE’, ‘BILINEAR’). See the <a class="reference external" href="https://pystackreg.readthedocs.io/en/latest/readme.html">pystackreg</a> documentation for more details.</p>
 <p>During the image acquisition, it is not uncommon for drift to occur (visible in the ‘cumulative’ transformation matrix resulting from the calculation step). <code class="docutils literal notranslate"><span class="pre">constant_drift</span></code> allows the user to remove the effect of a <strong>constant</strong> drift between each slide according to the values defined for each of the x and y directions.</p>
 <p>In the case of a large-scale fluctuating drift, the user has the possibility to subtract the resulting mean component from a running average of a size (number of slices) defined by the <code class="docutils literal notranslate"><span class="pre">box_size_averaging</span></code> parameter.</p>
+<p><code class="docutils literal notranslate"><span class="pre">subpixel</span></code> is an activation key to consider (or not) translation less or equal than 1 pixel. Figures below illustrate an application with <code class="docutils literal notranslate"><span class="pre">subpixel</span> <span class="pre">=</span> <span class="pre">false</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">mode</span></code> is associated to the extrapolation method to be considered when applying the transformation matrices (to choose among ‘constant’, ‘edge’, ‘symmetric’, ‘reflect’, ‘wrap’ - see <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.pad.html">numpy.pad</a> for more details. Note that if ‘constant’ is selected, the corresponding value (cval) associated to the extrapolation is by default NaN (np.nan)).</p>
 <p><code class="docutils literal notranslate"><span class="pre">cropping</span></code> is an activation key to perform cropping on the entire stack according to the area of aligned images preserved from any extrapolation effects.(Default value is <code class="docutils literal notranslate"><span class="pre">false</span></code>).</p>
 <section id="plotting">
 <h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading"></a></h2>
-<p>The special plotting related to the <strong>registration_calculation</strong> and the <strong>registration_transformation</strong> process steps generates images in the dedicated <strong>outputs</strong>  folder that are named <strong>registration_calculation.png</strong> and <strong>registration_calculation_cumul.png</strong>.</p>
+<p>The special plotting related to the <strong>registration_calculation</strong> and the <strong>registration_transformation</strong> process steps generates images in the 2 dedicated <strong>outputs</strong>  folders that are named <strong>registration_calculation.png</strong> and <strong>registration_calculation_cumul.png</strong>.</p>
 <figure class="align-center" id="id3">
-<a class="reference internal image-reference" href="_images/registration_calculation.png"><img alt="_images/registration_calculation.png" src="_images/registration_calculation.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/registration_calculation.png"><img alt="_images/registration_calculation.png" src="_images/registration_calculation.png" style="width: 80%;" /></a>
 <figcaption>
 <p><span class="caption-text"><strong>registration_calculation.png</strong> shows the transformation matrices values resulting from the registration of images pairs.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id4">
-<a class="reference internal image-reference" href="_images/registration_calculation_cumul.png"><img alt="_images/registration_calculation_cumul.png" src="_images/registration_calculation_cumul.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/registration_calculation_cumul.png"><img alt="_images/registration_calculation_cumul.png" src="_images/registration_calculation_cumul.png" style="width: 80%;" /></a>
 <figcaption>
 <p><span class="caption-text"><strong>registration_calculation_cumul.png</strong> shows the corresponding cumulative transformation used for the full stack images realignment.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
+<p>Note that setting <code class="docutils literal notranslate"><span class="pre">subpixel</span> <span class="pre">=</span> <span class="pre">false</span></code> in this use case makes the cumulative transformation flat (=no translation) outside the shift area [30-70] despite low translation values calculated during the registration_calculation process step.</p>
 </section>
 </section>
 

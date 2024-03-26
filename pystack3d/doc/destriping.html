@@ -63,6 +63,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cropping_final.html">Cropping final</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul>
@@ -98,20 +99,23 @@
 <h1>Destriping<a class="headerlink" href="#destriping" title="Permalink to this heading"></a></h1>
 <p>The destriping process step aims at minimizing artefacts like stripes or curtaining effects that can appear in some image acquisition technics.</p>
 <p>The algorithm used for the destriping is issued from the <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a> library.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/destriping_3D.png"><img alt="_images/destriping_3D.png" src="_images/destriping_3D.png" style="width: 100%;" /></a>
+</figure>
 <figure class="align-center" id="id4">
-<a class="reference internal image-reference" href="_images/destriping.png"><img alt="_images/destriping.png" src="_images/destriping.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/destriping.png"><img alt="_images/destriping.png" src="_images/destriping.png" style="width: 80%;" /></a>
 <figcaption>
 <p><span class="caption-text">Illustration of the <strong>destriping</strong> process step in the <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/examples/ex_synthetic_stack.py">synthetic test case</a>.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">destriping</span><span class="p">]</span>
-<span class="n">maxit</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="c1">#cvg_threshold = 1.e-2</span>
-<span class="n">filters</span> <span class="o">=</span> <span class="p">[{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Gabor&quot;</span><span class="p">,</span> <span class="n">noise_level</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">theta</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span> <span class="p">}]</span>
+<span class="n">maxit</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">cvg_threshold</span> <span class="o">=</span> <span class="mf">1e-2</span>
+<span class="n">filters</span> <span class="o">=</span> <span class="p">[{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Gabor&quot;</span><span class="p">,</span> <span class="n">noise_level</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span> <span class="n">theta</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">}]</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">maxit</span></code> refers to the number of iterations used by the <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a> algorithm.</p>
-<p><code class="docutils literal notranslate"><span class="pre">cvg_threshold</span></code> is a convergence criterion that can be used to stop the <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a> iterative processus.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cvg_threshold</span></code> is a convergence criterion that can be used to stop the iterative <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a>  process when the maximum residual variation between 2 iterations has reach this value.</p>
 <p><code class="docutils literal notranslate"><span class="pre">filters</span></code> consists of a list of filters to be used during the destriping process and are related to the shape and intensity of the stripes to be removed.</p>
 <p>For each of these parameters, see the <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a> documentation for more details.</p>
 </section>

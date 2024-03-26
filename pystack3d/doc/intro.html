@@ -52,6 +52,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-pystack3d">What is PyStack3D ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance">Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tests-and-examples-execution">Tests and examples execution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
@@ -60,6 +61,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="params.html">Parameters settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul>
@@ -107,11 +109,52 @@ images stacks corrections, typically before image segmentation for images issued
 <li><p><code class="docutils literal notranslate"><span class="pre">cropping_final</span></code> to eliminate artefacts produced near the edges during the image processing or to select another ROI at the end.</p></li>
 </ul>
 <figure class="align-center" id="id1">
-<img alt="_images/process_steps_real.png" src="_images/process_steps_real.png" />
+<a class="reference internal image-reference" href="_images/pystack3d.png"><img alt="_images/pystack3d.png" src="_images/pystack3d.png" style="width: 70%;" /></a>
 <figcaption>
-<p><span class="caption-text">Illustration of a FIB-SEM image correction using some of the <strong>PyStack3D</strong> process steps.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Synthetic case illustrating a) the defects to be removed, b) the corrected stack by <strong>PyStack3D</strong>, c) the ground truth.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
+<figure class="align-center" id="id2">
+<img alt="_images/process_steps_real.png" src="_images/process_steps_real.png" />
+<figcaption>
+<p><span class="caption-text">Illustration of a FIB-SEM stack correction using some of the <strong>PyStack3D</strong> process steps.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">PyStack3D</span></code> was designed to perform rapid stack corrections using <strong>multiprocessing</strong>.</p>
+<p>Here is an example of processing times associated with the example provided <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/examples/ex_real_stack_perf.py">here</a>, corresponding to a stack of <strong>2000 images</strong>, sized 4224 x 4224 before cropping and 2000 x 2000 after cropping, using <strong>32 CPUs</strong> (Intel(R) Xeon(R) Platinum 8362 CPU &#64; 2.80GHz) on a Linux server.</p>
+<table class="docutils align-center" id="id3">
+<caption><span class="caption-text">Performance</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 71%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Process</p></th>
+<th class="head"><p>Time (s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>cropping</p></td>
+<td><p>28</p></td>
+</tr>
+<tr class="row-odd"><td><p>bkg_removal</p></td>
+<td><p>33</p></td>
+</tr>
+<tr class="row-even"><td><p>destriping</p></td>
+<td><p>350*</p></td>
+</tr>
+<tr class="row-odd"><td><p>intensity_rescaling</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-even"><td><p>resampling</p></td>
+<td><p>9</p></td>
+</tr>
+</tbody>
+</table>
+<p>(*) <strong>destriping</strong> calculation performed on a GPU Nvidia A-100, with images processed one by one.</p>
 </section>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
@@ -123,11 +166,14 @@ images stacks corrections, typically before image segmentation for images issued
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pystack3d</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that to be executed with GPU, the <strong>pyvsnr</strong> library used by the <strong>destriping</strong> process requires a specific installation. Refer to the <strong>pyvsnr</strong> <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr?tab=readme-ov-file#requirements">requirements section</a> for further details.</p>
+</div>
 </section>
 <section id="tests-and-examples-execution">
 <h2>Tests and examples execution<a class="headerlink" href="#tests-and-examples-execution" title="Permalink to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pytest</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">CEA</span><span class="o">-</span><span class="n">MetroCarac</span><span class="o">/</span><span class="n">pystack3d</span><span class="o">.</span><span class="n">git</span>
 <span class="n">cd</span> <span class="n">pystack3d</span>
 <span class="n">pytest</span>
 <span class="n">python</span> <span class="n">examples</span><span class="o">/</span><span class="n">ex_synthetic_stack</span><span class="o">.</span><span class="n">py</span>

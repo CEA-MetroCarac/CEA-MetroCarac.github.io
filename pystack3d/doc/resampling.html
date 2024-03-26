@@ -66,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cropping_final.html">Cropping final</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="dev_notes.html">Developers Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API References</span></p>
 <ul>
@@ -100,30 +101,33 @@
   <section id="resampling">
 <h1>Resampling<a class="headerlink" href="#resampling" title="Permalink to this heading"></a></h1>
 <p>The resampling process step recreates slices with a uniform distribution (= with a constant step size along the z-axis), using linear interpolations between slices.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/resampling_3D.png"><img alt="_images/resampling_3D.png" src="_images/resampling_3D.png" style="width: 100%;" /></a>
+</figure>
 <figure class="align-center" id="id1">
-<a class="reference internal image-reference" href="_images/resampling.png"><img alt="_images/resampling.png" src="_images/resampling.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/resampling.png"><img alt="_images/resampling.png" src="_images/resampling.png" style="width: 80%;" /></a>
 <figcaption>
 <p><span class="caption-text">Illustration of the <strong>resampling</strong> process step in the <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/examples/ex_synthetic_stack.py">synthetic test case</a>.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">resampling</span><span class="p">]</span>
 <span class="n">policy</span> <span class="o">=</span> <span class="s2">&quot;slice_</span><span class="si">{slice_nb}</span><span class="s2">_z=</span><span class="si">{z_coord}</span><span class="s2">um.tif&quot;</span>
-<span class="n">dz</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">dz</span> <span class="o">=</span> <span class="mf">0.01</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">policy</span></code> refers to the file naming including the number of the slice (<code class="docutils literal notranslate"><span class="pre">slice_nb</span></code>) and its z coordinates (<code class="docutils literal notranslate"><span class="pre">z_coord</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">policy</span></code> refers to the file naming including the number of the slice (<strong>slice_nb</strong>) and its z coordinates (<strong>z_coord</strong>).</p>
 <p><code class="docutils literal notranslate"><span class="pre">dz</span></code> corresponds to the step size along the z-axis to be considered in the resampling.</p>
 <section id="plotting">
 <h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading"></a></h2>
 <p>The special plotting related to the <strong>resampling</strong> process step generates images in the dedicated <strong>outputs</strong>  folder that are named <strong>z_positions.png</strong> and <strong>z_increments.png</strong>.</p>
 <figure class="align-center" id="id2">
-<a class="reference internal image-reference" href="_images/resampling_positions.png"><img alt="_images/resampling_positions.png" src="_images/resampling_positions.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/resampling_positions.png"><img alt="_images/resampling_positions.png" src="_images/resampling_positions.png" style="width: 70%;" /></a>
 <figcaption>
 <p><span class="caption-text"><strong>z_positions.png</strong> shows the slices positions before (<strong>in</strong>) and after (<strong>out</strong>) the resampling.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id3">
-<a class="reference internal image-reference" href="_images/resampling_increments.png"><img alt="_images/resampling_increments.png" src="_images/resampling_increments.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/resampling_increments.png"><img alt="_images/resampling_increments.png" src="_images/resampling_increments.png" style="width: 70%;" /></a>
 <figcaption>
 <p><span class="caption-text"><strong>z_increments.png</strong> shows the slices z-increments before (<strong>in</strong>) and after (<strong>out</strong>) the resampling.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
