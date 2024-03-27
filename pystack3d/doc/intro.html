@@ -97,16 +97,16 @@
 <section id="what-is-pystack3d">
 <h2>What is PyStack3D ?<a class="headerlink" href="#what-is-pystack3d" title="Permalink to this heading"></a></h2>
 <p>PyStack3D is an open source library written in Python which provides tools to do
-images stacks corrections, typically before image segmentation for images issued from FIB-SEM 3D acquisition.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">pystack3d</span></code> workflow can be applied to multiple channels and consists in the following optional process steps that can be executed in any order:</p>
+images stacks corrections, typically before image segmentation for images issued from 3D FIB-SEM acquisition.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pystack3d</span></code> workflow can be applied to multiple channels (image stacks corresponding to multiple detectors) and consists in the following optional process steps that can be executed in any order:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cropping</span></code> to reduce the image field of view to a ROI (Region Of Interest)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">background</span> <span class="pre">removal</span></code> to reduce from polynomial approximations artefacts issued for instance from shadowing, charging, …</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">background</span> <span class="pre">removal</span></code> to reduce, based on polynomial approximations, contrast/brightness inhomogeneties resulting for instance from shadowing, charging, …</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">intensity</span> <span class="pre">rescaling</span></code> to homogenize the ‘gray’ intensity distribution between successive frames/slices</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">registration</span></code> to correct the images misalignment due to shifting, drift, rotation, … during the images acquisition</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">destriping</span></code> to minimize artefacts like stripes that can appear in some image acquisition technics</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">resampling</span></code> to correct non uniform spatial steps</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cropping_final</span></code> to eliminate artefacts produced near the edges during the image processing or to select another ROI at the end.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">destriping</span></code> to minimize artefacts like stripes, that can appear in some image acquisition technics (typically in FIB-SEM)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resampling</span></code> to correct non uniform spatial steps between slices</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cropping_final</span></code> to eliminate artefacts produced near the edges during the image processing, or to select another ROI at the end.</p></li>
 </ul>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="_images/pystack3d.png"><img alt="_images/pystack3d.png" src="_images/pystack3d.png" style="width: 70%;" /></a>
@@ -117,7 +117,7 @@ images stacks corrections, typically before image segmentation for images issued
 <figure class="align-center" id="id2">
 <img alt="_images/process_steps_real.png" src="_images/process_steps_real.png" />
 <figcaption>
-<p><span class="caption-text">Illustration of a FIB-SEM stack correction using some of the <strong>PyStack3D</strong> process steps.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Illustration of a FIB-SEM image correction using some of the <strong>PyStack3D</strong> process steps.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -158,7 +158,7 @@ images stacks corrections, typically before image segmentation for images issued
 </section>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">pystack3d</span></code> package install can be realized via a git cloning:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pystack3d</span></code> package install can be done via a git cloning:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">CEA</span><span class="o">-</span><span class="n">MetroCarac</span><span class="o">/</span><span class="n">pystack3d</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>

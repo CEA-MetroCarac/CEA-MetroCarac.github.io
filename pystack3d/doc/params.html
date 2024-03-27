@@ -101,14 +101,14 @@
 <li><p>The first parameters are related to the <strong>general</strong> parameters that specify the conditions of the <strong>workflow</strong> execution.</p></li>
 <li><p>The following ‘encapsulated’ parameters are related to the conditions of each <strong>process step</strong> execution.</p></li>
 </ul>
-<p>To illustrate each of the process step we will consider hereafter the <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/examples/ex_synthetic_stack.py">synthetic test case</a> associated to a original stack (named as ‘target’ by the next) composed of 300 x 300 x 300 voxels. The defects to be removed corresponds to:</p>
+<p>To illustrate each of the process step we will consider hereafter the <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/examples/ex_synthetic_stack.py">synthetic test case</a> obtained by adding defects to an original stack (which is named ‘target’ in what follows) composed of 300 x 300 x 300 voxels. The defects to be removed corresponds to:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>curtaining effects in some slices</p></li>
-<li><p>a background effects (defined from a polynom x*y*z),</p></li>
+<li><p>a background effect (defined from a polynom x*y*z),</p></li>
 <li><p>shifts along the x-axis (for slices in [20-70])</p></li>
-<li><p>changes in contrast (for slices in [70-100])</p></li>
-<li><p>a non-uniform sampling (dz passing from 0.01 to 0.02 at slice 100)</p></li>
+<li><p>changes in brightness (for slices in [70-100])</p></li>
+<li><p>a non-uniform sampling (inter-slice distance <em>dz</em> changing from 0.01 to 0.02 at slice 100)</p></li>
 </ul>
 </div></blockquote>
 <figure class="align-center">

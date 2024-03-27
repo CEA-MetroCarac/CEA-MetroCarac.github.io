@@ -54,7 +54,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#project-directory-organization">Project directory organization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#workflow-initialization">Workflow initialization</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#fibics">Fibics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#case-of-a-zeiss-fib-sem">Case of a Zeiss FIB-SEM</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#workflow-execution">Workflow execution</a></li>
@@ -98,10 +98,10 @@
 <h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
 <section id="project-directory-organization">
 <h2>Project directory organization<a class="headerlink" href="#project-directory-organization" title="Permalink to this heading"></a></h2>
-<p>To be executed a <strong>PyStack3D</strong> workflow requires both:</p>
+<p>To be executed, a <strong>PyStack3D</strong> workflow requires both:</p>
 <ul class="simple">
 <li><p>a <code class="docutils literal notranslate"><span class="pre">params.toml</span></code> file defining all the process steps parameters (see the <a class="reference external" href="file:///C:/Users/PQ177701/PycharmProjects/pystack3d/doc/_build/html/params.html">parameters settings</a> section)</p></li>
-<li><p>a <strong>project directory</strong> including the <code class="docutils literal notranslate"><span class="pre">.tif</span></code> images annotated with their respective <strong>slice numbers</strong> and their <strong>z-positions</strong> either in the root directory:</p></li>
+<li><p>a <strong>project directory</strong> including the <code class="docutils literal notranslate"><span class="pre">.tif</span></code> images named with their respective <strong>slice numbers</strong> and their <strong>z-positions</strong> either in the root directory:</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project_dir</span>
     <span class="o">|--</span> <span class="n">params</span><span class="o">.</span><span class="n">toml</span>
@@ -123,7 +123,7 @@
     <span class="o">|</span>           <span class="o">...</span>
 </pre></div>
 </div>
-<p>Once executed, the <strong>outputs</strong> directories related to each process step take place inside the <code class="docutils literal notranslate"><span class="pre">process</span></code> directory as follows:</p>
+<p>Once executed, the <strong>outputs</strong> directories related to each process step can be found inside the <code class="docutils literal notranslate"><span class="pre">process</span></code> directory as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project_dir</span>
     <span class="o">|--</span> <span class="n">params</span><span class="o">.</span><span class="n">toml</span>
     <span class="o">|--</span> <span class="n">slice_0000_z</span><span class="o">=</span><span class="mf">0.0000</span><span class="n">um</span><span class="o">.</span><span class="n">tif</span>
@@ -189,16 +189,24 @@
 <h2>Workflow initialization<a class="headerlink" href="#workflow-initialization" title="Permalink to this heading"></a></h2>
 <p>All the workflow instructions are provided in a <code class="docutils literal notranslate"><span class="pre">params.toml</span></code>.</p>
 <p>A <strong>raw</strong> <code class="docutils literal notranslate"><span class="pre">params.toml</span></code> is given <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/assets/toml/params.toml">here</a> (to be adapted according to needs).</p>
-<section id="fibics">
-<h3>Fibics<a class="headerlink" href="#fibics" title="Permalink to this heading"></a></h3>
-<p>In the frame of <strong>Fibics</strong> (FIB-SEM) acquisitions, <strong>metadata</strong> can be extracted from the .tif files and the <code class="docutils literal notranslate"><span class="pre">Atlas3D.a3d-setup</span></code> file as follows:</p>
+<section id="case-of-a-zeiss-fib-sem">
+<h3>Case of a Zeiss FIB-SEM<a class="headerlink" href="#case-of-a-zeiss-fib-sem" title="Permalink to this heading"></a></h3>
+<p>In the case of <strong>Zeiss</strong> FIB-SEM acquisitions, some <strong>metadata</strong> produced by the software for 3D acquisition (Atlas, developped by Fibics) can be automatically extracted from the .tif image files and the <code class="docutils literal notranslate"><span class="pre">Atlas3D.a3d-setup</span></code> file. Based on these, the default parameters for the processing can be adapted as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pystack3d.utils_metadata_fibics</span> <span class="kn">import</span> <span class="n">params_from_metadata</span>
 
 <span class="n">params_from_metadata</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">project_dir</span></code> refers to the project directory pathname containing the .tif files and the <code class="docutils literal notranslate"><span class="pre">Atlas3D.a3d-setup</span></code> file (mandatory file).</p>
-<p>By default, the reference <code class="docutils literal notranslate"><span class="pre">params.toml</span></code> file used by <code class="code docutils literal notranslate"><span class="pre">params_from_metadata</span></code> is the <strong>raw</strong> one. But the user can provide another reference .toml file through the <code class="docutils literal notranslate"><span class="pre">fname_toml_ref</span></code> argument:</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">project_dir</span></code> refers to the project directory pathname containing the <code class="docutils literal notranslate"><span class="pre">Atlas3D.a3d-setup</span></code> file (mandatory file), and the .tif files in sub-directories corresponding to different channels (at least one slice in the first channel directory is required).
+This will save a <code class="docutils literal notranslate"><span class="pre">params_from_metadata.toml</span></code> file based on the <strong>raw</strong> one but adapting some of the parameters to the acquisiton with the help of the extracted metadata.
+The affected parameters are listed here:</p>
+<ul class="simple">
+<li><p>Name of the <strong>channels</strong> is read in the <code class="docutils literal notranslate"><span class="pre">Atlas3D.a3d-setup</span></code> file.</p></li>
+<li><p>For the cropping step, <strong>area</strong> is defined based on the ROI of the first slice and will not take into account changes of ROI that might have been made during the acquisition.</p></li>
+<li><p>For the resampling step, <strong>dz</strong> is read in the <code class="docutils literal notranslate"><span class="pre">Atlas3D.a3d-setup</span></code> file</p></li>
+</ul>
+<p>On top of that, the function checks that the first slice is square and that the field of view of the <code class="docutils literal notranslate"><span class="pre">Atlas3D.a3d-setup</span></code> file corresponds to the first slice size.</p>
+<p>By default, the reference <code class="docutils literal notranslate"><span class="pre">params.toml</span></code> file used by <code class="code docutils literal notranslate"><span class="pre">params_from_metadata</span></code> for all the other parameters is the <strong>raw</strong> one. But the user can provide another reference .toml file through the <code class="docutils literal notranslate"><span class="pre">fname_toml_ref</span></code> argument:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">params_from_metadata</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fname_toml_ref</span><span class="o">=</span><span class="n">my_toml_ref</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -225,14 +233,14 @@
 <span class="n">stack</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">nproc</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">nproc</span></code> corresponds to the number of CPU to use for the workflow execution.</p>
-<p>Note that an additional boolean keyword named <code class="docutils literal notranslate"><span class="pre">serial</span></code> allows to realize non-serialized calculations when setting to <code class="docutils literal notranslate"><span class="pre">False</span></code> (said differently, with <code class="docutils literal notranslate"><span class="pre">serial</span> <span class="pre">=</span> <span class="pre">False</span></code> the workflow is executed considering for each process step the original raw input data).</p>
+<p><code class="docutils literal notranslate"><span class="pre">nproc</span></code> corresponds to the number of threads to use for the workflow execution.</p>
+<p>Note that an additional boolean keyword named <code class="docutils literal notranslate"><span class="pre">serial</span></code> allows to realize non-serialized calculations when setting to <code class="docutils literal notranslate"><span class="pre">False</span></code> (said differently, with <code class="docutils literal notranslate"><span class="pre">serial</span> <span class="pre">=</span> <span class="pre">False</span></code> the workflow is executed using the original raw input data for each process step).</p>
 </section>
 <section id="outputs">
 <h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
 <p>Each process steps returns <strong>specific</strong> and <strong>standard</strong> outputs (data and figures) in the related process step <strong>outputs</strong> directory.</p>
 <p><strong>Specific</strong> outputs are related to each process steps. They are described in each of the process steps sections hereafter (if existing).</p>
-<p><strong>Standard</strong> outputs consist in the statistics (min, max, mean) values evolution along the stack axis (z-axis, by convention) <strong>before</strong> and <strong>after</strong> the process step execution, considering for the ‘after’ values, the statistics without and with data reformatting compatible with the input data format. Indeed, some process steps may modify the data type (typically from integer to float) or generate data outside the range of authorized data values. <em>(This could happen for instance in the</em> <strong>bkg_removal</strong> <em>process step when subtracting the background that could generate negative or positive overflowed values)</em>.</p>
+<p><strong>Standard</strong> outputs consist in the statistics (min, max, mean) on gray values evolution along the stack axis (z-axis, by convention) <strong>before</strong> and <strong>after</strong> the process step execution. For the ‘after’ values, the statistics without and with data reformatting compatible with the input data format are plotted. Indeed, some process steps may modify the data type (typically from integer to float) and/or generate data outside the range of authorized data values. <em>(This could happen for instance in the</em> <strong>bkg_removal</strong> <em>process step when subtracting the background that could generate negative or positive overflowed values)</em>.</p>
 <figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="_images/stats_bkg_removal.png"><img alt="_images/stats_bkg_removal.png" src="_images/stats_bkg_removal.png" style="width: 80%;" /></a>
 <figcaption>

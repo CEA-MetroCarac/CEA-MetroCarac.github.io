@@ -100,7 +100,7 @@
              
   <section id="resampling">
 <h1>Resampling<a class="headerlink" href="#resampling" title="Permalink to this heading"></a></h1>
-<p>The resampling process step recreates slices with a uniform distribution (= with a constant step size along the z-axis), using linear interpolations between slices.</p>
+<p>The resampling process step recreates slices with an uniform distribution (= with a constant step size along the z-axis), using linear interpolations between slices. For this, the <strong>actual</strong> position of the slices have to be known (for instance measured during the acquisition).</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="_images/resampling_3D.png"><img alt="_images/resampling_3D.png" src="_images/resampling_3D.png" style="width: 100%;" /></a>
 </figure>
@@ -115,7 +115,7 @@
 <span class="n">dz</span> <span class="o">=</span> <span class="mf">0.01</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">policy</span></code> refers to the file naming including the number of the slice (<strong>slice_nb</strong>) and its z coordinates (<strong>z_coord</strong>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">policy</span></code> refers to the format of file names including the number of the slice (<strong>slice_nb</strong>) and its z coordinates (<strong>z_coord</strong>).</p>
 <p><code class="docutils literal notranslate"><span class="pre">dz</span></code> corresponds to the step size along the z-axis to be considered in the resampling.</p>
 <section id="plotting">
 <h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading"></a></h2>

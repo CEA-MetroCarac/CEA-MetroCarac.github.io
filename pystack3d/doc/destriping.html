@@ -97,7 +97,7 @@
              
   <section id="destriping">
 <h1>Destriping<a class="headerlink" href="#destriping" title="Permalink to this heading"></a></h1>
-<p>The destriping process step aims at minimizing artefacts like stripes or curtaining effects that can appear in some image acquisition technics.</p>
+<p>The destriping process step aims at minimizing artefacts like stripes or curtaining effects that can appear in some image acquisition technics (typically FIB-SEM).</p>
 <p>The algorithm used for the destriping is issued from the <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a> library.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="_images/destriping_3D.png"><img alt="_images/destriping_3D.png" src="_images/destriping_3D.png" style="width: 100%;" /></a>
@@ -115,7 +115,7 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">maxit</span></code> refers to the number of iterations used by the <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a> algorithm.</p>
-<p><code class="docutils literal notranslate"><span class="pre">cvg_threshold</span></code> is a convergence criterion that can be used to stop the iterative <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a>  process when the maximum residual variation between 2 iterations has reach this value.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cvg_threshold</span></code> is a convergence criterion that can be used to stop the iterative <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a>  process when the maximum residual variation between 2 iterations has reached this value.</p>
 <p><code class="docutils literal notranslate"><span class="pre">filters</span></code> consists of a list of filters to be used during the destriping process and are related to the shape and intensity of the stripes to be removed.</p>
 <p>For each of these parameters, see the <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a> documentation for more details.</p>
 </section>

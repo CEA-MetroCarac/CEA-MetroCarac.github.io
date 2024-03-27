@@ -101,8 +101,8 @@
              
   <section id="background-removal">
 <h1>Background removal<a class="headerlink" href="#background-removal" title="Permalink to this heading"></a></h1>
-<p>Most of the stacks acquisition techniques can engender a gray intensities increasing or decreasing due for instance to <strong>charging</strong> effects (on low conductive material) or to <strong>shadowing</strong> effects (when carving the material).</p>
-<p>The <strong>background removal</strong> process step aims at reducing these <strong>large-scale</strong> effects on the images assuming a polynomial behaviour to be fitted and removed.</p>
+<p>Most of the stacks acquisition techniques can produce gray intensity variations due, for instance, to <strong>charging</strong> effects (on low conductive material) or to <strong>shadowing</strong> effects (when imaging an area deep inside the material).</p>
+<p>The <strong>background removal</strong> process step aims at reducing these <strong>large-scale</strong> effects on the images, assuming a polynomial behaviour to be fitted and removed.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This fit is realised through the resolution of a minimization problem with a least square algorithm that consists in 2D to:</p>
@@ -132,8 +132,8 @@
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">dim</span></code> parameter defines the dimension of the problem to solve (2D or 3D):</p>
 <ul class="simple">
-<li><p>with  <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">=</span> <span class="pre">3</span></code> a single and potentially high CPU cost resolution is performed on all the stack to determine the polynom coefficients. <em>(The cost resolution can be significantly decreased using the</em> <code class="docutils literal notranslate"><span class="pre">skip_factor</span></code> <em>parameter, see above).</em></p></li>
-<li><p>with  <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">=</span> <span class="pre">2</span></code> the resolution is performed slice by slice leading to different polynom coefficients  from one slice to another one.</p></li>
+<li><p>with  <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">=</span> <span class="pre">3</span></code> a single resolution is performed (with a potentially high CPU cost) on the entire stack to determine the polynom coefficients. <em>(The cost resolution can be significantly decreased using the</em> <code class="docutils literal notranslate"><span class="pre">skip_factor</span></code> <em>parameter, see below).</em></p></li>
+<li><p>with  <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">=</span> <span class="pre">2</span></code> the resolution is performed slice by slice, leading to different polynom coefficients from one slice to another.</p></li>
 </ul>
 <p>The 2D or 3D polynomial basis used to perform the fit can be defined in two ways:</p>
 <ul class="simple">
@@ -142,14 +142,14 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Taking into account <strong>cross terms</strong> in the definition of the polynomial basis can prove crucial for achieving the desired fit. Indeed, a background thought to be in the form of ‘xyz’ may actually have its minimum following a definition in ‘(x-a)(y-b)(z-c)’ in the reference basis used by the minimization procedure.</p>
+<p>Taking into account <strong>cross terms</strong> in the definition of the polynomial basis can prove crucial for achieving the desired fit. For instance, a background thought to be in the form of ‘xyz’ may actually have its minimum following a definition in ‘(x-a)(y-b)(z-c)’ in the reference basis used by the minimization procedure.</p>
 </div>
 <p>Since the images sizes and the number of frames could be big, the <code class="docutils literal notranslate"><span class="pre">skip_factors</span></code> parameter allows to significantly reduced the array to consider in the fitting processing.
 <em>(Setting a skip_factors = [10, 10, 10] on a stack of size ~1000x1000x1000 seems to be a good compromise between accuracy, RAM occupancy and time execution).</em></p>
 <p>When a skip factor is applied, the values taken into account are the ones corresponding to the indices positions. Using <code class="docutils literal notranslate"><span class="pre">skip_averaging</span> <span class="pre">=</span> <span class="pre">true</span></code> realizes a local averaging instead. <em>(Note that no real benefit has been observed practically when activating this averaging).</em></p>
 <p>Images may include regions that are not impacted (or slightly impacted) by the background effects like holes in a porous medium (characterized by very low values) or saturated pixels (characterized by very high values).
 For this reason, a mask to exclude values below <code class="docutils literal notranslate"><span class="pre">threshold_min</span></code> and above <code class="docutils literal notranslate"><span class="pre">threshold_max</span></code> can be defined to be applied during the fit processing.</p>
-<p>At least, the <code class="docutils literal notranslate"><span class="pre">weight_func</span></code> parameter (”<strong>HuberT</strong>” or “<strong>Hampel</strong>”) can be used to specify a weight function used to determine and exclude outliers during the least squares problem resolution.
+<p>At last, the <code class="docutils literal notranslate"><span class="pre">weight_func</span></code> parameter (”<strong>HuberT</strong>” or “<strong>Hampel</strong>”) can be used to specify a weight function used to determine and exclude outliers during the least squares problem resolution.
 See  the <a class="reference external" href="https://www.statsmodels.org/stable/rlm.html">RLM documentation</a> for more details.
 (Default value is HuberT).</p>
 <section id="plotting">
