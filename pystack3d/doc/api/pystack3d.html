@@ -75,6 +75,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-pystack3d">Module contents</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#pystack3d.Stack3d"><code class="docutils literal notranslate"><span class="pre">Stack3d</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pystack3d.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pystack3d.plot_stats_xy"><code class="docutils literal notranslate"><span class="pre">plot_stats_xy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pystack3d.pbar_update"><code class="docutils literal notranslate"><span class="pre">pbar_update()</span></code></a></li>
 </ul>
 </li>
@@ -122,7 +123,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.powers_from_orders"><code class="docutils literal notranslate"><span class="pre">powers_from_orders()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.powers_from_expr"><code class="docutils literal notranslate"><span class="pre">powers_from_expr()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.expr_from_powers"><code class="docutils literal notranslate"><span class="pre">expr_from_powers()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.eval"><code class="docutils literal notranslate"><span class="pre">eval()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.bkg_eval"><code class="docutils literal notranslate"><span class="pre">bkg_eval()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.poly_basis_calculation"><code class="docutils literal notranslate"><span class="pre">poly_basis_calculation()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.bkg_calculation"><code class="docutils literal notranslate"><span class="pre">bkg_calculation()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.bkg_3d_from_slices"><code class="docutils literal notranslate"><span class="pre">bkg_3d_from_slices()</span></code></a></li>
@@ -290,8 +291,15 @@ process takes data located in the ‘input’ data folder</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pystack3d.plot">
-<span class="sig-prename descclassname"><span class="pre">pystack3d.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dirname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.plot" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pystack3d.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dirname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_dirname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.plot" title="Permalink to this definition"></a></dt>
 <dd><p>Plot statistics and specific values related to the ‘process_step’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.plot_stats_xy">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.</span></span><span class="sig-name descname"><span class="pre">plot_stats_xy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dirname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dirname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">10,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.plot_stats_xy" title="Permalink to this definition"></a></dt>
+<dd><p>Plot statistics in x et y directions considering ‘skip_factors’ when
+loading the full 3D stack</p>
 </dd></dl>
 
 <dl class="py function">

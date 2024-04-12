@@ -128,6 +128,7 @@
 <span class="n">threshold_min</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="c1">#threshold_max = 10.</span>
 <span class="c1">#weight_func = &quot;HuberT&quot;</span>
+<span class="c1">#preserve_avg = true</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">dim</span></code> parameter defines the dimension of the problem to solve (2D or 3D):</p>
@@ -149,16 +150,30 @@
 <p>When a skip factor is applied, the values taken into account are the ones corresponding to the indices positions. Using <code class="docutils literal notranslate"><span class="pre">skip_averaging</span> <span class="pre">=</span> <span class="pre">true</span></code> realizes a local averaging instead. <em>(Note that no real benefit has been observed practically when activating this averaging).</em></p>
 <p>Images may include regions that are not impacted (or slightly impacted) by the background effects like holes in a porous medium (characterized by very low values) or saturated pixels (characterized by very high values).
 For this reason, a mask to exclude values below <code class="docutils literal notranslate"><span class="pre">threshold_min</span></code> and above <code class="docutils literal notranslate"><span class="pre">threshold_max</span></code> can be defined to be applied during the fit processing.</p>
-<p>At last, the <code class="docutils literal notranslate"><span class="pre">weight_func</span></code> parameter (”<strong>HuberT</strong>” or “<strong>Hampel</strong>”) can be used to specify a weight function used to determine and exclude outliers during the least squares problem resolution.
+<p>The <code class="docutils literal notranslate"><span class="pre">weight_func</span></code> parameter (”<strong>HuberT</strong>”, “<strong>Hampel</strong>” or “<strong>None</strong>”) enables to specify (or not) a weight function used to determine and exclude outliers during the least squares problem resolution.
 See  the <a class="reference external" href="https://www.statsmodels.org/stable/rlm.html">RLM documentation</a> for more details.
-(Default value is HuberT).</p>
+(Default value is “HuberT”).</p>
+<p>At last, the <code class="docutils literal notranslate"><span class="pre">preserve_avg</span></code> parameter enables to preserve the average between the input and the output data. The average preservation is suitable only when <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">=</span> <span class="pre">3</span></code>.
+(Default value is False).</p>
 <section id="plotting">
 <h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading"></a></h2>
-<p>The special plotting related to the <strong>bkg_removal</strong> process step generates an image in the dedicated <strong>outputs</strong>  folder that is named <strong>coefs.png</strong>.</p>
+<p>The special plotting related to the <strong>bkg_removal</strong> process step generates images in the dedicated <strong>outputs</strong>  folder that are named <strong>coefs.png</strong>, <strong>stats_X.png</strong> and <strong>stats_Y.png</strong>.</p>
 <figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="_images/bkg_removal_coefs.png"><img alt="_images/bkg_removal_coefs.png" src="_images/bkg_removal_coefs.png" style="width: 80%;" /></a>
 <figcaption>
 <p><span class="caption-text"><strong>coefs.png</strong> gives the polynomial basis coefficients.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/bkg_removal_stats_X.png"><img alt="_images/bkg_removal_stats_X.png" src="_images/bkg_removal_stats_X.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>stats_X.png</strong> displays statistics along the ‘X’ axis.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/bkg_removal_stats_Y.png"><img alt="_images/bkg_removal_stats_Y.png" src="_images/bkg_removal_stats_Y.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>stats_Y.png</strong> displays statistics along the ‘Y’ axis.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>

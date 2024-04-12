@@ -242,7 +242,7 @@ The affected parameters are listed here:</p>
 <p><strong>Specific</strong> outputs are related to each process steps. They are described in each of the process steps sections hereafter (if existing).</p>
 <p><strong>Standard</strong> outputs consist in the statistics (min, max, mean) on gray values evolution along the stack axis (z-axis, by convention) <strong>before</strong> and <strong>after</strong> the process step execution. For the ‘after’ values, the statistics without and with data reformatting compatible with the input data format are plotted. Indeed, some process steps may modify the data type (typically from integer to float) and/or generate data outside the range of authorized data values. <em>(This could happen for instance in the</em> <strong>bkg_removal</strong> <em>process step when subtracting the background that could generate negative or positive overflowed values)</em>.</p>
 <figure class="align-center" id="id3">
-<a class="reference internal image-reference" href="_images/stats_bkg_removal.png"><img alt="_images/stats_bkg_removal.png" src="_images/stats_bkg_removal.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="_images/bkg_removal_stats.png"><img alt="_images/bkg_removal_stats.png" src="_images/bkg_removal_stats.png" style="width: 80%;" /></a>
 <figcaption>
 <p><span class="caption-text">Example of statistics returned by the <strong>bkg_removal</strong> process step in the <a class="reference external" href="https://github.com/CEA-MetroCarac/pystack3d/blob/main/examples/ex_synthetic_stack.py">synthetic test case</a>.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
