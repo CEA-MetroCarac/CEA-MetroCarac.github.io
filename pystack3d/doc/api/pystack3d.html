@@ -64,6 +64,7 @@
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.cropping.html">pystack3d.cropping module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.destriping.html">pystack3d.destriping module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.intensity_rescaling.html">pystack3d.intensity_rescaling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.intensity_rescaling_area.html">pystack3d.intensity_rescaling_area module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.registration_calculation.html">pystack3d.registration_calculation module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.registration_transformation.html">pystack3d.registration_transformation module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.resampling.html">pystack3d.resampling module</a></li>
@@ -147,6 +148,12 @@
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.intensity_rescaling.html#pystack3d.intensity_rescaling.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="pystack3d.intensity_rescaling_area.html">pystack3d.intensity_rescaling_area module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.intensity_rescaling_area.html#pystack3d.intensity_rescaling_area.init_args"><code class="docutils literal notranslate"><span class="pre">init_args()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.intensity_rescaling_area.html#pystack3d.intensity_rescaling_area.intensity_rescaling_area"><code class="docutils literal notranslate"><span class="pre">intensity_rescaling_area()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.intensity_rescaling_area.html#pystack3d.intensity_rescaling_area.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="pystack3d.registration_calculation.html">pystack3d.registration_calculation module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.registration_calculation.html#pystack3d.registration_calculation.init_args"><code class="docutils literal notranslate"><span class="pre">init_args()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.registration_calculation.html#pystack3d.registration_calculation.registration_calculation"><code class="docutils literal notranslate"><span class="pre">registration_calculation()</span></code></a></li>
@@ -175,7 +182,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pystack3d.utils.html">pystack3d.utils module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.utils.html#pystack3d.utils.mask_creation"><code class="docutils literal notranslate"><span class="pre">mask_creation()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.utils.html#pystack3d.utils.outputs_saving"><code class="docutils literal notranslate"><span class="pre">outputs_saving()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.utils.html#pystack3d.utils.get_tags"><code class="docutils literal notranslate"><span class="pre">get_tags()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.utils.html#pystack3d.utils.save_tif"><code class="docutils literal notranslate"><span class="pre">save_tif()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.utils.html#pystack3d.utils.img_reformatting"><code class="docutils literal notranslate"><span class="pre">img_reformatting()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.utils.html#pystack3d.utils.imread_3d_skipping"><code class="docutils literal notranslate"><span class="pre">imread_3d_skipping()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.utils.html#pystack3d.utils.skipping"><code class="docutils literal notranslate"><span class="pre">skipping()</span></code></a></li>
@@ -185,6 +195,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pystack3d.utils_metadata_fibics.html">pystack3d.utils_metadata_fibics module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.utils_metadata_fibics.html#pystack3d.utils_metadata_fibics.params_from_metadata"><code class="docutils literal notranslate"><span class="pre">params_from_metadata()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.utils_metadata_fibics.html#pystack3d.utils_metadata_fibics.currents_from_metadata"><code class="docutils literal notranslate"><span class="pre">currents_from_metadata()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.utils_metadata_fibics.html#pystack3d.utils_metadata_fibics.read_tags"><code class="docutils literal notranslate"><span class="pre">read_tags()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.utils_metadata_fibics.html#pystack3d.utils_metadata_fibics.param_from_xml_ETroot"><code class="docutils literal notranslate"><span class="pre">param_from_xml_ETroot()</span></code></a></li>
 </ul>
@@ -246,6 +257,18 @@ executed</p>
 </dd>
 </dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="pystack3d.Stack3d.channels">
+<span class="sig-name descname"><span class="pre">channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.Stack3d.channels" title="Permalink to this definition"></a></dt>
+<dd><p>Return the list of channels according to the ‘process_step’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pystack3d.Stack3d.process_dirname">
+<span class="sig-name descname"><span class="pre">process_dirname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.Stack3d.process_dirname" title="Permalink to this definition"></a></dt>
+<dd><p>Return the process dirname wrt to ‘process_step’ and ‘channel’</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pystack3d.Stack3d.create_partition">
 <span class="sig-name descname"><span class="pre">create_partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dirname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.Stack3d.create_partition" title="Permalink to this definition"></a></dt>
 <dd><p>Return a filenames partition related to a multiprocessing execution</p>
@@ -282,6 +305,33 @@ If nproc=0: the workflow is executed without calculation</p></li>
 <li><p><strong>serial</strong> (<em>bool</em><em>, </em><em>optional</em>) – Activation key to consider a serialized workflow. If False, each
 process takes data located in the ‘input’ data folder</p></li>
 <li><p><strong>show_pbar</strong> (<em>bool</em><em>, </em><em>optional</em>) – Activation key to display the progress bar during the processing</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pystack3d.Stack3d.cleanup">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.Stack3d.cleanup" title="Permalink to this definition"></a></dt>
+<dd><p>Remove the .tif files except the ones related to the last process</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pystack3d.Stack3d.concatenate_tif">
+<span class="sig-name descname"><span class="pre">concatenate_tif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirname_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'big.tif'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.Stack3d.concatenate_tif" title="Permalink to this definition"></a></dt>
+<dd><p>Concatenate .tif files issued from a process step into a single one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>process_step</strong> (<em>str</em><em>, </em><em>optional</em>) – Process step name to handle.
+If ‘input’ concatenate the input .tif files
+If None (default) concatenate the .tif files related to the last
+process execution extracted from the ‘history’ in the .toml file</p></li>
+<li><p><strong>save_metadata</strong> (<em>bool</em><em>, </em><em>optional</em>) – Activation key to save metadata in the .tif file</p></li>
+<li><p><strong>dirname_out</strong> (<em>str</em><em> or </em><em>WindowsPath</em><em>, </em><em>optional</em>) – Dirname associated to the big .tif file saving.
+If None, consider the same dirname as the input dirname related to
+the ‘process_step’</p></li>
+<li><p><strong>name_out</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the big .tif file</p></li>
 </ul>
 </dd>
 </dl>

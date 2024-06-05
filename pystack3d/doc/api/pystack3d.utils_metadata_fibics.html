@@ -64,6 +64,7 @@
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.cropping.html">pystack3d.cropping module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.destriping.html">pystack3d.destriping module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.intensity_rescaling.html">pystack3d.intensity_rescaling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.intensity_rescaling_area.html">pystack3d.intensity_rescaling_area module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.registration_calculation.html">pystack3d.registration_calculation module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.registration_transformation.html">pystack3d.registration_transformation module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.resampling.html">pystack3d.resampling module</a></li>
@@ -130,6 +131,23 @@ If None, consider the RAW params.toml located in the ‘assets’ folder</p></li
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.utils_metadata_fibics.currents_from_metadata">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.utils_metadata_fibics.</span></span><span class="sig-name descname"><span class="pre">currents_from_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.utils_metadata_fibics.currents_from_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>Return currents from metadata</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fnames</strong> (<em>list</em><em> of </em><em>n-str</em>) – List of the ‘.tif’ filenames</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>currents</strong> – Currents values extracted from the metadata</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray((n))</p>
 </dd>
 </dl>
 </dd></dl>

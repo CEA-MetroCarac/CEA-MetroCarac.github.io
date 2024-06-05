@@ -100,7 +100,8 @@
              
   <section id="intensity-rescaling">
 <h1>Intensity rescaling<a class="headerlink" href="#intensity-rescaling" title="Permalink to this heading"></a></h1>
-<p>The <strong>intensity rescaling</strong> process aims at homogenizing the gray level histograms between consecutive images.</p>
+<p>The <strong>intensity rescaling</strong> process aims at homogenizing the gray level histograms between consecutive images.
+For stacks with areas of same material along the z-axis a dedicated process named <strong>intensity_rescaling_area</strong> can be used (see below).</p>
 <p>To achieve this, a reference histogram is defined, corresponding either to the average histogram across all slices or to a running average along the slices (z-axis).</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="_images/intensity_rescaling_3D.png"><img alt="_images/intensity_rescaling_3D.png" src="_images/intensity_rescaling_3D.png" style="width: 100%;" /></a>
@@ -123,6 +124,19 @@ If this parameter is not specified, then a preliminary loop on all the slices ar
 <p><code class="docutils literal notranslate"><span class="pre">filter_size</span></code> is related to the running averaging for determining the reference histograms.
 A positive integer value is associated to the number of slices/frames to consider in the running average.
 <code class="docutils literal notranslate"><span class="pre">filter_size</span> <span class="pre">=</span> <span class="pre">-1</span></code> corresponds to an averaging performed across all slices.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the case of areas with the same material along the z-axis (thus assumed to have a uniform gray level), a dedicated process named <strong>intensity_rescaling_area</strong> can be called.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">intensity_rescaling_area</span><span class="p">]</span>
+<span class="n">area</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">99999</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">99999</span><span class="p">]</span>
+<span class="n">threshold_min</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">threshold_max</span> <span class="o">=</span> <span class="mi">99999</span>
+<span class="n">factors_range</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">area</span></code> refers to the [xmin, xmax, ymin, ymax] image coordinates to be selected (in pixel, according to the standard coordinates system with the origin located in the bottom left). <code class="docutils literal notranslate"><span class="pre">threshold_min</span></code> and <code class="docutils literal notranslate"><span class="pre">threshold_max</span></code> are used to define the range of values to work with and <code class="docutils literal notranslate"><span class="pre">factors_range</span></code> to bound the rescaling factor applied to the image values.</p>
+<p>The related plotting associated with <strong>intensity_rescaling_area</strong> corresponds to the gray levels means in the selected area (<strong>means.png</strong>) and the calculated rescaling factors (<strong>factors.png</strong>)</p>
+</div>
 <section id="plotting">
 <h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading"></a></h2>
 <p>The special plotting related to the <strong>intensity_rescaling</strong> process step generates images in the dedicated <strong>outputs</strong>  folder that are named <strong>intensity_rescaling_profiles.png</strong> and <strong>intensity_rescaling_maps.png</strong>.</p>

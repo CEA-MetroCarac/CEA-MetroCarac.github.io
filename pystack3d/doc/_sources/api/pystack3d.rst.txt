@@ -11,6 +11,7 @@ Submodules
    pystack3d.cropping
    pystack3d.destriping
    pystack3d.intensity_rescaling
+   pystack3d.intensity_rescaling_area
    pystack3d.registration_calculation
    pystack3d.registration_transformation
    pystack3d.resampling

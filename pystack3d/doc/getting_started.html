@@ -183,6 +183,7 @@
 <p class="admonition-title">Warning</p>
 <p>As illustrated above, following each process, images of the entire processed stack are saved. Consequently, this requires having a sufficient amount of free disk space.</p>
 <p>For instance, in the case of a stack of 2000 images sized 2000x2000 encoded in 16 bits, each process step will require storing approximately 15GB of data.</p>
+<p>To facilitate the cleaning of these large volumes of data, a <code class="docutils literal notranslate"><span class="pre">cleanup()</span></code> function was created (see the <strong>Workflow execution</strong> section below).</p>
 </div>
 </section>
 <section id="workflow-initialization">
@@ -235,6 +236,15 @@ The affected parameters are listed here:</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">nproc</span></code> corresponds to the number of threads to use for the workflow execution.</p>
 <p>Note that an additional boolean keyword named <code class="docutils literal notranslate"><span class="pre">serial</span></code> allows to realize non-serialized calculations when setting to <code class="docutils literal notranslate"><span class="pre">False</span></code> (said differently, with <code class="docutils literal notranslate"><span class="pre">serial</span> <span class="pre">=</span> <span class="pre">False</span></code> the workflow is executed using the original raw input data for each process step).</p>
+<p>At the end of a workflow execution, a cleaning up of all the .tif files (except the ones related to the last <code class="docutils literal notranslate"><span class="pre">process_steps</span></code>) can be done easily as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stack</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>At least, to ease the full 3D-stack visualization, .tif files can be concatenated in a single one. See <a class="reference internal" href="api/pystack3d.html#pystack3d.Stack3d.concatenate_tif" title="pystack3d.Stack3d.concatenate_tif"><code class="xref py py-class docutils literal notranslate"><span class="pre">concatenate_tif</span></code></a> for more details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stack</span><span class="o">.</span><span class="n">concatenate_tif</span><span class="p">()</span> <span class="c1"># tif files concatenation related to the last process_step</span>
+<span class="n">stack</span><span class="o">.</span><span class="n">concatenate_tif</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span> <span class="c1"># tif files concatenation related to the input data</span>
+</pre></div>
+</div>
 </section>
 <section id="outputs">
 <h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
