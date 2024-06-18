@@ -138,23 +138,27 @@ images stacks corrections, typically before image segmentation for images issued
 </thead>
 <tbody>
 <tr class="row-even"><td><p>cropping</p></td>
-<td><p>28</p></td>
+<td><p>30</p></td>
 </tr>
 <tr class="row-odd"><td><p>bkg_removal</p></td>
-<td><p>33</p></td>
+<td><p>40</p></td>
 </tr>
 <tr class="row-even"><td><p>destriping</p></td>
-<td><p>314*</p></td>
+<td><p>480*</p></td>
 </tr>
-<tr class="row-odd"><td><p>intensity_rescaling</p></td>
-<td><p>20</p></td>
+<tr class="row-odd"><td><p>registration**</p></td>
+<td><p>24</p></td>
 </tr>
-<tr class="row-even"><td><p>resampling</p></td>
-<td><p>9</p></td>
+<tr class="row-even"><td><p>intensity_rescaling</p></td>
+<td><p>24</p></td>
+</tr>
+<tr class="row-odd"><td><p>resampling</p></td>
+<td><p>11</p></td>
 </tr>
 </tbody>
 </table>
 <p>(*) <strong>destriping</strong> calculation performed on a GPU Nvidia A-100, with images processed one by one.</p>
+<p>(**) <strong>registration_calculation</strong> and <strong>registration_transformation</strong> cumulative time</p>
 </section>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>

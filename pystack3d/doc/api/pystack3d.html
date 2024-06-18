@@ -121,6 +121,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.init_args"><code class="docutils literal notranslate"><span class="pre">init_args()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.bkg_removal"><code class="docutils literal notranslate"><span class="pre">bkg_removal()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.bkg_saving"><code class="docutils literal notranslate"><span class="pre">bkg_saving()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.get_powers_2d"><code class="docutils literal notranslate"><span class="pre">get_powers_2d()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.powers_from_orders"><code class="docutils literal notranslate"><span class="pre">powers_from_orders()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.powers_from_expr"><code class="docutils literal notranslate"><span class="pre">powers_from_expr()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.bkg_removal.html#pystack3d.bkg_removal.expr_from_powers"><code class="docutils literal notranslate"><span class="pre">expr_from_powers()</span></code></a></li>
@@ -206,8 +207,8 @@
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.utils_multiprocessing.html#pystack3d.utils_multiprocessing.np_from_array"><code class="docutils literal notranslate"><span class="pre">np_from_array()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.utils_multiprocessing.html#pystack3d.utils_multiprocessing.step_wrapper"><code class="docutils literal notranslate"><span class="pre">step_wrapper()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pystack3d.utils_multiprocessing.html#pystack3d.utils_multiprocessing.initialize_args"><code class="docutils literal notranslate"><span class="pre">initialize_args()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="pystack3d.utils_multiprocessing.html#pystack3d.utils_multiprocessing.send_shared_array"><code class="docutils literal notranslate"><span class="pre">send_shared_array()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="pystack3d.utils_multiprocessing.html#pystack3d.utils_multiprocessing.receive_shared_array"><code class="docutils literal notranslate"><span class="pre">receive_shared_array()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.utils_multiprocessing.html#pystack3d.utils_multiprocessing.collect_shared_array_parts"><code class="docutils literal notranslate"><span class="pre">collect_shared_array_parts()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.utils_multiprocessing.html#pystack3d.utils_multiprocessing.get_complete_shared_array"><code class="docutils literal notranslate"><span class="pre">get_complete_shared_array()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -269,13 +270,25 @@ executed</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pystack3d.Stack3d.fnames">
+<span class="sig-name descname"><span class="pre">fnames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dirname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.Stack3d.fnames" title="Permalink to this definition"></a></dt>
+<dd><p>Return the .tif filenames related to the input_dirname</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pystack3d.Stack3d.shape">
+<span class="sig-name descname"><span class="pre">shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.Stack3d.shape" title="Permalink to this definition"></a></dt>
+<dd><p>Return the shape of the stack</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pystack3d.Stack3d.create_partition">
-<span class="sig-name descname"><span class="pre">create_partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dirname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.Stack3d.create_partition" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">create_partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.Stack3d.create_partition" title="Permalink to this definition"></a></dt>
 <dd><p>Return a filenames partition related to a multiprocessing execution</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>input_dirname</strong> (<em>str</em><em> or </em><em>Path</em>) – Pathname of the input filenames to consider</p></li>
+<li><p><strong>fnames</strong> (<em>list</em><em> of </em><em>str</em><em> or </em><em>list</em><em> of </em><em>Path</em>) – List of the input filenames to consider</p></li>
 <li><p><strong>nproc</strong> (<em>int</em>) – Number of cpus to consider to create the partition</p></li>
 <li><p><strong>overlay</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of overlaid frames to ensure continuity in the processing</p></li>
 </ul>
@@ -354,7 +367,7 @@ loading the full 3D stack</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pystack3d.pbar_update">
-<span class="sig-prename descclassname"><span class="pre">pystack3d.</span></span><span class="sig-name descname"><span class="pre">pbar_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queue_incr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nslices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.pbar_update" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pystack3d.</span></span><span class="sig-name descname"><span class="pre">pbar_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queue_incr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nslices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.pbar_update" title="Permalink to this definition"></a></dt>
 <dd><p>Progress bar</p>
 </dd></dl>
 

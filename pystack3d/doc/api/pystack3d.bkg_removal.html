@@ -111,7 +111,7 @@
 <p>Functions related to the background removal processing</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pystack3d.bkg_removal.init_args">
-<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">init_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nslices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.init_args" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">init_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.init_args" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize arguments related to the current processing (‘bkg_removal’) and
 return a specific array to share (coefs)</p>
 <dl class="field-list simple">
@@ -119,14 +119,14 @@ return a specific array to share (coefs)</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>params</strong> (<em>dict</em>) – Dictionary related to the current process.
 See the related documentation for more details.</p></li>
-<li><p><strong>nslices</strong> (<em>int</em>) – Number of the total slices to process</p></li>
+<li><p><strong>shape</strong> (<em>tuple</em><em> of </em><em>3 int</em>) – Shape of the stack to process</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>coefs</strong> – Coefficients of the polynom to be shared during the (multi)processing</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>numpy.ndarray((len(powers), nslices))</p>
+<dd class="field-odd"><p>numpy.ndarray((shape[0], len(powers)))</p>
 </dd>
 </dl>
 </dd></dl>
@@ -167,6 +167,12 @@ If None, polynomial fitting is calculated according to the classical
 <dt class="sig sig-object py" id="pystack3d.bkg_removal.bkg_saving">
 <span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">bkg_saving</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bkg_dirname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bkg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.bkg_saving" title="Permalink to this definition"></a></dt>
 <dd><p>Save bkg image in .png format with vmin, vmax values displayed</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pystack3d.bkg_removal.get_powers_2d">
+<span class="sig-prename descclassname"><span class="pre">pystack3d.bkg_removal.</span></span><span class="sig-name descname"><span class="pre">get_powers_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">powers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pystack3d.bkg_removal.get_powers_2d" title="Permalink to this definition"></a></dt>
+<dd><p>Return the 2D powers related to the ‘powers’ 1rst and 2nd indices</p>
 </dd></dl>
 
 <dl class="py function">
