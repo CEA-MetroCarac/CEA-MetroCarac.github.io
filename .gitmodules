@@ -1,0 +1,3 @@
+[submodule "cdsaxs"]
+	path = cdsaxs
+	url = https://github.com/CEA-MetroCarac/cdsaxs-doc.git
