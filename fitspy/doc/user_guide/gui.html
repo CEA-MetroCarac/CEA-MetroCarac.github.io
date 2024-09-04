@@ -4,11 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GUI description &mdash; Fitspy 2024.4 documentation</title>
+  <title>GUI description &mdash; Fitspy 2024.5 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -39,7 +38,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.4
+                2024.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -124,10 +123,10 @@ That is to say that each spectrum of the 2D-map appears individually in the file
 </pre></div>
 </div>
 <p>A  2D-map figure is also opened to facilitate both the spectrum selection and the interaction with the files selector widget.</p>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id4">
 <a class="reference internal image-reference" href="../_images/2d-map.png"><img alt="../_images/2d-map.png" src="../_images/2d-map.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-text">interactive 2D-map figure resulting from this <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/data/2D_maps/ordered_map.txt">fully defined ordered acquisition grid</a></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text">interactive 2D-map figure resulting from this <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/data/2D_maps/ordered_map.txt">fully defined ordered acquisition grid</a></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -140,10 +139,10 @@ That is to say that each spectrum of the 2D-map appears individually in the file
 <p><code class="code docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">eval</span></code> and <code class="code docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">eval</span> <span class="pre">All</span></code>  perform automatic evaluation of the baseline and peak positions and conduct fitting on the selected spectra or all the spectra (respectively).</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Save</span> <span class="pre">settings</span></code> enables the saving of user settings in a <strong>settings.json</strong> file located in the <code class="code docutils literal notranslate"><span class="pre">%HOMEUSER%/Fitspy</span></code> directory (open this file to have a look on which and how settings are saved).</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Reinitialize</span></code> and <code class="code docutils literal notranslate"><span class="pre">Reinitialize</span> <span class="pre">All</span></code> reinitialize the spectrum and all the spectra (resp.) to their original values.</p>
-<figure class="align-center" id="id4">
+<figure class="align-center" id="id5">
 <img alt="../_images/show_all.png" src="../_images/show_all.png" />
 <figcaption>
-<p><span class="caption-text">Example of the global display obtained with <code class="code docutils literal notranslate"><span class="pre">Show</span> <span class="pre">All</span></code></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Example of the global display obtained with <code class="code docutils literal notranslate"><span class="pre">Show</span> <span class="pre">All</span></code></span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -154,9 +153,6 @@ That is to say that each spectrum of the 2D-map appears individually in the file
 </figure>
 <br><p><code class="code docutils literal notranslate"><span class="pre">X-range</span></code> allows the modification of the (x) support range associated with the current spectrum.</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">to</span> <span class="pre">All</span></code>  applies the (x) support range defined in <cite>X-range</cite> to all the spectra.</p>
-<p><code class="code docutils literal notranslate"><span class="pre">Attractors</span></code> are associated with local maxima intensities. When activated, attractors are used for locating baseline and peaks points.
-The attractors points are calculated using scipy.signal.find_peaks() based on the parameters defined in <code class="code docutils literal notranslate"><span class="pre">Settings</span></code>.
-Refer to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html">scipy.signal.find_peaks</a> for more details.</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Outliers</span> <span class="pre">Calc</span></code> allows defining a line (called in <cite>Fitspy</cite> <strong>outliers_limit</strong>) from which values above are considered as outliers.
 This line is defined as corresponding to the envelope of the spectra multiplied by the <code class="code docutils literal notranslate"><span class="pre">coef</span></code> factor.
 Consequently, the spectra loaded at the time of defining this line must be consistent with each other. (See <a class="reference external" href="fitting.html#outliers">here</a> for more details).</p>
@@ -167,6 +163,7 @@ Consequently, the spectra loaded at the time of defining this line must be consi
 <img alt="../_images/baseline.png" src="../_images/baseline.png" />
 </figure>
 <br><p><strong>The current frame is activated and deactivated when clicking on it.</strong></p>
+<p><code class="code docutils literal notranslate"><span class="pre">Semi-Auto</span></code> allows a semi-automatic baseline determination based on the ARPLS (Asymmetrically Reweighted Penalized Least Squares) approach described <a class="reference external" href="https://doi.org/10.1039/C4AN01061B">here</a>. The user only needs to adjust the smoothing coefficient with the slider beside that seems most likely to bring the baseline closest to the desired result.</p>
 <p><code class="code docutils literal notranslate"><span class="pre">Import</span></code> enables the user to import their own baseline profiles. The imported file should contain 2 columns associated with the (x,y) coordinates of the baseline points.
 Similar to spectrum profiles, the separators between the columns can be tabulation <code class="code docutils literal notranslate"><span class="pre">t</span></code>, comma <code class="code docutils literal notranslate"><span class="pre">,</span></code>, semicolon <code class="code docutils literal notranslate"><span class="pre">;</span></code> or space <code class="code docutils literal notranslate"></code>.
 Note that the first row is skipped, and the (x, y) rows can be unordered.</p>
@@ -182,10 +179,8 @@ It’s important to note that a ‘<em>n</em>’-order polynomial approximation 
 </figure>
 <br><p>An <strong>optional</strong> spectra normalization is offered and relies on the two following strategies:</p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">Maximum</span></code>: each spectrum is normalized to 100 based on its maximum intensity.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Attractor</span></code>: each spectrum is normalized to 100 according to the intensity of the nearest attractor located at the x-position given by the user.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Maximum</span></code>: when activated, each spectrum is normalized to 100 based on its maximum intensity on the <code class="code docutils literal notranslate"><span class="pre">X-range</span></code> specified by the user. (None-None refers to no upper and lower x-range delimitation, that is to say all the support is considered).</p></li>
 </ul>
-<p>To be effective, the user should press on <code class="code docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">to</span> <span class="pre">all</span></code>.</p>
 </section>
 <section id="fitting">
 <h2>Fitting<a class="headerlink" href="#fitting" title="Permalink to this heading"></a></h2>
@@ -252,10 +247,10 @@ icon has been reconfigured to allow the figure rescaling on the current displaye
 <p>By default, the full range of integrated spectra intensity is displayed with a range slider in the figure that allows specifying the summation bounds.</p>
 <p>Once fitted, the parameters values can be visualized in the 2D-map figures.</p>
 <p>All the maps displayed in the 2D-map Figure can be exported in a .csv file by clicking on the <code class="code docutils literal notranslate"><span class="pre">Export</span> <span class="pre">(.csv)</span></code> button.</p>
-<figure class="align-center" id="id5">
+<figure class="align-center" id="id6">
 <img alt="../_images/2d-map_intensity_fwhm.png" src="../_images/2d-map_intensity_fwhm.png" />
 <figcaption>
-<p><span class="caption-text">left: intensity field in a 2D-map figure (default mode). right: amplitude values associated to the 2nd peak (obtained after fitting).</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text">left: intensity field in a 2D-map figure (default mode). right: amplitude values associated to the 2nd peak (obtained after fitting).</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>

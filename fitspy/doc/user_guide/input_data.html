@@ -4,11 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Input data files &mdash; Fitspy 2024.4 documentation</title>
+  <title>Input data files &mdash; Fitspy 2024.5 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -39,7 +38,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.4
+                2024.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -111,6 +110,10 @@
 <li><p><strong>2D map</strong> spectra</p></li>
 </ul>
 </div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From the 2024.5, it is possible to load <strong>.dm3, .dm4, .emd, .hspy, .nxs</strong> files and many other formats thanks to the <strong>rosettasciio</strong> readers integration (see <a class="reference external" href="https://hyperspy.org/rosettasciio/user_guide/supported_formats/index.html#supported-formats">here</a> for more details about the readable formats).</p>
+</div>
 <section id="d-spectrum">
 <h2>1D-spectrum<a class="headerlink" href="#d-spectrum" title="Permalink to this heading"></a></h2>
 <p>The input data file format for a single spectrum is based on 2 columns representing the support (x) - typically associated to wavelengths or energies - and the spectrum intensity (y).</p>
@@ -153,10 +156,10 @@ The X-Y spectra can be defined in a partial and unordered 2D grid.</p>
 </pre></div>
 </div>
 <p>(Full 2D-map data files can be found <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/data/2D_maps/">here</a>).</p>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/2d-map_unordered.png"><img alt="../_images/2d-map_unordered.png" src="../_images/2d-map_unordered.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-text">Illustration of a partially unordered 2D map issued from <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/data/2D_maps/unordered_map.txt">unordered_map.txt</a></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Illustration of a partially unordered 2D map issued from <a class="reference external" href="https://github.com/CEA-MetroCarac/fitspy/tree/main/examples/data/2D_maps/unordered_map.txt">unordered_map.txt</a></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>

@@ -4,11 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fitting &mdash; Fitspy 2024.4 documentation</title>
+  <title>Fitting &mdash; Fitspy 2024.5 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -39,7 +38,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.4
+                2024.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -63,7 +62,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#convergence-criterion">Convergence criterion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#maximum-number-of-iterations">Maximum number of iterations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#weighting">Weighting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#multithreading">Multithreading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-threading">Multi-threading</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#parameters-values-initialization">Parameters values initialization</a></li>
 </ul>
 </li>
@@ -164,8 +163,8 @@ For <code class="code docutils literal notranslate"><span class="pre">Leastsq</s
 <p>Similarly to noisy areas of outliers, the presence of negative values in the profiles to be fitted, resulting notably from baseline or background removal, can adversely affect the quality of results. To mitigate the impact of these negative values during the fit, a weight of ‘0’ can be assigned to them. This is achieved through the <strong>‘fit negative values : Off’</strong> option in the GUI or by the <code class="code docutils literal notranslate"><span class="pre">fit_negative</span></code> parameter passed to <a class="reference internal" href="../api/fitspy.spectrum.html#fitspy.spectrum.Spectrum.fit" title="fitspy.spectrum.Spectrum.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a>.</p>
 <p>(The same with <code class="code docutils literal notranslate"><span class="pre">fit_outliers</span></code> for outliers and <code class="code docutils literal notranslate"><span class="pre">coef_noise</span></code> to bypass regions defined mainly by noise).</p>
 </section>
-<section id="multithreading">
-<h3>Multithreading<a class="headerlink" href="#multithreading" title="Permalink to this heading"></a></h3>
+<section id="multi-threading">
+<h3>Multi-threading<a class="headerlink" href="#multi-threading" title="Permalink to this heading"></a></h3>
 <p>In the GUI, the default mode is <strong>‘Number of CPU : auto’</strong> which adapts automatically the number of CPU to the number of profiles to be processed and the CPU capability of the machine (by utilizing up to half of the available CPU resources).</p>
 </section>
 <section id="parameters-values-initialization">

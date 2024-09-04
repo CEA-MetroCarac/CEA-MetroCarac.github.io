@@ -4,11 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.spectrum module &mdash; Fitspy 2024.4 documentation</title>
+  <title>fitspy.spectrum module &mdash; Fitspy 2024.5 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -39,7 +38,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.4
+                2024.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -154,29 +153,6 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.norm_mode">
-<span class="sig-name descname"><span class="pre">norm_mode</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.norm_mode" title="Permalink to this definition"></a></dt>
-<dd><p>Mode used for the spectrum normalization (‘Maximum’ or ‘Attractor’)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.norm_position_ref">
-<span class="sig-name descname"><span class="pre">norm_position_ref</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.norm_position_ref" title="Permalink to this definition"></a></dt>
-<dd><p>Reference position associated to the ‘Attractor’ mode during the
-normalization</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">x0,</span> <span class="pre">y0</span></span></dt>
 <dd><p>Arrays related to the spectrum raw support and intensity (resp.)</p>
@@ -199,24 +175,23 @@ normalization</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.attractors">
-<span class="sig-name descname"><span class="pre">attractors</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.attractors" title="Permalink to this definition"></a></dt>
-<dd><p>Indices of attractors</p>
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.normalize" title="Permalink to this definition"></a></dt>
+<dd><p>Activation keyword for the spectrum profile normalization</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of ints</p>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.attractors_params">
-<span class="sig-name descname"><span class="pre">attractors_params</span></span><a class="headerlink" href="#fitspy.spectrum.Spectrum.attractors_params" title="Permalink to this definition"></a></dt>
-<dd><p>Dictionary passed to scipy.signal.find_peaks for attractors
-determination. Could be a dictionary with Tkinter.Variable as values.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">normalize_range_min,</span> <span class="pre">normalize_range_max</span></span></dt>
+<dd><p>Ranges for searching the maximum value used in the normalization</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
+<dd class="field-odd"><p>floats</p>
 </dd>
 </dl>
 </dd></dl>
@@ -369,6 +344,12 @@ Default is 1e-4.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.reinit">
+<span class="sig-name descname"><span class="pre">reinit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.reinit" title="Permalink to this definition"></a></dt>
+<dd><p>Reinitialize the main attributes</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.set_attributes">
 <span class="sig-name descname"><span class="pre">set_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.set_attributes" title="Permalink to this definition"></a></dt>
 <dd><p>Set attributes from a dictionary (obtained from a .json reloading)</p>
@@ -378,13 +359,20 @@ Default is 1e-4.</p>
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.preprocess">
 <span class="sig-name descname"><span class="pre">preprocess</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.preprocess" title="Permalink to this definition"></a></dt>
 <dd><p>Preprocess the spectrum: call successively load_profile(),
-subtract_baseline() and normalize()</p>
+apply_range(), eval_baseline(), subtract_baseline() and
+normalization()</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.load_profile">
-<span class="sig-name descname"><span class="pre">load_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.load_profile" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.load_profile" title="Permalink to this definition"></a></dt>
 <dd><p>Load profile from ‘fname’ with 1 header line and 2 (x,y) columns</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.apply_range">
+<span class="sig-name descname"><span class="pre">apply_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.apply_range" title="Permalink to this definition"></a></dt>
+<dd><p>Apply range to the raw spectrum</p>
 </dd></dl>
 
 <dl class="py method">
@@ -401,17 +389,11 @@ and replaced by interpolated values</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.normalize">
-<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.normalize" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.normalization">
+<span class="sig-name descname"><span class="pre">normalization</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.normalization" title="Permalink to this definition"></a></dt>
 <dd><p>Normalize spectrum according to the ‘Maximum’ value or the nearest
 ‘Attractor’ value from reference position, assuming that the baseline
 has been correctly defined (y_min value ~ 0)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.attractors_calculation">
-<span class="sig-name descname"><span class="pre">attractors_calculation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.attractors_calculation" title="Permalink to this definition"></a></dt>
-<dd><p>Calculate attractors positions ordered wrt decreasing intensities</p>
 </dd></dl>
 
 <dl class="py method">
@@ -541,14 +523,19 @@ Default value is True.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.auto_baseline">
 <span class="sig-name descname"><span class="pre">auto_baseline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.auto_baseline" title="Permalink to this definition"></a></dt>
-<dd><p>Calculate ‘baseline.points’ considering ‘baseline.distance’</p>
+<dd><p>set baseline.mode to ‘Semi-Auto</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.eval_baseline">
+<span class="sig-name descname"><span class="pre">eval_baseline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.eval_baseline" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate baseline profile</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.subtract_baseline">
 <span class="sig-name descname"><span class="pre">subtract_baseline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.subtract_baseline" title="Permalink to this definition"></a></dt>
-<dd><p>Subtract the baseline to the spectrum
-if this has not been done previously</p>
+<dd><p>Subtract the baseline to the spectrum profile</p>
 </dd></dl>
 
 <dl class="py method">
@@ -560,7 +547,7 @@ if this has not been done previously</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_attractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_outliers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_outliers_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_negative_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_noise_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_peak_models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.plot" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_outliers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_outliers_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_negative_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_noise_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_peak_models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtract_baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.plot" title="Permalink to this definition"></a></dt>
 <dd><p>Plot the spectrum with the peak models</p>
 </dd></dl>
 
@@ -591,7 +578,7 @@ Save it if a ‘fname_json’ is given</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fitspy.spectrum.Spectrum.load">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname_json</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.load" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname_json</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.spectrum.Spectrum.load" title="Permalink to this definition"></a></dt>
 <dd><p>Return a Spectrum object created from a .json file reloading</p>
 </dd></dl>
 

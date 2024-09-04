@@ -4,11 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.app.utils module &mdash; Fitspy 2024.4 documentation</title>
+  <title>fitspy.app.utils module &mdash; Fitspy 2024.5 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -39,7 +38,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.4
+                2024.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -181,97 +180,6 @@ visual, width</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.utils.</span></span><span class="sig-name descname"><span class="pre">ScrollbarFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'both'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Class to add a vertical and/or horziontal Scrollbar to a frame.
-(Strongly inspired from <a class="reference external" href="https://stackoverflow.com/questions/43731784">https://stackoverflow.com/questions/43731784</a>)</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.frame_canvas">
-<span class="sig-name descname"><span class="pre">frame_canvas</span></span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.frame_canvas" title="Permalink to this definition"></a></dt>
-<dd><p>Frame gathers the ‘Canvas’ and the ‘Scrollbar’ objects</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tkinter.Frame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.canvas">
-<span class="sig-name descname"><span class="pre">canvas</span></span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.canvas" title="Permalink to this definition"></a></dt>
-<dd><p>Canvas related to the first (large) row-column</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tkinter.Canvas</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.vsbar">
-<span class="sig-name descname"><span class="pre">vsbar</span></span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.vsbar" title="Permalink to this definition"></a></dt>
-<dd><p>Vertical scrollbar related to the 2nd (small) column, if ‘orientation’
-is ‘vertical’ or ‘both’</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tkinter.Scrollbar</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.hsbar">
-<span class="sig-name descname"><span class="pre">hsbar</span></span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.hsbar" title="Permalink to this definition"></a></dt>
-<dd><p>Horizontal scrollbar related to the 2nd (small) row if ‘orientation’
-is ‘horizontal’ or ‘both’</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tkinter.Scrollbar</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.frame">
-<span class="sig-name descname"><span class="pre">frame</span></span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.frame" title="Permalink to this definition"></a></dt>
-<dd><p>Frame included in the canvas, where other frames can be stacked</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tkinter.Frame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>root</strong> (<em>Tkinter parent window</em>) – </p></li>
-<li><p><strong>orientation</strong> (<em>str</em><em>, </em><em>optional</em>) – Orientation associated to the scrollbar(s), among [‘vertical’,
-‘horizontal’, ‘both’]</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="fitspy.app.utils.ScrollbarFrame.update_and_resize">
-<span class="sig-name descname"><span class="pre">update_and_resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.ScrollbarFrame.update_and_resize" title="Permalink to this definition"></a></dt>
-<dd><p>Set the scrolling region with the ‘correct’ size</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Width of the canvas frame.
-If None, consider the ‘frame’ width.</p></li>
-<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – height of the canvas frame.
-If None, consider the minimum between the frame height and 90% of
-the screen height</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.utils.</span></span><span class="sig-name descname"><span class="pre">FilesSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lbox_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.FilesSelector" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
@@ -346,6 +254,19 @@ the screen height</p></li>
 <dt class="sig sig-object py" id="fitspy.app.utils.FilesSelector.select_item">
 <span class="sig-name descname"><span class="pre">select_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.FilesSelector.select_item" title="Permalink to this definition"></a></dt>
 <dd><p>Select item in the listbox</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fitspy.app.utils.ProgressBar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fitspy.app.utils.</span></span><span class="sig-name descname"><span class="pre">ProgressBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.ProgressBar" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to create a progress bar</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fitspy.app.utils.ProgressBar.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpus</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fitspy.app.utils.ProgressBar.update" title="Permalink to this definition"></a></dt>
+<dd><p>update the progressbar info during the fitspy execution</p>
 </dd></dl>
 
 </dd></dl>

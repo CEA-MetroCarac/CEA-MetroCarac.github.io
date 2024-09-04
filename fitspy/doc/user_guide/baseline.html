@@ -4,11 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baselines and Background models &mdash; Fitspy 2024.4 documentation</title>
+  <title>Baselines and Background models &mdash; Fitspy 2024.5 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -39,7 +38,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.4
+                2024.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -54,7 +53,11 @@
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_data.html">Input data files</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Baselines and Background models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#baseline-approach">Baseline approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#baseline-approach">Baseline approach</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual-approach">Manual approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#semi-automatic-approach">Semi-Automatic approach</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#background-model">Background model</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#user-defined-background-models">User-defined background models</a></li>
 </ul>
@@ -114,8 +117,10 @@
 </ul>
 <section id="baseline-approach">
 <h2>Baseline approach<a class="headerlink" href="#baseline-approach" title="Permalink to this heading"></a></h2>
-<p>This approach involves manually predefining points to establish the baseline profile that will be subtracted before fitting.</p>
-<p>From the baseline peaks, the profile all along the spectrum support is obtained by interpolation either from <strong>piecewise</strong> or <strong>polynomial</strong> approximations.</p>
+<p>This approach involves either <strong>manually</strong> predefining points to establish the baseline profile that will be subtracted before fitting or a <strong>semi-automatic</strong> algorithm described hereafter.</p>
+<section id="manual-approach">
+<h3>Manual approach<a class="headerlink" href="#manual-approach" title="Permalink to this heading"></a></h3>
+<p>From the baseline points, the profile all along the spectrum support is obtained by interpolation either from <strong>piecewise</strong> or <strong>polynomial</strong> approximations.</p>
 <figure class="align-center">
 <img alt="../_images/gen_figures_baseline.png" src="../_images/gen_figures_baseline.png" />
 </figure>
@@ -125,6 +130,14 @@ This feature allows to adapt the baseline points to the spectrum notably when pr
 <img alt="../_images/gen_figures_baseline_attached.png" src="../_images/gen_figures_baseline_attached.png" />
 </figure>
 <p>Note that to minimize the impact of noise in the baseline attached-points definition, a smoothing can be considered on the spectra intensities before linking. This smoothing is based on a gaussian filtering considering <code class="code docutils literal notranslate"><span class="pre">sigma</span></code> (in pixel) as the standard deviation.</p>
+</section>
+<section id="semi-automatic-approach">
+<h3>Semi-Automatic approach<a class="headerlink" href="#semi-automatic-approach" title="Permalink to this heading"></a></h3>
+<p>From the 2024.5, a semi-automatic algorithm is availabel to evaluate the baseline. Based on the ARPLS (Asymmetrically Reweighted Penalized Least Squares) approach described <a class="reference external" href="https://doi.org/10.1039/C4AN01061B">here</a>. The user only needs to visually adjust the smoothing coefficient that seems most likely to bring the baseline closest to the desired result.</p>
+<figure class="align-center">
+<img alt="../_images/baseline_semi_auto.png" src="../_images/baseline_semi_auto.png" />
+</figure>
+</section>
 </section>
 <section id="background-model">
 <h2>Background model<a class="headerlink" href="#background-model" title="Permalink to this heading"></a></h2>

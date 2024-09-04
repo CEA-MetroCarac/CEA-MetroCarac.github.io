@@ -4,11 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fitspy.app.gui module &mdash; Fitspy 2024.4 documentation</title>
+  <title>fitspy.app.gui module &mdash; Fitspy 2024.5 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -39,7 +38,7 @@
               <img src="../_static/logo_black.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2024.4
+                2024.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -121,17 +120,6 @@
 <dd><p>Bases: <a class="reference internal" href="fitspy.app.callbacks.html#fitspy.app.callbacks.Callbacks" title="fitspy.app.callbacks.Callbacks"><code class="xref py py-class docutils literal notranslate"><span class="pre">Callbacks</span></code></a></p>
 <p>Gui associated to the spectra fitting application</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.gui.GUI.frame_map">
-<span class="sig-name descname"><span class="pre">frame_map</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.frame_map" title="Permalink to this definition"></a></dt>
-<dd><p>Frame used to display the 2D-map field (integrated spectrum intensities)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tkinter.TopLevel</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">ax_map,</span> <span class="pre">canvas_map</span></span></dt>
 <dd><p>Axes and canvas related to the 2D-map figure displaying</p>
@@ -149,17 +137,6 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>FigureSettings obj</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.gui.GUI.attractors_settings">
-<span class="sig-name descname"><span class="pre">attractors_settings</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.attractors_settings" title="Permalink to this definition"></a></dt>
-<dd><p>Tkinter.TopLevel derivative object for attractors parameters setting</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>AttractorsSettings obj</p>
 </dd>
 </dl>
 </dd></dl>
@@ -214,40 +191,7 @@
 <dd><p>Range associated to the spectrum support</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tkinter.DoubleVars</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.gui.GUI.normalize_mode">
-<span class="sig-name descname"><span class="pre">normalize_mode</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.normalize_mode" title="Permalink to this definition"></a></dt>
-<dd><p>Type of normalization (‘Maximum’ or ‘Attractor’)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tkinter.StringVar</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.gui.GUI.attractor_position">
-<span class="sig-name descname"><span class="pre">attractor_position</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.attractor_position" title="Permalink to this definition"></a></dt>
-<dd><p>Reference position in case of ‘Attractor’ normalize_mode</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tkinter.IntVar</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.gui.GUI.attractors">
-<span class="sig-name descname"><span class="pre">attractors</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.attractors" title="Permalink to this definition"></a></dt>
-<dd><p>Activation keyword for spectrum peaks association when adding</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tkinter.BooleanVar</p>
+<dd class="field-odd"><p>Tkinter.StringVars</p>
 </dd>
 </dl>
 </dd></dl>
@@ -259,6 +203,30 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Tkinter.DoubleVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.baseline_mode">
+<span class="sig-name descname"><span class="pre">baseline_mode</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.baseline_mode" title="Permalink to this definition"></a></dt>
+<dd><p>Method associated with the baseline determination method (‘Semi-Auto’,
+‘Linear’ or ‘Polynomial’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.StringVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.baseline_coef">
+<span class="sig-name descname"><span class="pre">baseline_coef</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.baseline_coef" title="Permalink to this definition"></a></dt>
+<dd><p>Smoothing coefficient used when calculating the baseline with the
+‘Semi-Auto’ algorithm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.IntVar</p>
 </dd>
 </dl>
 </dd></dl>
@@ -298,8 +266,8 @@ the attached baseline points</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="fitspy.app.gui.GUI.baseline_mode">
-<span class="sig-name descname"><span class="pre">baseline_mode</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.baseline_mode" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">baseline_mode</span></span><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
 <dd><p>Type of baseline (‘Linear’ or ‘Polynomial’)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -315,6 +283,28 @@ the attached baseline points</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Tkinter.IntVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fitspy.app.gui.GUI.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><a class="headerlink" href="#fitspy.app.gui.GUI.normalize" title="Permalink to this definition"></a></dt>
+<dd><p>Activation keyword for spectrum profiles normalization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.BooleanVar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">normalize_range_min,</span> <span class="pre">normalize_range_max</span></span></dt>
+<dd><p>Ranges for searching the maximum value used in the normalization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tkinter.StringVars</p>
 </dd>
 </dl>
 </dd></dl>
