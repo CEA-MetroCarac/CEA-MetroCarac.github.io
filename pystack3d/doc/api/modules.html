@@ -115,6 +115,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pystack3d.destriping.html">pystack3d.destriping module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.destriping.html#pystack3d.destriping.destriping"><code class="docutils literal notranslate"><span class="pre">destriping()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.destriping.html#pystack3d.destriping.destriping_from_wavelets"><code class="docutils literal notranslate"><span class="pre">destriping_from_wavelets()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pystack3d.intensity_rescaling.html">pystack3d.intensity_rescaling module</a><ul>
@@ -158,6 +159,13 @@
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.resampling.html#pystack3d.resampling.extract_z_from_filenames"><code class="docutils literal notranslate"><span class="pre">extract_z_from_filenames()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="pystack3d.stack3d.html">pystack3d.stack3d module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.stack3d.html#pystack3d.stack3d.Stack3d"><code class="docutils literal notranslate"><span class="pre">Stack3d</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.stack3d.html#pystack3d.stack3d.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.stack3d.html#pystack3d.stack3d.plot_stats_xy"><code class="docutils literal notranslate"><span class="pre">plot_stats_xy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pystack3d.stack3d.html#pystack3d.stack3d.pbar_update"><code class="docutils literal notranslate"><span class="pre">pbar_update()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="pystack3d.utils.html">pystack3d.utils module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.utils.html#pystack3d.utils.mask_creation"><code class="docutils literal notranslate"><span class="pre">mask_creation()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pystack3d.utils.html#pystack3d.utils.outputs_saving"><code class="docutils literal notranslate"><span class="pre">outputs_saving()</span></code></a></li>
@@ -189,25 +197,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pystack3d.html#module-pystack3d">Module contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pystack3d.html#pystack3d.Stack3d"><code class="docutils literal notranslate"><span class="pre">Stack3d</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pystack3d.html#pystack3d.Stack3d.pathdir"><code class="docutils literal notranslate"><span class="pre">Stack3d.pathdir</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pystack3d.html#pystack3d.Stack3d.last_step_dir"><code class="docutils literal notranslate"><span class="pre">Stack3d.last_step_dir</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pystack3d.html#pystack3d.Stack3d.channels"><code class="docutils literal notranslate"><span class="pre">Stack3d.channels()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pystack3d.html#pystack3d.Stack3d.process_dirname"><code class="docutils literal notranslate"><span class="pre">Stack3d.process_dirname()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pystack3d.html#pystack3d.Stack3d.fnames"><code class="docutils literal notranslate"><span class="pre">Stack3d.fnames()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pystack3d.html#pystack3d.Stack3d.shape"><code class="docutils literal notranslate"><span class="pre">Stack3d.shape()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pystack3d.html#pystack3d.Stack3d.create_partition"><code class="docutils literal notranslate"><span class="pre">Stack3d.create_partition()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pystack3d.html#pystack3d.Stack3d.eval"><code class="docutils literal notranslate"><span class="pre">Stack3d.eval()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pystack3d.html#pystack3d.Stack3d.cleanup"><code class="docutils literal notranslate"><span class="pre">Stack3d.cleanup()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pystack3d.html#pystack3d.Stack3d.concatenate_tif"><code class="docutils literal notranslate"><span class="pre">Stack3d.concatenate_tif()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="pystack3d.html#pystack3d.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="pystack3d.html#pystack3d.plot_stats_xy"><code class="docutils literal notranslate"><span class="pre">plot_stats_xy()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="pystack3d.html#pystack3d.pbar_update"><code class="docutils literal notranslate"><span class="pre">pbar_update()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="pystack3d.html#module-pystack3d">Module contents</a></li>
 </ul>
 </li>
 </ul>

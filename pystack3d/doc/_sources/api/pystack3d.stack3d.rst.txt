@@ -1,0 +1,9 @@
+pystack3d.stack3d module
+========================
+
+.. automodule:: pystack3d.stack3d
+   :members:
+   :private-members:
+   :no-undoc-members:
+   :show-inheritance:
+   :ignore-module-all:

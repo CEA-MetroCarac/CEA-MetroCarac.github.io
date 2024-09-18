@@ -98,7 +98,7 @@
   <section id="destriping">
 <h1>Destriping<a class="headerlink" href="#destriping" title="Permalink to this heading"></a></h1>
 <p>The destriping process step aims at minimizing artefacts like stripes or curtaining effects that can appear in some image acquisition technics (typically FIB-SEM).</p>
-<p>The algorithm used for the destriping is issued from the <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a> library.</p>
+<p>The main algorithm used for the destriping is issued from the <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a> library. A second algorithm based on wavelet decomposition (from <a class="reference external" href="https://doi.org/10.1364/OE.17.008567">Münch B. et al.</a>) is also available and may be suitable for fast removal of vertical stripes.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="_images/destriping_3D.png"><img alt="_images/destriping_3D.png" src="_images/destriping_3D.png" style="width: 100%;" /></a>
 </figure>
@@ -118,6 +118,13 @@
 <p><code class="docutils literal notranslate"><span class="pre">cvg_threshold</span></code> is a convergence criterion that can be used to stop the iterative <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a>  process when the maximum residual variation between 2 iterations has reached this value.</p>
 <p><code class="docutils literal notranslate"><span class="pre">filters</span></code> consists of a list of filters to be used during the destriping process and are related to the shape and intensity of the stripes to be removed.</p>
 <p>For each of these parameters, see the <a class="reference external" href="https://github.com/CEA-MetroCarac/pyvsnr">pyvnsr</a> documentation for more details.</p>
+<p>In the frame of <strong>wavelet decomposition</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">destriping</span><span class="p">]</span>
+<span class="n">wavelet_decomposition</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wavelet&#39;</span><span class="p">:</span><span class="s1">&#39;coif3&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">wavelet</span></code> and  <code class="docutils literal notranslate"><span class="pre">level</span></code> refer respectively to the wavelet name family to use (see <a class="reference external" href="https://pywavelets.readthedocs.io/en/latest/ref/wavelets.html#pywt.wavelist">pywt.wavelist</a>)  and the level of decomposition.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sigma</span></code> is related to the standard deviation to be considered in the gaussian filter applied during the wavelet decomposition.</p>
 </section>
 
 
