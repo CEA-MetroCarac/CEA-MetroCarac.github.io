@@ -1,3 +1,6 @@
 [submodule "cdsaxs"]
 	path = cdsaxs
 	url = https://github.com/CEA-MetroCarac/cdsaxs-doc.git
+[submodule "images_alignment"]
+	path = images_alignment
+	url = https://github.com/CEA-MetroCarac/images_alignment-doc.git
