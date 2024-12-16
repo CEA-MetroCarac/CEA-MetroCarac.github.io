@@ -4,3 +4,6 @@
 [submodule "images_alignment"]
 	path = images_alignment
 	url = https://github.com/CEA-MetroCarac/images_alignment-doc.git
+[submodule "fitspy"]
+	path = fitspy
+	url = https://github.com/CEA-MetroCarac/fitspy-doc.git
