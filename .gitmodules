@@ -7,3 +7,6 @@
 [submodule "fitspy"]
 	path = fitspy
 	url = https://github.com/CEA-MetroCarac/fitspy-doc.git
+[submodule "pystack3d"]
+	path = pystack3d
+	url = https://github.com/CEA-MetroCarac/pystack3d-doc.git
